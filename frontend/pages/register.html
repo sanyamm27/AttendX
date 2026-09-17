@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AttendX — Register</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "on-background": "#1a1b20",
+        "surface-container-highest": "#e3e2e8",
+        "on-tertiary-fixed-variant": "#8c0057",
+        "inverse-primary": "#c6c0ff",
+        "tertiary-fixed-dim": "#ffb0d0",
+        "surface-container": "#efedf3",
+        "primary": "#33229c",
+        "on-tertiary-fixed": "#3d0024",
+        "tertiary-container": "#9c0e63",
+        "on-surface": "#1a1b20",
+        "secondary-fixed-dim": "#c5c0ff",
+        "primary-fixed": "#e4dfff",
+        "secondary-fixed": "#e3dfff",
+        "on-error-container": "#93000a",
+        "on-secondary-fixed-variant": "#3c26c1",
+        "on-secondary": "#ffffff",
+        "on-error": "#ffffff",
+        "on-secondary-fixed": "#140067",
+        "on-tertiary-container": "#ffacce",
+        "surface-dim": "#dbd9df",
+        "surface-variant": "#e3e2e8",
+        "surface-bright": "#faf8ff",
+        "outline-variant": "#c8c4d5",
+        "on-primary": "#ffffff",
+        "tertiary": "#750048",
+        "secondary-container": "#6c5ef1",
+        "surface-container-high": "#e9e7ed",
+        "on-primary-container": "#c3bdff",
+        "surface-container-low": "#f4f3f9",
+        "on-secondary-container": "#fffbff",
+        "background": "#faf8ff",
+        "outline": "#787584",
+        "surface": "#faf8ff",
+        "inverse-surface": "#2f3035",
+        "on-surface-variant": "#474553",
+        "surface-tint": "#594dc2",
+        "primary-fixed-dim": "#c6c0ff",
+        "on-primary-fixed-variant": "#4032a9",
+        "secondary": "#5242d7",
+        "primary-container": "#4b3eb4",
+        "error": "#ba1a1a",
+        "error-container": "#ffdad6",
+        "tertiary-fixed": "#ffd8e6",
+        "surface-container-lowest": "#ffffff",
+        "on-primary-fixed": "#150066",
+        "on-tertiary": "#ffffff",
+        "inverse-on-surface": "#f1f0f6"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-sm": "0.5rem",
+        "margin-desktop": "2.5rem",
+        "margin": "1.5rem",
+        "gutter": "1.5rem",
+        "space-lg": "1.5rem",
+        "gutter-mobile": "0.75rem",
+        "space-xl": "2rem",
+        "space-xs": "0.25rem",
+        "gutter-desktop": "2rem",
+        "margin-mobile": "1rem",
+        "space-md": "1rem"
+      },
+      "fontFamily": {
+        "headline-sm": ["Plus Jakarta Sans"],
+        "display-lg-mobile": ["Plus Jakarta Sans"],
+        "label-sm": ["Inter"],
+        "body-xl": ["Inter"],
+        "label-md": ["Inter"],
+        "display-md": ["Plus Jakarta Sans"],
+        "body-sm": ["Inter"],
+        "body-lg": ["Inter"],
+        "body-md": ["Inter"],
+        "headline-xl": ["Plus Jakarta Sans"],
+        "display-md-mobile": ["Plus Jakarta Sans"],
+        "label-lg": ["Inter"],
+        "display-lg": ["Plus Jakarta Sans"],
+        "headline-lg": ["Plus Jakarta Sans"],
+        "headline-md": ["Plus Jakarta Sans"]
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-background font-body-md text-body-md text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(75,62,180,0.06)]"><div class="h-20 w-full px-gutter-desktop max-w-[1680px] mx-auto flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Modern minimalist AI biometric attendance logo for AttendX. Clean geometric icon featuring an abstract camera/viewfinder biometric scan bracket framing a stylized letter 'A' and 'X' intersection or dynamic pulse mark, vibrant indigo #4B3EB4 and bright violet #6355E8, vector, sleek edtech brand identity. Design context: - Primary color: #4b3eb4
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+. The logo should be visually consistent with these brand tokens." class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VI0SbTHSf6Un9FPBBmPtUOHv907PnkF9zn4Yy6a-kKCqyw6aSh3sueL2gBqS2opIF03VruXGzkqp_else9XxK67K_oGZAOz7DqA_OFW3JLah4nkN2-8f6HRvSq7ahRv3RgW4v6v4gBNKtoDYnrsoZjmuLZImVXFz122G7dag8RbeTjJfIrTF9mETX5t_7q6tA_Wp48GBBtFlLJtA3Ibf_TSzOVi4bWJyUPwmuhUae5xZqSE9XDdZ4HEe4"/><span class="font-headline-md text-headline-md tracking-tight text-primary">AttendX</span></div><div class="hidden md:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm uppercase tracking-wider"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span>256-bit Biometric Vault</span></div></div><nav class="flex items-center gap-space-md" data-active-classes="bg-primary-container text-on-primary"><a aria-current="page" class="font-label-lg px-space-md py-space-xs rounded-full transition-all bg-primary-container text-on-primary" data-path="registration" href="#">Registration</a><a class="font-label-lg text-label-lg px-space-md py-space-xs rounded-full text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="biometric-enrollment" href="#">Biometric Enrollment</a><a class="font-label-lg text-label-lg px-space-md py-space-xs rounded-full text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="institutional-portal" href="#">Institutional Portal</a></nav><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Biometric Node Active</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 flex-1 bg-background flex flex-col items-center justify-center px-gutter-desktop py-space-xl"><div class="flex flex-col w-full max-w-[1600px] mx-auto py-space-md">
+<!-- Top Breadcrumb & Header Zone -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg mb-space-xl">
+<div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md mb-space-xs">
+<span class="hover:text-primary cursor-pointer transition-colors">Portal</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Institutional Onboarding</span>
+</div>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<h1 class="font-display-md text-display-md text-on-surface tracking-tight">Create your AttendX Account</h1>
+<span class="hidden sm:inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-bold uppercase tracking-wider">
+          v4.2 Ambient AI
+        </span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+        Join your institutional workspace for AI-powered automated attendance and dynamic classroom analytics.
+      </p>
+</div>
+<!-- Role Switcher Segmented Control -->
+<div class="flex flex-col items-start md:items-end gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Select Account Category</span>
+<div class="bg-surface-container-high p-1 rounded-full flex items-center shadow-inner" id="roleToggleGroup">
+<button class="px-space-lg py-2 rounded-full font-label-lg text-label-lg transition-all flex items-center gap-2 bg-primary text-on-primary shadow-md" id="roleBtnStudent" onclick="switchRole('student')" type="button">
+<span class="material-symbols-outlined text-[18px]">school</span>
+<span>Student</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed animate-ping"></span>
+</button>
+<button class="px-space-lg py-2 rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-2" id="roleBtnFaculty" onclick="switchRole('faculty')" type="button">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+<span>Faculty / Staff</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Notice Banner for Automated Biometric Check-In -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md mb-space-xl flex items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">auto_awesome</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface">Ambient Check-In Enabled Lecture Halls</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Student registration enrolls mathematical vector vectors for zero-friction attendance logging in connected smart classrooms.</p>
+</div>
+</div>
+<div class="hidden lg:flex items-center gap-2 shrink-0 bg-surface px-space-md py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">FERPA &amp; GDPR Hardware Cryptography</span>
+</div>
+</div>
+<!-- STUDENT VIEW: Two-Column Integrated Workflow -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-start" id="studentWorkflow">
+<!-- LEFT COLUMN: Account Details & Biometric Guidance -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Account Credentials Form Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-md">
+<div class="flex items-center justify-between mb-space-lg pb-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Phase 01</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Institutional Credentials</h2>
+</div>
+<img alt="AttendX Logo" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VI0SbTHSf6Un9FPBBmPtUOHv907PnkF9zn4Yy6a-kKCqyw6aSh3sueL2gBqS2opIF03VruXGzkqp_else9XxK67K_oGZAOz7DqA_OFW3JLah4nkN2-8f6HRvSq7ahRv3RgW4v6v4gBNKtoDYnrsoZjmuLZImVXFz122G7dag8RbeTjJfIrTF9mETX5t_7q6tA_Wp48GBBtFlLJtA3Ibf_TSzOVi4bWJyUPwmuhUae5xZqSE9XDdZ4HEe4"/>
+</div>
+<form class="flex flex-col gap-space-md" onsubmit="event.preventDefault();">
+<!-- Full Name -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Full Legal Name</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px]">person</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container-low rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all shadow-inner" placeholder="First and last name" type="text" value="Aditi Sharma"/>
+</div>
+</div>
+<!-- Roll ID -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="font-label-md text-label-md text-on-surface">Student Roll / Matriculation ID</label>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Auto-Format</span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px]">pin</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container-low rounded-xl font-body-md text-body-md text-on-surface tracking-wider uppercase focus:outline-none focus:bg-surface-container-lowest transition-all shadow-inner" placeholder="YYYY-DEPT-XXXX" type="text" value="2025-CS-4089"/>
+</div>
+</div>
+<!-- Institutional Email -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">University Email</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px]">alternate_email</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container-low rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all shadow-inner" placeholder="username@university.edu" type="email" value="aditi.sharma@university.edu"/>
+</div>
+</div>
+<!-- Password with Strength -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Vault Master Password</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px]">lock</span>
+<input class="w-full h-12 pl-11 pr-11 bg-surface-container-low rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all shadow-inner" type="password" value="SuperSecurePass2025!"/>
+<button class="absolute right-3.5 text-on-surface-variant hover:text-primary" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+<!-- Strength meter -->
+<div class="mt-2 flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Complexity Entropy:</span>
+<span class="text-primary font-bold">Strong (18 chars, Symbols)</span>
+</div>
+<div class="grid grid-cols-4 gap-1.5 h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-primary rounded-full"></div>
+<div class="bg-primary rounded-full"></div>
+<div class="bg-primary rounded-full"></div>
+<div class="bg-secondary-container rounded-full animate-pulse"></div>
+</div>
+</div>
+</div>
+<!-- Confirm Password -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Confirm Password</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px]">lock_clock</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container-low rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all shadow-inner" type="password" value="SuperSecurePass2025!"/>
+</div>
+</div>
+</form>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Already enrolled in AttendX?</span>
+<a class="font-label-lg text-label-lg text-primary hover:text-secondary flex items-center gap-1 font-semibold group transition-colors" href="#">
+<span>Sign In</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Biometric Registration Guidelines Card -->
+<div class="bg-surface-container rounded-2xl p-space-lg shadow-sm">
+<div class="flex items-center gap-2 mb-space-md">
+<div class="w-8 h-8 rounded-lg bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">lightbulb</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Biometric Registration Tips</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Optimizes multi-angle spatial recognition accuracy</p>
+</div>
+</div>
+<div class="space-y-space-sm mb-space-md">
+<div class="flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">wb_sunny</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Even, Frontal Illumination</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ensure face is evenly lit; avoid backlighting from sunlit windows or high-contrast shadows.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">mood</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Relaxed &amp; Neutral Posture</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Maintain a relaxed expression at eye level with the camera during each frame scan.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">visibility_off</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Clear Unobstructed View</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Remove sunglasses, broad-rimmed hats, or face coverings that shield nodal markers.</p>
+</div>
+</div>
+</div>
+<!-- Privacy & Vectorization Note -->
+<div class="bg-primary/5 rounded-xl p-space-md flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px] shrink-0 mt-0.5">enhanced_encryption</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<strong class="font-semibold text-primary">Zero-Raw-Storage Guarantee:</strong> Face captures are transformed into 512-dimensional irreversibly hashed vectors inside browser WebAssembly. Raw video streams are purged instantly.
+          </p>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: AI Face Registration Studio -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-lg relative overflow-hidden">
+<!-- Studio Header -->
+<div class="flex flex-wrap items-center justify-between gap-space-md mb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[22px]">videocam</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">AI Biometric Enrollment</h2>
+<span class="px-space-xs py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-semibold">Live Feed</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Hardware-accelerated ambient face vector synthesis</p>
+</div>
+</div>
+<!-- Telemetry status pills -->
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+              Camera Ready • 1080p WebRTC
+            </span>
+<span class="px-space-sm py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-bold">
+              Step 2 of 2
+            </span>
+</div>
+</div>
+<!-- Interactive Webcam Preview Box (Rich HUD Visualizer) -->
+<div class="relative w-full aspect-[4/3] max-h-[460px] bg-inverse-surface rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center group">
+<!-- Underlying Student Webcam Portrait -->
+<img alt="Webcam Feed Preview" class="absolute inset-0 w-full h-full object-cover object-center opacity-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAITwOfS747pKWHgMci4wFQI1ggJE1tgYlbzoo-CnvdpsXz3nlTWv2kD_Krx-d5TtYOn-niXtzUENh-jW2_vyrBZ9pVblejMPcloFDTHzhFUdX3HeCZiS84ZEt0Z1s5fgREX8IqNdZYUZHVlMdbNqVSLJH7BhEN8-ZNpLl6M9SVYsHxK5-d8DZvnJSeNZ-YIVl5OWMuGOqvG3-BdJ1n6VLEVmTtfjAcxXPdGazWjfIHMVgh3XLtWuys"/>
+<!-- Biometric Tracking Canvas Grid Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-inverse-surface/40 pointer-events-none"></div>
+<!-- SVG Reticle & Dynamic Spatial Landmarks -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" viewbox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+<!-- Center Oval Viewfinder -->
+<ellipse class="opacity-80 animate-[pulse_3s_ease-in-out_infinite]" cx="300" cy="210" rx="140" ry="175" stroke="#6355E8" stroke-dasharray="6 6" stroke-width="2"></ellipse>
+<ellipse class="opacity-60" cx="300" cy="210" rx="146" ry="181" stroke="#39B978" stroke-width="1.5"></ellipse>
+<!-- Corner Alignment HUD Brackets -->
+<!-- Top Left -->
+<path d="M 170 80 L 140 80 L 140 110" stroke="#c5c0ff" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Top Right -->
+<path d="M 430 80 L 460 80 L 460 110" stroke="#c5c0ff" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Bottom Left -->
+<path d="M 170 340 L 140 340 L 140 310" stroke="#c5c0ff" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Bottom Right -->
+<path d="M 430 340 L 460 340 L 460 310" stroke="#c5c0ff" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Optical Center Crosshairs -->
+<line stroke="#6355E8" stroke-linecap="round" stroke-width="1.5" x1="290" x2="310" y1="210" y2="210"></line>
+<line stroke="#6355E8" stroke-linecap="round" stroke-width="1.5" x1="300" x2="300" y1="200" y2="220"></line>
+<!-- Constellation Landmark Dots (Face Landmarks simulation) -->
+<circle class="animate-ping" cx="265" cy="185" fill="#39B978" r="3" style="animation-duration: 2s;"></circle>
+<circle class="animate-ping" cx="335" cy="185" fill="#39B978" r="3" style="animation-duration: 2.2s;"></circle>
+<circle cx="300" cy="218" fill="#c5c0ff" r="2.5"></circle>
+<circle cx="280" cy="255" fill="#c5c0ff" r="2.5"></circle>
+<circle cx="320" cy="255" fill="#c5c0ff" r="2.5"></circle>
+</svg>
+<!-- Top Telemetry Data HUD -->
+<div class="absolute top-3 inset-x-3 flex items-center justify-between pointer-events-none">
+<div class="px-space-sm py-1 rounded-full bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-label-sm flex items-center gap-2 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>Lighting: Optimal (420 Lux)</span>
+<span class="text-outline-variant">•</span>
+<span>Head Angle: 0° Centered</span>
+</div>
+<div class="px-space-sm py-1 rounded-full bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-label-sm flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-secondary-container text-[16px]">verified</span>
+<span class="font-semibold text-secondary-fixed">Face Detected • 99.4% Liveness</span>
+</div>
+</div>
+<!-- Bottom Status Banner inside feed -->
+<div class="absolute bottom-3 inset-x-3 flex items-center justify-between px-space-md py-2.5 rounded-xl bg-inverse-surface/85 backdrop-blur-md">
+<div class="flex items-center gap-space-sm text-inverse-on-surface">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">center_focus_strong</span>
+<div>
+<p class="font-label-md text-label-md font-semibold leading-tight">Ready for Capture: Pose 4 (Left Profile)</p>
+<p class="font-body-sm text-body-sm text-surface-container-high text-xs leading-none mt-0.5">Tilt head gently 15° to the left</p>
+</div>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">
+              3/5 Calibrated
+            </span>
+</div>
+</div>
+<!-- Camera Control Action Bar -->
+<div class="mt-space-md flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-2.5 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">cameraswitch</span>
+<span>Switch Camera</span>
+</button>
+<button class="px-space-md py-2.5 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+<span>Retake Current</span>
+</button>
+</div>
+<!-- Main Shutter Action Button -->
+<button class="px-space-xl py-3 rounded-full bg-primary hover:bg-secondary text-on-primary font-label-lg text-label-lg font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+<span>Capture Angle 4 of 5</span>
+</button>
+</div>
+<!-- Captured Angle Training Multi-Slot Gallery -->
+<div class="mt-space-lg pt-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Multi-Angle Vector Training</h3>
+<span class="text-on-surface-variant font-body-sm text-body-sm">(5 required for 3D model)</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">60% Complete</span>
+</div>
+<!-- 5-Slot Thumbnail Mosaic -->
+<div class="grid grid-cols-5 gap-space-sm">
+<!-- Slot 1: Front Captured -->
+<div class="group relative aspect-square rounded-xl bg-surface-container-high overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<img alt="Front Angle" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAITwOfS747pKWHgMci4wFQI1ggJE1tgYlbzoo-CnvdpsXz3nlTWv2kD_Krx-d5TtYOn-niXtzUENh-jW2_vyrBZ9pVblejMPcloFDTHzhFUdX3HeCZiS84ZEt0Z1s5fgREX8IqNdZYUZHVlMdbNqVSLJH7BhEN8-ZNpLl6M9SVYsHxK5-d8DZvnJSeNZ-YIVl5OWMuGOqvG3-BdJ1n6VLEVmTtfjAcxXPdGazWjfIHMVgh3XLtWuys"/>
+<div class="absolute inset-0 bg-primary/20 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="w-7 h-7 rounded-full bg-surface text-error flex items-center justify-center shadow-md" title="Retake">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+<div class="absolute bottom-1 inset-x-1 flex items-center justify-center">
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container-lowest/95 backdrop-blur-sm text-on-surface font-label-sm text-[9px] font-bold flex items-center gap-1 shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                  Front 100%
+                </span>
+</div>
+</div>
+<!-- Slot 2: Slight Left Captured -->
+<div class="group relative aspect-square rounded-xl bg-surface-container-high overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<img alt="Slight Left Angle" class="w-full h-full object-cover scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAITwOfS747pKWHgMci4wFQI1ggJE1tgYlbzoo-CnvdpsXz3nlTWv2kD_Krx-d5TtYOn-niXtzUENh-jW2_vyrBZ9pVblejMPcloFDTHzhFUdX3HeCZiS84ZEt0Z1s5fgREX8IqNdZYUZHVlMdbNqVSLJH7BhEN8-ZNpLl6M9SVYsHxK5-d8DZvnJSeNZ-YIVl5OWMuGOqvG3-BdJ1n6VLEVmTtfjAcxXPdGazWjfIHMVgh3XLtWuys"/>
+<div class="absolute inset-0 bg-primary/20 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="w-7 h-7 rounded-full bg-surface text-error flex items-center justify-center shadow-md" title="Retake">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+<div class="absolute bottom-1 inset-x-1 flex items-center justify-center">
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container-lowest/95 backdrop-blur-sm text-on-surface font-label-sm text-[9px] font-bold flex items-center gap-1 shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                  Left 98%
+                </span>
+</div>
+</div>
+<!-- Slot 3: Slight Right Captured -->
+<div class="group relative aspect-square rounded-xl bg-surface-container-high overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<img alt="Slight Right Angle" class="w-full h-full object-cover -scale-x-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAITwOfS747pKWHgMci4wFQI1ggJE1tgYlbzoo-CnvdpsXz3nlTWv2kD_Krx-d5TtYOn-niXtzUENh-jW2_vyrBZ9pVblejMPcloFDTHzhFUdX3HeCZiS84ZEt0Z1s5fgREX8IqNdZYUZHVlMdbNqVSLJH7BhEN8-ZNpLl6M9SVYsHxK5-d8DZvnJSeNZ-YIVl5OWMuGOqvG3-BdJ1n6VLEVmTtfjAcxXPdGazWjfIHMVgh3XLtWuys"/>
+<div class="absolute inset-0 bg-primary/20 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="w-7 h-7 rounded-full bg-surface text-error flex items-center justify-center shadow-md" title="Retake">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+<div class="absolute bottom-1 inset-x-1 flex items-center justify-center">
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container-lowest/95 backdrop-blur-sm text-on-surface font-label-sm text-[9px] font-bold flex items-center gap-1 shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                  Right 99%
+                </span>
+</div>
+</div>
+<!-- Slot 4: Active Capture Slot -->
+<div class="relative aspect-square rounded-xl bg-primary-fixed flex flex-col items-center justify-center shadow-md overflow-hidden">
+<div class="absolute inset-0 bg-secondary/10 animate-pulse"></div>
+<span class="material-symbols-outlined text-primary text-[24px] animate-bounce">center_focus_weak</span>
+<span class="font-label-sm text-[9px] text-primary font-bold uppercase tracking-wider mt-1">Current</span>
+<div class="absolute bottom-1 inset-x-1 flex items-center justify-center">
+<span class="px-1.5 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-[8px] font-bold">
+                  Active
+                </span>
+</div>
+</div>
+<!-- Slot 5: Pending Slot -->
+<div class="relative aspect-square rounded-xl bg-surface-container flex flex-col items-center justify-center opacity-70">
+<span class="material-symbols-outlined text-on-surface-variant text-[22px]">face_6</span>
+<span class="font-label-sm text-[9px] text-on-surface-variant font-medium mt-1">Tilt Up</span>
+<div class="absolute bottom-1 inset-x-1 flex items-center justify-center">
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[8px]">
+                  Pending
+                </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Legal Consent & Final CTA -->
+<div class="mt-space-lg pt-space-md flex flex-col gap-space-md">
+<label class="flex items-start gap-space-sm cursor-pointer select-none group">
+<input checked="" class="w-5 h-5 mt-0.5 rounded text-primary focus:ring-secondary accent-primary cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">
+              I consent to institutional biometric verification in compliance with <strong class="font-semibold">FERPA</strong>, <strong class="font-semibold">GDPR Article 9</strong>, and university security protocol standards. AttendX may process encrypted vector hashes strictly for lecture attendance verification.
+            </span>
+</label>
+<button class="w-full py-4 px-space-xl rounded-full bg-primary hover:bg-secondary text-on-primary font-headline-sm text-headline-sm font-bold shadow-xl hover:shadow-2xl transition-all flex items-center justify-center gap-space-sm active:scale-[0.99]" type="button">
+<span class="material-symbols-outlined text-[22px]">lock_reset</span>
+<span>Create Student Account &amp; Finalize Enrollment</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- FACULTY / STAFF VIEW (Collapsible / Toggleable State) -->
+<div class="hidden grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-start" id="facultyWorkflow">
+<div class="lg:col-span-8 lg:col-start-3 bg-surface-container-lowest rounded-2xl p-space-xl shadow-lg">
+<div class="flex items-center justify-between mb-space-lg pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">supervisor_account</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Staff Onboarding</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Faculty &amp; Administrative Portal Access</h2>
+</div>
+</div>
+<img alt="AttendX Logo" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VI0SbTHSf6Un9FPBBmPtUOHv907PnkF9zn4Yy6a-kKCqyw6aSh3sueL2gBqS2opIF03VruXGzkqp_else9XxK67K_oGZAOz7DqA_OFW3JLah4nkN2-8f6HRvSq7ahRv3RgW4v6v4gBNKtoDYnrsoZjmuLZImVXFz122G7dag8RbeTjJfIrTF9mETX5t_7q6tA_Wp48GBBtFlLJtA3Ibf_TSzOVi4bWJyUPwmuhUae5xZqSE9XDdZ4HEe4"/>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low mb-space-lg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px]">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Faculty and instructors do not require biometric video registration. Access is authenticated via Institutional Single Sign-On or departmental credentials with multi-factor passkeys.
+        </p>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-space-md" onsubmit="event.preventDefault();">
+<!-- Faculty Name -->
+<div class="md:col-span-2">
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Full Name &amp; Academic Title</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px]">badge</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container-low rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all shadow-inner" placeholder="e.g. Prof. David Miller, Ph.D." type="text"/>
+</div>
+</div>
+<!-- Department Dropdown -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Department / Faculty Division</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px]">domain</span>
+<select class="w-full h-12 pl-11 pr-8 bg-surface-container-low rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all shadow-inner appearance-none cursor-pointer">
+<option value="cs">Computer Science &amp; Engineering</option>
+<option value="ee">Electrical &amp; Computer Engineering</option>
+<option value="bio">Biomedical Sciences</option>
+<option value="bus">School of Business Administration</option>
+<option value="math">Applied Mathematics &amp; Statistics</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Employee ID -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Institutional Employee ID</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px]">id_card</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container-low rounded-xl font-body-md text-body-md text-on-surface uppercase focus:outline-none focus:bg-surface-container-lowest transition-all shadow-inner" placeholder="FAC-90823" type="text"/>
+</div>
+</div>
+<!-- Faculty Email -->
+<div class="md:col-span-2">
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Institutional Email (.edu domain)</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px]">mail</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container-low rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all shadow-inner" placeholder="david.miller@university.edu" type="email"/>
+</div>
+</div>
+<!-- Password -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Password</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px]">lock</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container-low rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all shadow-inner" placeholder="••••••••••••" type="password"/>
+</div>
+</div>
+<!-- Confirm Password -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Confirm Password</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px]">lock_reset</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container-low rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all shadow-inner" placeholder="••••••••••••" type="password"/>
+</div>
+</div>
+<!-- Faculty Permissions & Agreement -->
+<div class="md:col-span-2 mt-space-sm">
+<label class="flex items-start gap-space-sm cursor-pointer select-none">
+<input checked="" class="w-5 h-5 mt-0.5 rounded text-primary focus:ring-secondary accent-primary cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface">
+              I agree to abide by institutional academic integrity policies and confirm my authorization as university teaching faculty.
+            </span>
+</label>
+</div>
+<div class="md:col-span-2 mt-space-md">
+<button class="w-full py-4 rounded-full bg-primary hover:bg-secondary text-on-primary font-headline-sm text-headline-sm font-bold shadow-xl transition-all flex items-center justify-center gap-space-sm" type="button">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+<span>Request Faculty Access Credentials</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<script>
+  function switchRole(role) {
+    const studentWorkflow = document.getElementById('studentWorkflow');
+    const facultyWorkflow = document.getElementById('facultyWorkflow');
+    const roleBtnStudent = document.getElementById('roleBtnStudent');
+    const roleBtnFaculty = document.getElementById('roleBtnFaculty');
+
+    if (role === 'student') {
+      studentWorkflow.classList.remove('hidden');
+      studentWorkflow.classList.add('grid');
+      facultyWorkflow.classList.remove('grid');
+      facultyWorkflow.classList.add('hidden');
+
+      roleBtnStudent.className = 'px-space-lg py-2 rounded-full font-label-lg text-label-lg transition-all flex items-center gap-2 bg-primary text-on-primary shadow-md';
+      roleBtnFaculty.className = 'px-space-lg py-2 rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-2';
+    } else {
+      facultyWorkflow.classList.remove('hidden');
+      facultyWorkflow.classList.add('grid');
+      studentWorkflow.classList.remove('grid');
+      studentWorkflow.classList.add('hidden');
+
+      roleBtnFaculty.className = 'px-space-lg py-2 rounded-full font-label-lg text-label-lg transition-all flex items-center gap-2 bg-primary text-on-primary shadow-md';
+      roleBtnStudent.className = 'px-space-lg py-2 rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-2';
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-low py-space-lg shadow-[0_-1px_6px_rgba(75,62,180,0.03)]"><div class="w-full max-w-[1680px] mx-auto px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-wrap items-center gap-space-md"><span class="font-label-sm text-label-sm uppercase tracking-wider px-space-sm py-1 rounded-full bg-surface-container text-on-surface-variant">ISO/IEC 27001 Certified</span><span class="font-label-sm text-label-sm uppercase tracking-wider px-space-sm py-1 rounded-full bg-surface-container text-on-surface-variant">FERPA Compliant Vault</span><span class="font-label-sm text-label-sm uppercase tracking-wider px-space-sm py-1 rounded-full bg-surface-container text-on-surface-variant">AES-256 Biometric Key</span></div><p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-right">© 2025 AttendX Biometrics Inc. All security telemetries encrypted.</p></div></footer></body></html>

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AttendX — Student Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "on-background": "#1a1b20",
+        "surface-container-highest": "#e3e2e8",
+        "on-tertiary-fixed-variant": "#8c0057",
+        "inverse-primary": "#c6c0ff",
+        "tertiary-fixed-dim": "#ffb0d0",
+        "surface-container": "#efedf3",
+        "primary": "#33229c",
+        "on-tertiary-fixed": "#3d0024",
+        "tertiary-container": "#9c0e63",
+        "on-surface": "#1a1b20",
+        "secondary-fixed-dim": "#c5c0ff",
+        "primary-fixed": "#e4dfff",
+        "secondary-fixed": "#e3dfff",
+        "on-error-container": "#93000a",
+        "on-secondary-fixed-variant": "#3c26c1",
+        "on-secondary": "#ffffff",
+        "on-error": "#ffffff",
+        "on-secondary-fixed": "#140067",
+        "on-tertiary-container": "#ffacce",
+        "surface-dim": "#dbd9df",
+        "surface-variant": "#e3e2e8",
+        "surface-bright": "#faf8ff",
+        "outline-variant": "#c8c4d5",
+        "on-primary": "#ffffff",
+        "tertiary": "#750048",
+        "secondary-container": "#6c5ef1",
+        "surface-container-high": "#e9e7ed",
+        "on-primary-container": "#c3bdff",
+        "surface-container-low": "#f4f3f9",
+        "on-secondary-container": "#fffbff",
+        "background": "#faf8ff",
+        "outline": "#787584",
+        "surface": "#faf8ff",
+        "inverse-surface": "#2f3035",
+        "on-surface-variant": "#474553",
+        "surface-tint": "#594dc2",
+        "primary-fixed-dim": "#c6c0ff",
+        "on-primary-fixed-variant": "#4032a9",
+        "secondary": "#5242d7",
+        "primary-container": "#4b3eb4",
+        "error": "#ba1a1a",
+        "error-container": "#ffdad6",
+        "tertiary-fixed": "#ffd8e6",
+        "surface-container-lowest": "#ffffff",
+        "on-primary-fixed": "#150066",
+        "on-tertiary": "#ffffff",
+        "inverse-on-surface": "#f1f0f6"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-sm": "0.5rem",
+        "margin-desktop": "2.5rem",
+        "margin": "1.5rem",
+        "gutter": "1.5rem",
+        "space-lg": "1.5rem",
+        "gutter-mobile": "0.75rem",
+        "space-xl": "2rem",
+        "space-xs": "0.25rem",
+        "gutter-desktop": "2rem",
+        "margin-mobile": "1rem",
+        "space-md": "1rem"
+      },
+      "fontFamily": {
+        "headline-sm": ["Plus Jakarta Sans"],
+        "display-lg-mobile": ["Plus Jakarta Sans"],
+        "label-sm": ["Inter"],
+        "body-xl": ["Inter"],
+        "label-md": ["Inter"],
+        "display-md": ["Plus Jakarta Sans"],
+        "body-sm": ["Inter"],
+        "body-lg": ["Inter"],
+        "body-md": ["Inter"],
+        "headline-xl": ["Plus Jakarta Sans"],
+        "display-md-mobile": ["Plus Jakarta Sans"],
+        "label-lg": ["Inter"],
+        "display-lg": ["Plus Jakarta Sans"],
+        "headline-lg": ["Plus Jakarta Sans"],
+        "headline-md": ["Plus Jakarta Sans"]
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-background font-body-md text-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-[#18181b] z-50 flex flex-col justify-between shadow-[0_4px_24px_rgba(0,0,0,0.25)]"><div class="flex flex-col"><div class="h-20 px-space-lg flex items-center gap-space-sm bg-[#18181b]"><img alt="Modern minimalist AI biometric attendance logo for AttendX. Clean geometric icon featuring an abstract camera/viewfinder biometric scan bracket framing a stylized letter 'A' and 'X' intersection or dynamic pulse mark, vibrant indigo #4B3EB4 and bright violet #6355E8, vector, sleek edtech brand identity. Design context: - Primary color: #4b3eb4
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+. The logo should be visually consistent with these brand tokens." class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VI0SbTHSf6Un9FPBBmPtUOHv907PnkF9zn4Yy6a-kKCqyw6aSh3sueL2gBqS2opIF03VruXGzkqp_else9XxK67K_oGZAOz7DqA_OFW3JLah4nkN2-8f6HRvSq7ahRv3RgW4v6v4gBNKtoDYnrsoZjmuLZImVXFz122G7dag8RbeTjJfIrTF9mETX5t_7q6tA_Wp48GBBtFlLJtA3Ibf_TSzOVi4bWJyUPwmuhUae5xZqSE9XDdZ4HEe4"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-surface tracking-tight leading-none">AttendX</span><span class="font-label-sm text-label-sm text-outline-variant tracking-widest uppercase mt-0.5">STUDENT PORTAL</span></div></div><div class="px-space-md py-space-sm"><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-headline-sm shadow-[0_4px_16px_rgba(75,62,180,0.4)]"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 rounded-full transition-all bg-primary-container text-on-primary font-headline-sm shadow-[0_4px_16px_rgba(75,62,180,0.4)]" data-path="dashboard" href="#"><span class="material-symbols-outlined text-xl">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-full text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="my-subjects" href="#"><span class="material-symbols-outlined text-xl">auto_stories</span><span>My Subjects</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-full text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="join-subject" href="#"><span class="material-symbols-outlined text-xl">add_circle</span><span>Join Subject</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-full text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="scan-qr" href="#"><span class="material-symbols-outlined text-xl">qr_code_scanner</span><span>Scan QR</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-full text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="face-profile" href="#"><span class="material-symbols-outlined text-xl">face</span><span>Face Profile</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-full text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="attendance" href="#"><span class="material-symbols-outlined text-xl">fact_check</span><span>Attendance</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-full text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-xl">settings</span><span>Settings</span></a></nav></div></div><div class="p-space-md bg-[#1e1e24] m-space-sm rounded-xl"><div class="flex items-center gap-space-sm mb-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0 ring-2 ring-secondary-container" src="https://lh3.googleusercontent.com/aida/AEtjO1X_Zgt68KMCH12Ky6Qrg3wxOMobt5Ipt_i4hzIwQy1P5AbtvNsvKrLZzxcQJMqZofhcny0Z4KWhd5iD5A_isfGCjUScHCjVdAbghI0H58gwFFVkkkEPZD6o6-SpZG5lDdv8vRFC-F6QMRqbJZQkYkCrBxkCMciIKbx3GHdeN7BOxB-5homBsFpttAJ969tydAiU-PaGO_ufPqPgFZztQD7gdrvT5soz0c2Wkkfo97QIh_U5ifWWrKeWCQg"/><div class="flex flex-col min-w-0 flex-1"><span class="font-label-lg text-label-lg text-surface font-semibold truncate">Sanyam Chawla</span><span class="font-label-sm text-label-sm text-slate-400 truncate">CSE • 2025-CS-4089</span></div></div><div class="flex items-center justify-between pt-space-xs"><span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-emerald-400"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Active Node</span><button class="flex items-center gap-1 font-label-sm text-label-sm text-slate-400 hover:text-error transition-colors" type="button"><span class="material-symbols-outlined text-sm">logout</span><span>Logout</span></button></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-desktop"><div class="relative w-full max-w-md"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary-container pointer-events-none text-xl">search</span><input class="w-full h-11 pl-10 pr-space-md bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 font-body-md text-body-md rounded-xl shadow-[0_2px_8px_rgba(75,62,180,0.04)] focus:outline-none focus:ring-2 focus:ring-primary-container/40 transition-all" placeholder="Search courses, lectures, attendance logs..." type="search"/></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-2 rounded-full shadow-[0_2px_6px_rgba(75,62,180,0.04)]"><span class="material-symbols-outlined text-secondary text-sm">calendar_today</span><span class="font-label-md text-label-md text-on-surface font-medium">Fall 2025</span><span class="material-symbols-outlined text-on-surface-variant text-base">arrow_drop_down</span></div><div class="relative flex items-center justify-center"><button class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors relative shadow-[0_2px_6px_rgba(75,62,180,0.04)]" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-tertiary ring-2 ring-surface"></span></button></div><div class="flex items-center gap-space-xs pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container/20" src="https://lh3.googleusercontent.com/aida/AEtjO1X_Zgt68KMCH12Ky6Qrg3wxOMobt5Ipt_i4hzIwQy1P5AbtvNsvKrLZzxcQJMqZofhcny0Z4KWhd5iD5A_isfGCjUScHCjVdAbghI0H58gwFFVkkkEPZD6o6-SpZG5lDdv8vRFC-F6QMRqbJZQkYkCrBxkCMciIKbx3GHdeN7BOxB-5homBsFpttAJ969tydAiU-PaGO_ufPqPgFZztQD7gdrvT5soz0c2Wkkfo97QIh_U5ifWWrKeWCQg"/><span class="material-symbols-outlined text-on-surface-variant text-sm">expand_more</span></div></div></header><main class="relative pt-20 bg-background min-h-screen w-full px-gutter-desktop py-space-lg"><div class="flex flex-col w-full gap-gutter-desktop">
+<!-- Top Welcome & Master Action Hub -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="inline-flex items-center gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Welcome back, Sanyam</span>
+<span class="text-2xl animate-bounce">👋</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex flex-wrap items-center gap-x-2 gap-y-1">
+<span class="font-semibold text-primary">B.Tech Computer Science &amp; Engineering</span>
+<span class="text-outline-variant">•</span>
+<span>Roll No: <span class="font-medium text-on-surface">2025-CS-4089</span></span>
+<span class="text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1 bg-surface-container-high px-2 py-0.5 rounded-full text-label-sm font-label-sm text-primary font-bold">Fall 2025 Semester</span>
+</p>
+</div>
+<!-- Quick CTA Cluster -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-on-primary font-label-lg text-label-lg shadow-[0_8px_24px_-4px_rgba(75,62,180,0.45)] hover:bg-secondary transition-all transform hover:-translate-y-0.5 active:scale-95" type="button">
+<span class="material-symbols-outlined text-xl transition-transform group-hover:rotate-12">qr_code_scanner</span>
+<span>+ Scan Attendance QR</span>
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping ml-1"></span>
+</button>
+<button class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-surface-container-lowest text-primary font-label-lg text-label-lg shadow-[0_2px_12px_rgba(75,62,180,0.06)] hover:bg-surface-container-low transition-all" type="button">
+<span class="material-symbols-outlined text-xl text-secondary">verified_user</span>
+<span>Verify Face Biometrics</span>
+</button>
+</div>
+</div>
+<!-- Key Performance Metrics Row (4 Cards) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-gutter">
+<!-- Card 1: Overall Percentage with SVG Radial Indicator -->
+<div class="relative overflow-hidden bg-surface-container-lowest rounded-2xl p-space-lg shadow-[0_4px_24px_-2px_rgba(75,62,180,0.06)] hover:shadow-[0_12px_32px_-4px_rgba(75,62,180,0.12)] transition-all">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-semibold">Overall Attendance</span>
+<span class="p-2 rounded-xl bg-emerald-500/10 text-emerald-700">
+<span class="material-symbols-outlined text-xl leading-none">insights</span>
+</span>
+</div>
+<div class="flex items-baseline gap-3 mb-space-sm">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight">86.4%</span>
+<div class="w-10 h-10 relative flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-emerald-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="86.4, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="material-symbols-outlined absolute text-xs text-emerald-600 font-bold">arrow_upward</span>
+</div>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-800 font-label-sm text-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>+11.4% Above 75% Safe Margin</span>
+</div>
+</div>
+<!-- Card 2: Classes Attended -->
+<div class="relative overflow-hidden bg-surface-container-lowest rounded-2xl p-space-lg shadow-[0_4px_24px_-2px_rgba(75,62,180,0.06)] hover:shadow-[0_12px_32px_-4px_rgba(75,62,180,0.12)] transition-all">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-semibold">Classes Attended</span>
+<span class="p-2 rounded-xl bg-secondary-fixed text-primary">
+<span class="material-symbols-outlined text-xl leading-none">task_alt</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2 mb-space-sm">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight">114</span>
+<span class="font-headline-lg text-headline-lg text-on-surface-variant">/ 132</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Total lecture hours verified across 6 active courses</p>
+</div>
+<!-- Card 3: Classes Missed -->
+<div class="relative overflow-hidden bg-surface-container-lowest rounded-2xl p-space-lg shadow-[0_4px_24px_-2px_rgba(75,62,180,0.06)] hover:shadow-[0_12px_32px_-4px_rgba(75,62,180,0.12)] transition-all">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-semibold">Classes Missed</span>
+<span class="p-2 rounded-xl bg-rose-500/10 text-rose-600">
+<span class="material-symbols-outlined text-xl leading-none">event_busy</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2 mb-space-sm">
+<span class="font-display-lg text-display-lg text-rose-600 tracking-tight">18</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Sessions</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-primary font-semibold">12 Excused</span> (Medical/Hackathon) • <span class="text-error font-semibold">6 Unexcused</span>
+</p>
+</div>
+<!-- Card 4: Enrolled Subjects -->
+<div class="relative overflow-hidden bg-surface-container-lowest rounded-2xl p-space-lg shadow-[0_4px_24px_-2px_rgba(75,62,180,0.06)] hover:shadow-[0_12px_32px_-4px_rgba(75,62,180,0.12)] transition-all">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-semibold">Enrolled Subjects</span>
+<span class="p-2 rounded-xl bg-primary-container/15 text-primary-container">
+<span class="material-symbols-outlined text-xl leading-none">auto_stories</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2 mb-space-sm">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight">6</span>
+<span class="font-headline-sm text-headline-sm text-emerald-700 font-semibold">Active</span>
+</div>
+<div class="flex items-center gap-1.5 font-body-sm text-body-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>2 lectures scheduled for today</span>
+</div>
+</div>
+</div>
+<!-- Low-Attendance Warning Alert Card -->
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-50 via-rose-50/70 to-surface-container-lowest p-space-lg shadow-[0_8px_24px_rgba(186,26,26,0.08)]">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md relative z-10">
+<div class="flex items-start gap-3.5 max-w-4xl">
+<div class="w-10 h-10 rounded-xl bg-error-container text-error flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+<span class="material-symbols-outlined text-2xl">warning</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Mandatory Attendance Compliance Warning</span>
+<span class="px-2 py-0.5 rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold uppercase tracking-wider">Critical</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            You are currently below the <strong class="text-on-surface font-semibold">75% mandatory accreditation floor</strong> in <span class="font-semibold text-error">CS-210 (Data Structures &amp; Algorithms - 71.4%)</span>. You must attend the next <strong class="text-on-surface font-semibold">3 consecutive classes</strong> to restore compliant standing. Exam hall ticket issuance requires ≥75% cumulative verified presence.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0 pl-14 lg:pl-0">
+<button class="px-4 py-2.5 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-colors shadow-sm" type="button">
+          Apply Medical Excuse
+        </button>
+<button class="px-5 py-2.5 rounded-full bg-error text-on-error font-label-md text-label-md font-semibold hover:opacity-90 shadow-md transition-all flex items-center gap-1.5" type="button">
+<span>View Recovery Plan</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Subject Attendance Grid Section -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Course Attendance Trackers</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Real-time breakdown against institutional examination accreditation thresholds</span>
+</div>
+<div class="hidden sm:flex items-center gap-2 bg-surface-container-high p-1 rounded-full text-label-sm font-label-sm">
+<span class="px-3 py-1 rounded-full bg-surface-container-lowest text-primary font-bold shadow-sm">All (6)</span>
+<span class="px-3 py-1 text-on-surface-variant hover:text-on-surface cursor-pointer">Needs Attention (2)</span>
+<span class="px-3 py-1 text-on-surface-variant hover:text-on-surface cursor-pointer">Safe (4)</span>
+</div>
+</div>
+<!-- 6 Subject Cards Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Course 1: CS-302 -->
+<div class="group bg-surface-container-lowest rounded-2xl p-space-lg shadow-[0_4px_20px_-2px_rgba(75,62,180,0.05)] hover:shadow-[0_12px_28px_rgba(75,62,180,0.12)] hover:-translate-y-1 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-primary font-bold tracking-wider">CS-302</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-800 font-label-sm text-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>92.0% • Safe</span>
+</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-1 mb-1">Neural Networks &amp; Deep Learning</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Prof. David K. • 4 Credits</p>
+<!-- Metric Progress Meter -->
+<div class="space-y-2 mb-space-md">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-medium">Classes Attended</span>
+<span class="font-bold text-on-surface">23 / 25 <span class="text-on-surface-variant font-normal">(92%)</span></span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 rounded-full" style="width: 92%"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-emerald-700 font-semibold">+17.0% above floor</span>
+<span class="text-on-surface-variant">Min Req: 75%</span>
+</div>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-base text-secondary">schedule</span>
+<span>Today, 10:00 AM • Hall B4</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Course 2: CS-401 -->
+<div class="group bg-surface-container-lowest rounded-2xl p-space-lg shadow-[0_4px_20px_-2px_rgba(75,62,180,0.05)] hover:shadow-[0_12px_28px_rgba(75,62,180,0.12)] hover:-translate-y-1 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-primary font-bold tracking-wider">CS-401</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-800 font-label-sm text-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>88.5% • Safe</span>
+</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-1 mb-1">Distributed Systems Architecture</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Dr. Elena Rostova • 4 Credits</p>
+<div class="space-y-2 mb-space-md">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-medium">Classes Attended</span>
+<span class="font-bold text-on-surface">23 / 26 <span class="text-on-surface-variant font-normal">(88.5%)</span></span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 rounded-full" style="width: 88.5%"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-emerald-700 font-semibold">+13.5% above floor</span>
+<span class="text-on-surface-variant">Min Req: 75%</span>
+</div>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-base text-secondary">schedule</span>
+<span>Tomorrow, 02:00 PM • Aud 2</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Course 3: CS-315 -->
+<div class="group bg-surface-container-lowest rounded-2xl p-space-lg shadow-[0_4px_20px_-2px_rgba(75,62,180,0.05)] hover:shadow-[0_12px_28px_rgba(75,62,180,0.12)] hover:-translate-y-1 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-primary font-bold tracking-wider">CS-315</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-800 font-label-sm text-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>94.4% • Excellent</span>
+</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-1 mb-1">Computer Vision &amp; Biometrics Lab</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Prof. A. Thorne • 2 Credits</p>
+<div class="space-y-2 mb-space-md">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-medium">Classes Attended</span>
+<span class="font-bold text-on-surface">17 / 18 <span class="text-on-surface-variant font-normal">(94.4%)</span></span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 rounded-full" style="width: 94.4%"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-emerald-700 font-semibold">+19.4% above floor</span>
+<span class="text-on-surface-variant">Min Req: 75%</span>
+</div>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-base text-secondary">schedule</span>
+<span>Thursday, 11:30 AM • Vision Lab C</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Course 4: CS-220 (Approaching Threshold Warning) -->
+<div class="group bg-surface-container-lowest rounded-2xl p-space-lg shadow-[0_4px_20px_-2px_rgba(75,62,180,0.05)] hover:shadow-[0_12px_28px_rgba(75,62,180,0.12)] hover:-translate-y-1 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-amber-700 font-bold tracking-wider">CS-220</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 text-amber-900 font-label-sm text-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+<span>78.9% • Warning</span>
+</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-1 mb-1">Database Systems &amp; Warehousing</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Dr. Marcus Vance • 4 Credits</p>
+<div class="space-y-2 mb-space-md">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-medium">Classes Attended</span>
+<span class="font-bold text-on-surface">15 / 19 <span class="text-amber-700 font-semibold">(78.9%)</span></span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-amber-500 rounded-full" style="width: 78.9%"></div>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-amber-800 font-medium">
+<span class="material-symbols-outlined text-xs">info</span>
+<span>Can miss at most 1 more class safely</span>
+</div>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-base text-secondary">schedule</span>
+<span>Friday, 09:00 AM • Room 101</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Course 5: CS-210 (Below Floor Critical Red) -->
+<div class="group bg-rose-50/50 rounded-2xl p-space-lg shadow-[0_4px_20px_-2px_rgba(186,26,26,0.12)] hover:shadow-[0_12px_28px_rgba(186,26,26,0.2)] hover:-translate-y-1 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-error font-bold tracking-wider">CS-210</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold uppercase tracking-wider animate-pulse">
+<span class="w-1.5 h-1.5 rounded-full bg-on-error"></span>
+<span>71.4% • Critical Action</span>
+</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-1 mb-1">Data Structures &amp; Algorithms</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Prof. S. Ranganathan • 4 Credits</p>
+<div class="space-y-2 mb-space-md">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-error font-medium">Attendance Floor Breach</span>
+<span class="font-bold text-error">20 / 28 <span class="font-normal">(71.4%)</span></span>
+</div>
+<div class="h-2 w-full bg-error-container rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 71.4%"></div>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-error font-semibold">
+<span class="material-symbols-outlined text-xs">priority_high</span>
+<span>Must attend next 3 lectures to reach 75.0%</span>
+</div>
+</div>
+</div>
+<div class="pt-space-sm border-t border-rose-200/60 flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-error font-semibold">
+<span class="material-symbols-outlined text-base text-error">notification_important</span>
+<span>Today, 02:00 PM • Lab 3</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-error text-on-error flex items-center justify-center hover:opacity-90 transition-opacity" type="button">
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Course 6: CS-104 -->
+<div class="group bg-surface-container-lowest rounded-2xl p-space-lg shadow-[0_4px_20px_-2px_rgba(75,62,180,0.05)] hover:shadow-[0_12px_28px_rgba(75,62,180,0.12)] hover:-translate-y-1 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-primary font-bold tracking-wider">CS-104</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-800 font-label-sm text-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>90.6% • Safe</span>
+</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-1 mb-1">Discrete Mathematics</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Prof. L. Alvarez • 3 Credits</p>
+<div class="space-y-2 mb-space-md">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-medium">Classes Attended</span>
+<span class="font-bold text-on-surface">29 / 32 <span class="text-on-surface-variant font-normal">(90.6%)</span></span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 rounded-full" style="width: 90.6%"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-emerald-700 font-semibold">+15.6% above floor</span>
+<span class="text-on-surface-variant">Min Req: 75%</span>
+</div>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-base text-secondary">schedule</span>
+<span>Monday, 09:30 AM • Seminar Hall</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Lower Section: Split Two-Column (65% / 35%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop">
+<!-- Left Column: Attendance Activity Log (65% => lg:col-span-8) -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-[0_4px_24px_-2px_rgba(75,62,180,0.06)]">
+<!-- Log Header & Segment Filter Tabs -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-lg">
+<div class="flex flex-col">
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Recent Attendance History</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Chronological biometric verification and scan telemetry</p>
+</div>
+<!-- Filter Tabs -->
+<div class="inline-flex p-1 bg-surface-container-high rounded-full self-start sm:self-auto">
+<button class="px-3.5 py-1 rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm font-bold shadow-sm" type="button">All (132)</button>
+<button class="px-3.5 py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm font-semibold hover:text-on-surface" type="button">Verified</button>
+<button class="px-3.5 py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm font-semibold hover:text-on-surface" type="button">Excused</button>
+<button class="px-3.5 py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm font-semibold hover:text-on-surface" type="button">Missed</button>
+</div>
+</div>
+<!-- Activity Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider rounded-xl">
+<th class="py-3 px-4 rounded-l-xl">Date &amp; Time</th>
+<th class="py-3 px-4">Course Details</th>
+<th class="py-3 px-4">Verification Telemetry</th>
+<th class="py-3 px-4 rounded-r-xl text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Today, Oct 24</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">10:14 AM</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">CS-302: Neural Networks</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Auditorium Hall B4 • Lecture #25</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-800 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+<span>AI Face Match (98.4% conf)</span>
+</span>
+</td>
+<td class="py-4 px-4 text-right">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-800 font-label-sm text-label-sm font-bold uppercase">
+                    PRESENT
+                  </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Yesterday, Oct 23</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">02:05 PM</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">CS-401: Distributed Systems</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Auditorium 2 • Lecture #26</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-container/10 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-xs">qr_code_2</span>
+<span>Dynamic QR Scan</span>
+</span>
+</td>
+<td class="py-4 px-4 text-right">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-800 font-label-sm text-label-sm font-bold uppercase">
+                    PRESENT
+                  </span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors bg-rose-50/20">
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Oct 22, 2025</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">09:12 AM</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-error font-semibold">CS-210: Data Structures</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Lab 3 • Session #28</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-500/10 text-error font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-xs">cancel</span>
+<span>Biometric Missed (Absence Logged)</span>
+</span>
+</td>
+<td class="py-4 px-4 text-right">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold uppercase">
+                    ABSENT
+                  </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Oct 21, 2025</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">11:30 AM</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">CS-315: Computer Vision Lab</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Vision Lab C • Practical #18</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-800 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>AI Face Match (99.1% conf)</span>
+</span>
+</td>
+<td class="py-4 px-4 text-right">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-800 font-label-sm text-label-sm font-bold uppercase">
+                    PRESENT
+                  </span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Oct 18, 2025</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">10:00 AM</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">CS-220: Database Systems</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Room 101 • Lecture #19</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-700 font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-xs">medical_services</span>
+<span>Medical Permit #MED-882</span>
+</span>
+</td>
+<td class="py-4 px-4 text-right">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-500/15 text-blue-800 font-label-sm text-label-sm font-bold uppercase">
+                    EXCUSED
+                  </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pt-space-md mt-space-md border-t border-surface-container-high flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing latest 5 verified events</span>
+<a class="font-label-md text-label-md text-primary hover:text-secondary font-semibold inline-flex items-center gap-1" href="#">
+<span>View Full Verification Archive</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Right Column: Fast Scanner & Biometric Engine Diagnostics (35% => lg:col-span-4) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Widget 1: Fast Attendance QR Launcher -->
+<div class="relative overflow-hidden bg-gradient-to-br from-primary via-primary-container to-secondary text-on-primary rounded-2xl p-space-lg shadow-[0_8px_32px_-4px_rgba(75,62,180,0.35)] flex flex-col justify-between">
+<div class="absolute -right-8 -bottom-8 w-44 h-44 rounded-full bg-secondary-container/30 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-space-sm mb-space-lg">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-label-sm font-label-sm font-bold uppercase tracking-wider text-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+              Live Scanner Active
+            </span>
+<span class="material-symbols-outlined text-surface/70 text-2xl">sensors</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-lg text-headline-lg text-white">Got a Classroom QR Code?</h3>
+<p class="font-body-sm text-body-sm text-surface/80 leading-snug mt-1">
+              Point your camera at the instructor's dynamic rotating terminal code to log presence instantly.
+            </p>
+</div>
+<!-- Dynamic QR Scanner Viewfinder Mock -->
+<div class="relative w-full h-40 bg-black/40 rounded-xl overflow-hidden flex items-center justify-center p-3 my-2 backdrop-blur-sm">
+<div class="absolute inset-4 flex flex-col justify-between pointer-events-none">
+<div class="flex justify-between">
+<span class="w-5 h-5 border-t-2 border-l-2 border-emerald-400"></span>
+<span class="w-5 h-5 border-t-2 border-r-2 border-emerald-400"></span>
+</div>
+<div class="flex justify-between">
+<span class="w-5 h-5 border-b-2 border-l-2 border-emerald-400"></span>
+<span class="w-5 h-5 border-b-2 border-r-2 border-emerald-400"></span>
+</div>
+</div>
+<!-- Central Scanning Radar -->
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-4xl text-white/90 animate-pulse">qr_code_scanner</span>
+<span class="font-label-sm text-label-sm text-white/70">Focus code in viewport</span>
+</div>
+<!-- Sweeping scan line -->
+<div class="absolute inset-x-4 h-0.5 bg-gradient-to-r from-transparent via-emerald-400 to-transparent animate-[bounce_2.5s_infinite]"></div>
+</div>
+<button class="w-full py-3 px-4 rounded-full bg-white text-primary font-label-lg text-label-lg font-bold shadow-lg hover:bg-surface-bright transition-all transform active:scale-95 flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-xl">photo_camera</span>
+<span>Open Camera &amp; Scan QR</span>
+</button>
+</div>
+<div class="relative z-10 pt-space-xs border-t border-white/10 flex items-center gap-2 text-surface/90 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-emerald-400 text-sm">location_on</span>
+<span class="truncate">Campus Geofence: Active &amp; Verified (Hall B4 zone)</span>
+</div>
+</div>
+<!-- Widget 2: Biometric Health & Enrollment Telemetry -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-[0_4px_24px_-2px_rgba(75,62,180,0.06)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-xl">face</span>
+</span>
+<div class="flex flex-col">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Biometric ID Status</h4>
+<span class="font-label-sm text-label-sm text-emerald-700 font-semibold">FaceNet-512 Synced</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-emerald-600">verified</span>
+</div>
+<!-- Metric Bars & Details -->
+<div class="space-y-space-sm bg-surface-container-low p-space-md rounded-xl">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Embedding Model</span>
+<span class="font-semibold text-on-surface font-mono">v4.2 (Active)</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">5-Angle Calibration</span>
+<span class="inline-flex items-center gap-1 font-semibold text-emerald-700">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>100% Calibrated</span>
+</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Liveness Pass Rate</span>
+<span class="font-semibold text-primary">99.4% Robust</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Last updated: 3 days ago</span>
+<button class="text-primary hover:text-secondary font-label-md text-label-md font-semibold inline-flex items-center gap-1" type="button">
+<span>Update Face Scan</span>
+<span class="material-symbols-outlined text-sm">refresh</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AttendX — Manage Subjects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "on-background": "#1a1b20",
+        "surface-container-highest": "#e3e2e8",
+        "on-tertiary-fixed-variant": "#8c0057",
+        "inverse-primary": "#c6c0ff",
+        "tertiary-fixed-dim": "#ffb0d0",
+        "surface-container": "#efedf3",
+        "primary": "#33229c",
+        "on-tertiary-fixed": "#3d0024",
+        "tertiary-container": "#9c0e63",
+        "on-surface": "#1a1b20",
+        "secondary-fixed-dim": "#c5c0ff",
+        "primary-fixed": "#e4dfff",
+        "secondary-fixed": "#e3dfff",
+        "on-error-container": "#93000a",
+        "on-secondary-fixed-variant": "#3c26c1",
+        "on-secondary": "#ffffff",
+        "on-error": "#ffffff",
+        "on-secondary-fixed": "#140067",
+        "on-tertiary-container": "#ffacce",
+        "surface-dim": "#dbd9df",
+        "surface-variant": "#e3e2e8",
+        "surface-bright": "#faf8ff",
+        "outline-variant": "#c8c4d5",
+        "on-primary": "#ffffff",
+        "tertiary": "#750048",
+        "secondary-container": "#6c5ef1",
+        "surface-container-high": "#e9e7ed",
+        "on-primary-container": "#c3bdff",
+        "surface-container-low": "#f4f3f9",
+        "on-secondary-container": "#fffbff",
+        "background": "#faf8ff",
+        "outline": "#787584",
+        "surface": "#faf8ff",
+        "inverse-surface": "#2f3035",
+        "on-surface-variant": "#474553",
+        "surface-tint": "#594dc2",
+        "primary-fixed-dim": "#c6c0ff",
+        "on-primary-fixed-variant": "#4032a9",
+        "secondary": "#5242d7",
+        "primary-container": "#4b3eb4",
+        "error": "#ba1a1a",
+        "error-container": "#ffdad6",
+        "tertiary-fixed": "#ffd8e6",
+        "surface-container-lowest": "#ffffff",
+        "on-primary-fixed": "#150066",
+        "on-tertiary": "#ffffff",
+        "inverse-on-surface": "#f1f0f6"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-sm": "0.5rem",
+        "margin-desktop": "2.5rem",
+        "margin": "1.5rem",
+        "gutter": "1.5rem",
+        "space-lg": "1.5rem",
+        "gutter-mobile": "0.75rem",
+        "space-xl": "2rem",
+        "space-xs": "0.25rem",
+        "gutter-desktop": "2rem",
+        "margin-mobile": "1rem",
+        "space-md": "1rem"
+      },
+      "fontFamily": {
+        "headline-sm": ["Plus Jakarta Sans"],
+        "display-lg-mobile": ["Plus Jakarta Sans"],
+        "label-sm": ["Inter"],
+        "body-xl": ["Inter"],
+        "label-md": ["Inter"],
+        "display-md": ["Plus Jakarta Sans"],
+        "body-sm": ["Inter"],
+        "body-lg": ["Inter"],
+        "body-md": ["Inter"],
+        "headline-xl": ["Plus Jakarta Sans"],
+        "display-md-mobile": ["Plus Jakarta Sans"],
+        "label-lg": ["Inter"],
+        "display-lg": ["Plus Jakarta Sans"],
+        "headline-lg": ["Plus Jakarta Sans"],
+        "headline-md": ["Plus Jakarta Sans"]
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-inverse-surface z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-20 px-space-lg flex items-center gap-space-sm bg-inverse-surface"><img alt="Modern minimalist AI biometric attendance logo for AttendX. Clean geometric icon featuring an abstract camera/viewfinder biometric scan bracket framing a stylized letter 'A' and 'X' intersection or dynamic pulse mark, vibrant indigo #4B3EB4 and bright violet #6355E8, vector, sleek edtech brand identity." class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VI0SbTHSf6Un9FPBBmPtUOHv907PnkF9zn4Yy6a-kKCqyw6aSh3sueL2gBqS2opIF03VruXGzkqp_else9XxK67K_oGZAOz7DqA_OFW3JLah4nkN2-8f6HRvSq7ahRv3RgW4v6v4gBNKtoDYnrsoZjmuLZImVXFz122G7dag8RbeTjJfIrTF9mETX5t_7q6tA_Wp48GBBtFlLJtA3Ibf_TSzOVi4bWJyUPwmuhUae5xZqSE9XDdZ4HEe4"/><div class="flex flex-col"><span class="font-headline-md text-headline-md text-inverse-on-surface font-bold tracking-tight">AttendX</span><span class="font-label-sm text-label-sm text-outline-variant uppercase tracking-widest">Faculty Portal</span></div></div><div class="px-space-md pt-space-md"><span class="px-space-sm font-label-sm text-label-sm uppercase tracking-wider text-outline-variant font-semibold">Academic Navigation</span></div><nav class="flex flex-col gap-space-xs px-space-md mt-space-sm" data-active-classes="bg-primary-container text-on-primary font-semibold rounded-xl shadow-[0_4px_16px_rgba(75,62,180,0.25)]"><a class="flex items-center px-space-md py-space-sm rounded-xl text-outline-variant hover:bg-surface-variant/10 hover:text-inverse-on-surface transition-all font-label-lg text-label-lg" data-path="dashboard" href="#">Dashboard</a><a aria-current="page" class="flex items-center px-space-md py-space-sm transition-all bg-primary-container text-on-primary font-semibold rounded-xl shadow-[0_4px_16px_rgba(75,62,180,0.25)]" data-path="subjects" href="#">Subjects</a><a class="flex items-center px-space-md py-space-sm rounded-xl text-outline-variant hover:bg-surface-variant/10 hover:text-inverse-on-surface transition-all font-label-lg text-label-lg" data-path="take-attendance" href="#">Take Attendance</a><a class="flex items-center px-space-md py-space-sm rounded-xl text-outline-variant hover:bg-surface-variant/10 hover:text-inverse-on-surface transition-all font-label-lg text-label-lg" data-path="students" href="#">Students</a><a class="flex items-center px-space-md py-space-sm rounded-xl text-outline-variant hover:bg-surface-variant/10 hover:text-inverse-on-surface transition-all font-label-lg text-label-lg" data-path="reports" href="#">Reports</a><a class="flex items-center px-space-md py-space-sm rounded-xl text-outline-variant hover:bg-surface-variant/10 hover:text-inverse-on-surface transition-all font-label-lg text-label-lg" data-path="settings" href="#">Settings</a></nav></div><div class="p-space-md bg-inverse-surface"><div class="p-space-md rounded-xl bg-surface-variant/10 flex items-center justify-between mb-space-sm"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col"><span class="font-label-md text-label-md text-inverse-on-surface font-semibold">Dr. Julian Mercer</span><span class="font-label-sm text-label-sm text-outline-variant">Computer Science</span></div></div></div><nav class="w-full" data-active-classes="bg-primary-container text-on-primary font-semibold rounded-xl"><a class="flex items-center px-space-md py-space-sm rounded-xl text-outline-variant hover:bg-surface-variant/10 hover:text-inverse-on-surface transition-all font-label-lg text-label-lg" data-path="login" href="#">Logout</a></nav></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/80 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full h-20 px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-lg"><div class="relative w-full"><span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span><input class="w-full h-11 pl-10 pr-space-md rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:bg-surface-bright transition-all" placeholder="Search students, course codes, or biometric logs..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-xs rounded-full shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><span class="material-symbols-outlined text-secondary text-[18px]">calendar_today</span><span class="font-label-md text-label-md text-on-surface font-semibold">Fall 2025</span><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div><div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-lowest text-on-surface-variant shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary"></span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface flex-1 px-space-lg pb-space-xl"><div class="flex flex-col w-full">
+<!-- Top Breadcrumb & Page Action Header -->
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span>Academics</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Course Administration</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Manage Subjects</span>
+</div>
+<div class="flex items-center gap-space-sm mt-1">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Manage Subjects</h1>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm tracking-wider uppercase">
+          Faculty Active
+        </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        Configure course curricula, manage student enrollment rosters, and generate anti-cheat self-enrollment Join QR codes.
+      </p>
+</div>
+<!-- Primary Top Action & Department Badge -->
+<div class="flex items-center gap-space-md self-start lg:self-center">
+<div class="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>Dept. of Computer Science &amp; Engineering</span>
+</div>
+<button class="flex items-center gap-2 px-space-lg py-2.5 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:bg-secondary transition-all active:scale-[0.98]" onclick="document.getElementById('createSubjectModal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Create Subject</span>
+</button>
+</div>
+</div>
+<!-- KPI Summary Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md mb-space-lg">
+<!-- Card 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Active Subjects</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="font-display-md text-display-md text-on-surface font-bold tracking-tight">6 Courses</div>
+<div class="flex items-center gap-1.5 mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>4 lecture halls • 2 lab practicals</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Total Enrolled</span>
+<div class="w-9 h-9 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="font-display-md text-display-md text-on-surface font-bold tracking-tight">348 Students</div>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span>Across all active cohorts</span>
+<span class="font-semibold text-primary font-label-sm text-label-sm">(94.2% filled)</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Attendance Rate</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-2">
+<div class="font-display-md text-display-md text-on-surface font-bold tracking-tight">91.8%</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">
+            +2.4% avg
+          </span>
+</div>
+<p class="mt-1 text-on-surface-variant font-body-sm text-body-sm">Above CS department average</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Pending Joins</span>
+<div class="w-9 h-9 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-2">
+<div class="font-display-md text-display-md text-on-surface font-bold tracking-tight">8 Students</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm">
+            Action Req.
+          </span>
+</div>
+<p class="mt-1 text-on-surface-variant font-body-sm text-body-sm">Awaiting faculty vector approval</p>
+</div>
+</div>
+</div>
+<!-- Search & Filter Controls -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md mb-space-md">
+<div class="flex items-center gap-space-sm flex-1 max-w-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:ring-2 focus:ring-secondary/30 shadow-sm" placeholder="Filter by course name, code, or classroom..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 bg-surface-container-lowest px-3 py-2 rounded-lg shadow-sm text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-secondary text-[18px]">filter_list</span>
+<span>Semester:</span>
+<span class="font-bold text-primary">Fall 2025</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">expand_more</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high p-1 rounded-lg">
+<button class="px-3 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm text-primary font-semibold shadow-xs">All (6)</button>
+<button class="px-3 py-1 rounded text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface">Active (5)</button>
+<button class="px-3 py-1 rounded text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface">Archived (1)</button>
+</div>
+</div>
+</div>
+<!-- Main Content Grid: Split Workspace Table & Selected Subject Detail Panel -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT: Subject Roster Table (7 cols on xl) -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="p-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Assigned Curriculum</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm">6 Total</span>
+</div>
+<button class="flex items-center gap-1 text-primary hover:text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Export Roster</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low/70 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="py-3 px-space-md">Subject &amp; Code</th>
+<th class="py-3 px-space-md">Venue</th>
+<th class="py-3 px-space-md">Capacity</th>
+<th class="py-3 px-space-md">Attendance</th>
+<th class="py-3 px-space-md">Status</th>
+<th class="py-3 px-space-md text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Item 1 (Selected) -->
+<tr class="bg-primary-fixed/20 hover:bg-primary-fixed/30 transition-colors cursor-pointer" onclick="selectSubject('CS-302')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold font-headline-sm">
+<span class="material-symbols-outlined text-[20px]">neurology</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-1.5">
+<span>CS-302</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-[190px]">Neural Networks &amp; Deep Learning</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface">
+<div class="font-semibold">Sec A</div>
+<div class="text-on-surface-variant">Hall B4</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm">
+<div class="flex items-center justify-between gap-2 font-label-sm text-label-sm mb-1">
+<span class="font-semibold text-on-surface">48 / 50</span>
+<span class="text-on-surface-variant">96%</span>
+</div>
+<div class="w-24 h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 96%"></div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    93.8%
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">Active</span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors" title="Join QR Code">
+<span class="material-symbols-outlined text-[18px]">qr_code_2</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Settings">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="selectSubject('CS-401')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center font-bold font-headline-sm">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">CS-401</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-[190px]">Distributed Systems Architecture</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface">
+<div class="font-semibold">Sec B</div>
+<div class="text-on-surface-variant">Auditorium 2</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm">
+<div class="flex items-center justify-between gap-2 font-label-sm text-label-sm mb-1">
+<span class="font-semibold text-on-surface">92 / 100</span>
+<span class="text-on-surface-variant">92%</span>
+</div>
+<div class="w-24 h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 92%"></div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    95.6%
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">Active</span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors" title="Join QR Code">
+<span class="material-symbols-outlined text-[18px]">qr_code_2</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Settings">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="selectSubject('CS-210')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center font-bold font-headline-sm">
+<span class="material-symbols-outlined text-[20px]">account_tree</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">CS-210</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-[190px]">Data Structures &amp; Algorithms</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface">
+<div class="font-semibold">Sec A</div>
+<div class="text-on-surface-variant">Lab 3</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm">
+<div class="flex items-center justify-between gap-2 font-label-sm text-label-sm mb-1">
+<span class="font-semibold text-on-surface">65 / 70</span>
+<span class="text-on-surface-variant">93%</span>
+</div>
+<div class="w-24 h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 93%"></div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                    87.5%
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">Active</span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors" title="Join QR Code">
+<span class="material-symbols-outlined text-[18px]">qr_code_2</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Settings">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="selectSubject('CS-315')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center font-bold font-headline-sm">
+<span class="material-symbols-outlined text-[20px]">photo_camera_front</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">CS-315</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-[190px]">Computer Vision Biometrics Lab</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface">
+<div class="font-semibold">Sec B</div>
+<div class="text-on-surface-variant">Vision Lab C</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm">
+<div class="flex items-center justify-between gap-2 font-label-sm text-label-sm mb-1">
+<span class="font-semibold text-on-surface">32 / 35</span>
+<span class="text-on-surface-variant">91%</span>
+</div>
+<div class="w-24 h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 91%"></div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    94.1%
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">Active</span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors" title="Join QR Code">
+<span class="material-symbols-outlined text-[18px]">qr_code_2</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Settings">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 5 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="selectSubject('CS-220')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center font-bold font-headline-sm">
+<span class="material-symbols-outlined text-[20px]">database</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">CS-220</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-[190px]">Database Systems &amp; Warehousing</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface">
+<div class="font-semibold">Sec C</div>
+<div class="text-on-surface-variant">Room 101</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm">
+<div class="flex items-center justify-between gap-2 font-label-sm text-label-sm mb-1">
+<span class="font-semibold text-on-surface">63 / 70</span>
+<span class="text-on-surface-variant">90%</span>
+</div>
+<div class="w-24 h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 90%"></div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    89.2%
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">Active</span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors" title="Join QR Code">
+<span class="material-symbols-outlined text-[18px]">qr_code_2</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Settings">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 6 (Archived) -->
+<tr class="opacity-60 hover:opacity-100 transition-opacity">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center font-bold font-headline-sm">
+<span class="material-symbols-outlined text-[20px]">calculate</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">CS-104</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-[190px]">Discrete Mathematics (Spring)</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface">
+<div class="font-semibold">Sec A</div>
+<div class="text-on-surface-variant">Archived Term</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm">
+<div class="flex items-center justify-between gap-2 font-label-sm text-label-sm mb-1">
+<span class="font-semibold text-on-surface">48 / 50</span>
+<span class="text-on-surface-variant">Completed</span>
+</div>
+<div class="w-24 h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-outline-variant rounded-full" style="width: 100%"></div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                    91.0% Final
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Archived</span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" title="View Records">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Pagination/Status -->
+<div class="p-space-md bg-surface-container-lowest flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Showing 1 to 6 of 6 subjects</span>
+<div class="flex items-center gap-1">
+<span class="text-primary font-semibold">1 Faculty Instructor</span>
+<span class="mx-1">•</span>
+<span>Synced 2m ago</span>
+</div>
+</div>
+</div>
+<!-- Quick Tips / AI Verification Callout -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed text-on-secondary-fixed-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">security</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Anti-Cheat Geofence Active</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Student Join QR codes are dynamically signed with rotating cryptographic salts. QR codes will reject scans from devices located further than 15 meters from Hall B4.
+          </p>
+</div>
+</div>
+</div>
+<!-- RIGHT: Selected Subject Detail View & Dynamic Join QR Panel (5 cols on xl) -->
+<div class="xl:col-span-5 flex flex-col gap-space-lg">
+<!-- Selected Subject Header Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">neurology</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">CS-302</h2>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm">Sec A</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant font-semibold">Neural Networks &amp; Deep Learning</p>
+</div>
+</div>
+<button class="p-2 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-all" title="Edit Subject Details">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+<!-- Schedule & Instructor Meta Chips -->
+<div class="grid grid-cols-2 gap-2 mt-space-md">
+<div class="p-2.5 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm mb-0.5">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Schedule</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Mon / Wed 10:00 - 11:30 AM</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm mb-0.5">
+<span class="material-symbols-outlined text-[14px]">meeting_room</span>
+<span>Classroom</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Auditorium Hall B4</span>
+</div>
+</div>
+<!-- Subject Metrics Bar -->
+<div class="grid grid-cols-3 gap-2 mt-2 pt-2">
+<div class="text-center p-2 rounded-lg bg-surface-container-lowest">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Enrolled</span>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">48/50</div>
+</div>
+<div class="text-center p-2 rounded-lg bg-surface-container-lowest">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Term Avg</span>
+<div class="font-headline-md text-headline-md font-bold text-primary">93.8%</div>
+</div>
+<div class="text-center p-2 rounded-lg bg-surface-container-lowest">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Sessions</span>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">14 Held</div>
+</div>
+</div>
+</div>
+<!-- Live Self-Enrollment Join QR Container (High Impact Aesthetic) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Dynamic Join QR Code</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm uppercase tracking-wider font-semibold">
+            Rotating Token
+          </span>
+</div>
+<!-- Join QR & Timer Module -->
+<div class="flex flex-col sm:flex-row items-center gap-space-lg bg-surface-container-low p-space-md rounded-xl">
+<!-- Vector QR Code with Biometric Corner Brackets -->
+<div class="relative p-3 bg-surface-container-lowest rounded-xl shadow-md shrink-0">
+<!-- Camera / Biometric Corner Bracket Accents -->
+<div class="absolute top-1 left-1 w-3 h-3 border-t-2 border-l-2 border-primary-container rounded-tl"></div>
+<div class="absolute top-1 right-1 w-3 h-3 border-t-2 border-r-2 border-primary-container rounded-tr"></div>
+<div class="absolute bottom-1 left-1 w-3 h-3 border-b-2 border-l-2 border-primary-container rounded-bl"></div>
+<div class="absolute bottom-1 right-1 w-3 h-3 border-b-2 border-r-2 border-primary-container rounded-br"></div>
+<!-- Crisp Clean SVG QR Code Representation -->
+<svg class="w-36 h-36" fill="none" viewbox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#FFFFFF" height="160" rx="8" width="160"></rect>
+<!-- Corner 1 (Top-Left Finder) -->
+<rect height="36" rx="4" stroke="#33229C" stroke-width="6" width="36" x="16" y="16"></rect>
+<rect fill="#33229C" height="16" rx="2" width="16" x="26" y="26"></rect>
+<!-- Corner 2 (Top-Right Finder) -->
+<rect height="36" rx="4" stroke="#33229C" stroke-width="6" width="36" x="108" y="16"></rect>
+<rect fill="#33229C" height="16" rx="2" width="16" x="118" y="26"></rect>
+<!-- Corner 3 (Bottom-Left Finder) -->
+<rect height="36" rx="4" stroke="#33229C" stroke-width="6" width="36" x="16" y="108"></rect>
+<rect fill="#33229C" height="16" rx="2" width="16" x="26" y="118"></rect>
+<!-- Internal Matrix Blocks -->
+<rect fill="#5242D7" height="8" width="8" x="64" y="20"></rect>
+<rect fill="#33229C" height="16" width="8" x="76" y="20"></rect>
+<rect fill="#5242D7" height="8" width="8" x="88" y="28"></rect>
+<rect fill="#33229C" height="8" width="16" x="64" y="36"></rect>
+<rect fill="#33229C" height="16" width="8" x="20" y="64"></rect>
+<rect fill="#5242D7" height="8" width="12" x="36" y="68"></rect>
+<rect fill="#4B3EB4" height="16" rx="2" width="16" x="56" y="56"></rect>
+<rect fill="#33229C" height="8" width="8" x="80" y="60"></rect>
+<rect fill="#5242D7" height="8" width="16" x="96" y="60"></rect>
+<rect fill="#33229C" height="8" width="20" x="120" y="64"></rect>
+<rect fill="#5242D7" height="12" width="12" x="68" y="80"></rect>
+<rect fill="#33229C" height="24" width="8" x="88" y="76"></rect>
+<rect fill="#5242D7" height="8" width="12" x="104" y="84"></rect>
+<rect fill="#33229C" height="16" rx="2" width="16" x="124" y="80"></rect>
+<rect fill="#33229C" height="12" width="12" x="60" y="104"></rect>
+<rect fill="#5242D7" height="8" width="16" x="80" y="108"></rect>
+<rect fill="#5242D7" height="16" width="8" x="68" y="124"></rect>
+<rect fill="#33229C" height="12" width="16" x="84" y="128"></rect>
+<rect fill="#33229C" height="12" width="12" x="108" y="112"></rect>
+<rect fill="#5242D7" height="16" width="12" x="128" y="116"></rect>
+<rect fill="#33229C" height="8" width="8" x="112" y="132"></rect>
+<!-- Central App Icon Pill Overlay -->
+<rect fill="#33229C" height="28" rx="8" width="28" x="66" y="66"></rect>
+<path d="M72 80 L76 72 L80 82 L84 75 L88 80" stroke="#FAF8FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<!-- Code Details & Quick Actions -->
+<div class="flex flex-col gap-2 w-full">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Unique Subject Passcode</span>
+<div class="flex items-center justify-between bg-surface-container-lowest px-3 py-2 rounded-lg shadow-xs">
+<span class="font-headline-md text-headline-md font-bold tracking-widest text-primary">NET-302-X9</span>
+<button class="flex items-center gap-1 text-secondary hover:text-primary font-label-sm text-label-sm font-semibold" onclick="navigator.clipboard?.writeText('NET-302-X9')">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Copy</span>
+</button>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-secondary text-[16px]">timer</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Expires in <strong class="text-on-surface font-semibold">14m 20s</strong></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Geofenced to <strong class="text-on-surface">Hall B4</strong> • Biometric selfie required on student scan.
+            </p>
+<div class="flex items-center gap-2 mt-2">
+<button class="flex-1 py-1.5 px-3 rounded-lg bg-surface-container text-primary font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-colors text-center">
+                Regenerate
+              </button>
+<button class="flex-1 py-1.5 px-3 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold hover:bg-secondary transition-colors text-center flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">print</span>
+<span>Print Poster</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Enrolled Student Roster Preview Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Enrolled Students</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">48 verified</span>
+</div>
+<button class="flex items-center gap-1 text-primary hover:text-secondary font-label-md text-label-md font-semibold" onclick="document.getElementById('addStudentPrompt').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-[16px]">person_add</span>
+<span>+ Add Student</span>
+</button>
+</div>
+<!-- Add Student Quick Drawer (Collapsible) -->
+<div class="hidden mb-space-md p-space-md rounded-xl bg-surface-container-low" id="addStudentPrompt">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold block mb-2">Manually Enroll Student</span>
+<div class="flex items-center gap-2">
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:ring-1 focus:ring-secondary" placeholder="Enter Roll Number (e.g. 2025-CS-4099)" type="text"/>
+<button class="h-9 px-4 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm whitespace-nowrap">Enroll</button>
+</div>
+</div>
+<!-- Mini Roster Listing -->
+<div class="flex flex-col divide-y divide-surface-container">
+<!-- Student 1 -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed-variant flex items-center justify-center font-bold font-label-sm">
+                LC
+              </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Liam Chen</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">2025-CS-4012</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm">5 Biometrics</span>
+<span class="font-label-md text-label-md font-bold text-primary">96%</span>
+</div>
+</div>
+<!-- Student 2 -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant flex items-center justify-center font-bold font-label-sm">
+                SM
+              </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Sophia Martinez</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">2025-CS-4089</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm">Face+Iris</span>
+<span class="font-label-md text-label-md font-bold text-primary">98%</span>
+</div>
+</div>
+<!-- Student 3 -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface flex items-center justify-center font-bold font-label-sm">
+                MV
+              </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Marcus Vance</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">2025-CS-4055</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm">Face Verified</span>
+<span class="font-label-md text-label-md font-bold text-primary">92%</span>
+</div>
+</div>
+<!-- Student 4 (At Risk Attendance) -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant flex items-center justify-center font-bold font-label-sm">
+                ER
+              </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Elena Rostova</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">2025-CS-4078</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-sm text-label-sm">Warning</span>
+<span class="font-label-md text-label-md font-bold text-tertiary">78%</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-space-md py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors text-center font-semibold">
+          View All 48 Students • Full Roster
+        </button>
+</div>
+</div>
+</div>
+<!-- Create New Subject Modal / Creation Flow Overlay (Toggled via JS) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-inverse-surface/60 backdrop-blur-sm" id="createSubjectModal">
+<div class="w-full max-w-xl bg-surface-container-lowest rounded-2xl shadow-xl overflow-hidden flex flex-col">
+<!-- Modal Header -->
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">Create New Subject</span>
+</div>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:bg-surface-container flex items-center justify-center transition-colors" onclick="document.getElementById('createSubjectModal').classList.add('hidden')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body / Form -->
+<div class="p-space-lg flex flex-col gap-space-md max-h-[819px] overflow-y-auto">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="sm:col-span-2 flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Subject Title</label>
+<input class="h-11 px-3.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-secondary/40 shadow-xs" placeholder="e.g. Advanced Machine Learning" type="text" value="Advanced Machine Learning"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Course Code</label>
+<input class="h-11 px-3.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-secondary/40 shadow-xs uppercase" placeholder="e.g. CS-450" type="text" value="CS-450"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Section / Cohort</label>
+<input class="h-11 px-3.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-secondary/40 shadow-xs" placeholder="e.g. Section A" type="text" value="Section A"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Default Lecture Venue</label>
+<input class="h-11 px-3.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-secondary/40 shadow-xs" placeholder="e.g. Auditorium Hall B4" type="text" value="Auditorium Hall B4"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Expected Capacity</label>
+<input class="h-11 px-3.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-secondary/40 shadow-xs" placeholder="e.g. 60" type="number" value="60"/>
+</div>
+</div>
+<!-- Success Callout Preview Banner -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm mt-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-primary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Join QR Auto-Configured</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Passcode: AML-450-K8</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Upon saving, AttendX will automatically issue a dynamic registration token and create the course biometric vector database.
+          </p>
+</div>
+</div>
+<!-- Modal Actions -->
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-end gap-space-sm">
+<button class="px-5 py-2.5 rounded-full text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container transition-colors" onclick="document.getElementById('createSubjectModal').classList.add('hidden')">
+          Cancel
+        </button>
+<button class="px-6 py-2.5 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:bg-secondary transition-all" onclick="document.getElementById('createSubjectModal').classList.add('hidden'); alert('Subject Created Successfully!');">
+          Save &amp; Generate Join QR
+        </button>
+</div>
+</div>
+</div>
+<script>
+    function selectSubject(code) {
+      console.log('Selected subject code:', code);
+    }
+  </script>
+</div></main></div></body></html>

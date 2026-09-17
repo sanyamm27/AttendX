@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AttendX — Take Attendance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "on-background": "#1a1b20",
+        "surface-container-highest": "#e3e2e8",
+        "on-tertiary-fixed-variant": "#8c0057",
+        "inverse-primary": "#c6c0ff",
+        "tertiary-fixed-dim": "#ffb0d0",
+        "surface-container": "#efedf3",
+        "primary": "#33229c",
+        "on-tertiary-fixed": "#3d0024",
+        "tertiary-container": "#9c0e63",
+        "on-surface": "#1a1b20",
+        "secondary-fixed-dim": "#c5c0ff",
+        "primary-fixed": "#e4dfff",
+        "secondary-fixed": "#e3dfff",
+        "on-error-container": "#93000a",
+        "on-secondary-fixed-variant": "#3c26c1",
+        "on-secondary": "#ffffff",
+        "on-error": "#ffffff",
+        "on-secondary-fixed": "#140067",
+        "on-tertiary-container": "#ffacce",
+        "surface-dim": "#dbd9df",
+        "surface-variant": "#e3e2e8",
+        "surface-bright": "#faf8ff",
+        "outline-variant": "#c8c4d5",
+        "on-primary": "#ffffff",
+        "tertiary": "#750048",
+        "secondary-container": "#6c5ef1",
+        "surface-container-high": "#e9e7ed",
+        "on-primary-container": "#c3bdff",
+        "surface-container-low": "#f4f3f9",
+        "on-secondary-container": "#fffbff",
+        "background": "#faf8ff",
+        "outline": "#787584",
+        "surface": "#faf8ff",
+        "inverse-surface": "#2f3035",
+        "on-surface-variant": "#474553",
+        "surface-tint": "#594dc2",
+        "primary-fixed-dim": "#c6c0ff",
+        "on-primary-fixed-variant": "#4032a9",
+        "secondary": "#5242d7",
+        "primary-container": "#4b3eb4",
+        "error": "#ba1a1a",
+        "error-container": "#ffdad6",
+        "tertiary-fixed": "#ffd8e6",
+        "surface-container-lowest": "#ffffff",
+        "on-primary-fixed": "#150066",
+        "on-tertiary": "#ffffff",
+        "inverse-on-surface": "#f1f0f6"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-sm": "0.5rem",
+        "margin-desktop": "2.5rem",
+        "margin": "1.5rem",
+        "gutter": "1.5rem",
+        "space-lg": "1.5rem",
+        "gutter-mobile": "0.75rem",
+        "space-xl": "2rem",
+        "space-xs": "0.25rem",
+        "gutter-desktop": "2rem",
+        "margin-mobile": "1rem",
+        "space-md": "1rem"
+      },
+      "fontFamily": {
+        "headline-sm": ["Plus Jakarta Sans"],
+        "display-lg-mobile": ["Plus Jakarta Sans"],
+        "label-sm": ["Inter"],
+        "body-xl": ["Inter"],
+        "label-md": ["Inter"],
+        "display-md": ["Plus Jakarta Sans"],
+        "body-sm": ["Inter"],
+        "body-lg": ["Inter"],
+        "body-md": ["Inter"],
+        "headline-xl": ["Plus Jakarta Sans"],
+        "display-md-mobile": ["Plus Jakarta Sans"],
+        "label-lg": ["Inter"],
+        "display-lg": ["Plus Jakarta Sans"],
+        "headline-lg": ["Plus Jakarta Sans"],
+        "headline-md": ["Plus Jakarta Sans"]
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 bottom-0 w-72 bg-inverse-surface z-50 flex flex-col justify-between shadow-2xl"><div class="flex flex-col"><div class="h-20 px-space-lg flex items-center gap-space-sm"><img alt="Modern minimalist AI biometric attendance logo for AttendX. Clean geometric icon featuring an abstract camera/viewfinder biometric scan bracket framing a stylized letter 'A' and 'X' intersection or dynamic pulse mark, vibrant indigo #4B3EB4 and bright violet #6355E8, vector, sleek edtech brand identity. Design context: - Primary color: #4b3eb4
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+. The logo should be visually consistent with these brand tokens." class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VI0SbTHSf6Un9FPBBmPtUOHv907PnkF9zn4Yy6a-kKCqyw6aSh3sueL2gBqS2opIF03VruXGzkqp_else9XxK67K_oGZAOz7DqA_OFW3JLah4nkN2-8f6HRvSq7ahRv3RgW4v6v4gBNKtoDYnrsoZjmuLZImVXFz122G7dag8RbeTjJfIrTF9mETX5t_7q6tA_Wp48GBBtFlLJtA3Ibf_TSzOVi4bWJyUPwmuhUae5xZqSE9XDdZ4HEe4"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-inverse-on-surface leading-tight tracking-tight">AttendX</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-surface-variant/70">Faculty Portal</span></div></div><div class="px-space-lg pt-space-md pb-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-widest text-outline-variant/60 font-semibold">Academic Navigation</span></div><nav class="flex flex-col gap-1 px-space-sm pt-space-xs" data-active-classes="bg-secondary-container text-on-secondary-container shadow-lg shadow-secondary/30"><a class="flex items-center gap-space-sm px-space-md py-3 rounded-xl text-surface-variant hover:bg-surface-variant/10 hover:text-inverse-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-label-lg text-label-lg">Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-3 rounded-xl text-surface-variant hover:bg-surface-variant/10 hover:text-inverse-on-surface transition-colors" data-path="subjects" href="#"><span class="material-symbols-outlined text-[20px]">menu_book</span><span class="font-label-lg text-label-lg">Subjects</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-3 rounded-xl transition-colors bg-secondary-container text-on-secondary-container shadow-lg shadow-secondary/30" data-path="take-attendance" href="#"><span class="material-symbols-outlined text-[20px]">document_scanner</span><span class="font-label-lg text-label-lg">Take Attendance</span></a><a class="flex items-center gap-space-sm px-space-md py-3 rounded-xl text-surface-variant hover:bg-surface-variant/10 hover:text-inverse-on-surface transition-colors" data-path="students" href="#"><span class="material-symbols-outlined text-[20px]">groups</span><span class="font-label-lg text-label-lg">Students</span></a><a class="flex items-center gap-space-sm px-space-md py-3 rounded-xl text-surface-variant hover:bg-surface-variant/10 hover:text-inverse-on-surface transition-colors" data-path="reports" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="font-label-lg text-label-lg">Reports</span></a><a class="flex items-center gap-space-sm px-space-md py-3 rounded-xl text-surface-variant hover:bg-space-variant/10 hover:text-inverse-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-lg text-label-lg">Settings</span></a></nav></div><div class="p-space-md m-space-sm rounded-xl bg-surface-variant/10"><div class="flex items-center gap-space-sm mb-space-sm"><div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center flex-shrink-0 text-on-primary font-bold"><span class="material-symbols-outlined text-[22px]">account_circle</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-lg text-label-lg text-inverse-on-surface truncate">Dr. Julian Mercer</span><span class="font-body-sm text-body-sm text-surface-variant/70 truncate">Computer Science</span></div></div><a class="flex items-center justify-center gap-space-xs w-full py-2 px-space-sm rounded-lg bg-surface-variant/10 text-surface-variant hover:bg-error/20 hover:text-on-error-container transition-colors" data-path="logout" href="#"><span class="material-symbols-outlined text-[18px]">logout</span><span class="font-label-md text-label-md">Logout</span></a></div></aside><div class="pl-72 min-h-screen flex flex-col bg-background"><header class="fixed top-0 left-72 right-0 z-40 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(75,62,180,0.04)]"><div class="h-20 w-full px-gutter-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md flex-1 max-w-lg"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span><input class="w-full h-11 pl-10 pr-4 bg-surface-container-low rounded-xl font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all" placeholder="Search courses, biometric logs, student ID..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-md py-2 bg-surface-container-low rounded-xl cursor-pointer hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-secondary text-[18px]">calendar_today</span><span class="font-label-md text-label-md text-on-surface">Fall 2025</span><span class="material-symbols-outlined text-outline text-[18px]">expand_more</span></div><button class="relative w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 px-gutter-desktop pb-space-xl bg-background flex-1"><div class="flex flex-col w-full gap-gutter-desktop">
+<!-- BREADCRUMBS & CONTEXTUAL HEADER -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="font-label-md text-label-md">Academics</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-label-md text-label-md">Attendance Operations</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-label-md text-label-md text-primary font-bold">Take Attendance</span>
+</div>
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md mt-space-xs">
+<div>
+<h1 class="font-display-md text-display-md text-on-surface tracking-tight">Take Attendance</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          Initiate automated multi-student facial scanning or project secure anti-cheat dynamic QR codes.
+        </p>
+</div>
+<!-- MODE SWITCHER (Segmented Tab Bar) -->
+<div class="inline-flex p-1.5 bg-surface-container-high rounded-full shadow-sm">
+<button class="flex items-center gap-2 px-space-md py-2 rounded-full bg-surface-container-lowest text-primary shadow-md shadow-primary/10 transition-all font-label-lg text-label-lg" id="tab-btn-ai" onclick="switchMode('ai')" type="button">
+<span class="material-symbols-outlined text-[18px]">document_scanner</span>
+<span>AI Face Recognition</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">Batch AI</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-2 rounded-full text-on-surface-variant hover:text-on-surface transition-all font-label-lg text-label-lg" id="tab-btn-qr" onclick="switchMode('qr')" type="button">
+<span class="material-symbols-outlined text-[18px]">qr_code_2</span>
+<span>Dynamic QR Attendance</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-label-sm">Live Geofence</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CONTROL & STREAM STATUS BAR -->
+<div class="w-full bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-md">
+<!-- Course Selector -->
+<div class="relative flex items-center bg-surface-container-low rounded-xl px-space-md py-2.5 min-w-[320px]">
+<span class="material-symbols-outlined text-secondary mr-2 text-[20px]">school</span>
+<div class="flex flex-col flex-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Selected Course</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">CS302: Neural Networks & Deep Learning</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px] ml-2">expand_more</span>
+</div>
+<!-- Time & Hall Selector -->
+<div class="flex items-center bg-surface-container-low rounded-xl px-space-md py-2.5">
+<span class="material-symbols-outlined text-outline text-[20px] mr-2">schedule</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Scheduled Slot</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Today, Oct 24 • 10:00 - 11:30 AM (Hall B4)</span>
+</div>
+</div>
+</div>
+<!-- Live Stream Node Status -->
+<div class="flex items-center justify-between lg:justify-end gap-space-md">
+<div class="flex items-center gap-space-sm px-space-md py-2 bg-surface-container-low rounded-xl">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Hardware Node 04 (Hall B4 4K Camera)</span>
+<span class="font-body-sm text-body-sm text-outline">Connected & Streaming • 30 FPS • H.265 RTSP</span>
+</div>
+</div>
+<button class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">videocam</span>
+</button>
+</div>
+</div>
+<!-- KPI SUMMARY CARDS -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Stat 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Faces Detected</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-md text-display-md text-on-surface">48</span>
+<span class="font-body-sm text-body-sm text-outline">/ 48 enrolled</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary mt-1">100% Auditorium field coverage</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">face</span>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Matched Students</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-md text-display-md text-on-surface">44</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm">91.7% Auto-verified</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline mt-1">Confidence ≥ 90% threshold</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Low-Confidence</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-md text-display-md text-on-surface">3</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Review Needed</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Occlusion or profile angle</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[24px]">warning</span>
+</div>
+</div>
+<!-- Stat 4 -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Unknown Faces</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-md text-display-md text-error">1</span>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">Audit Guest</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline mt-1">No registered biometrics</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[24px]">person_alert</span>
+</div>
+</div>
+</div>
+<!-- MAIN WORKSPACE: SPLIT AI SCANNER / ROSTER VIEW -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter-desktop" id="ai-workspace-view">
+<!-- LEFT PANEL: Auditorium Viewfinder with HUD bounding boxes (7 cols) -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<div class="bg-inverse-surface rounded-2xl overflow-hidden shadow-xl flex flex-col text-inverse-on-surface relative">
+<!-- Live HUD Control Header -->
+<div class="p-space-md flex flex-wrap items-center justify-between gap-space-sm bg-inverse-surface/90 backdrop-blur-md z-20">
+<div class="flex items-center gap-space-sm">
+<span class="flex h-3 w-3 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-fixed opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+</span>
+<span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-inverse-on-surface">Panoramic Frame Analysis</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider">Live HUD Active</span>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-1.5">
+<button class="p-2 rounded-lg bg-surface-variant/10 text-inverse-on-surface hover:bg-surface-variant/20 transition-colors" title="Retake Snapshot" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-variant/10 text-inverse-on-surface hover:bg-surface-variant/20 transition-colors" title="Upload High-Res Photo" type="button">
+<span class="material-symbols-outlined text-[18px]">upload_file</span>
+</button>
+<button class="p-2 rounded-lg bg-secondary-container text-on-secondary-container transition-colors" title="Toggle AI Markers" type="button">
+<span class="material-symbols-outlined text-[18px]">blur_on</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-variant/10 text-inverse-on-surface hover:bg-surface-variant/20 transition-colors" title="Zoom 100%" type="button">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+</button>
+</div>
+</div>
+<!-- Camera Canvas Viewport with Authentic Photo & Overlaid Bounding Boxes -->
+<div class="relative w-full aspect-[16/10] bg-black overflow-hidden flex items-center justify-center select-none">
+<img alt="Classroom wide angle snapshot" class="w-full h-full object-cover opacity-90 filter contrast-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPX8bg1aty1PmHB6vf-aU5W3vvwWpcH2rzo2EHOt7AijVf5Bnehf8EJuVuPVZvq2GURrftINN--N_XpCM6v94xXJ6BUcUf9WqWSs3R-oMAW-O37Ke_YBxNBaUJerwlxuCOCxJ4YvWG3lFm2zxuwswmKc5Sq-bp-9XhXm5KsRL7Bsj7V6h6O8HwnWWt2icLjsW8bEXGK2baj8MAKQiO_FLVG2NliDG-ldBuufTyeIXcaNz7TynZrp-u"/>
+<!-- Overlaid Target Reticles (Simulated AI FaceNet Detections) -->
+<!-- Box 1: Liam Chen (Verified) -->
+<div class="absolute top-[38%] left-[22%] w-[11%] h-[18%] pointer-events-auto cursor-pointer group">
+<div class="w-full h-full rounded-md shadow-[0_0_15px_rgba(82,66,215,0.4)] bg-secondary/10 flex flex-col justify-between p-1">
+<div class="flex justify-between w-full">
+<span class="w-2.5 h-2.5 bg-secondary rounded-sm"></span>
+<span class="w-2.5 h-2.5 bg-secondary rounded-sm"></span>
+</div>
+<div class="flex justify-between w-full">
+<span class="w-2.5 h-2.5 bg-secondary rounded-sm"></span>
+<span class="w-2.5 h-2.5 bg-secondary rounded-sm"></span>
+</div>
+</div>
+<!-- Confidence Tag -->
+<div class="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap px-2 py-0.5 rounded-full bg-inverse-surface/90 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-inverse-on-surface">Liam Chen (98%)</span>
+</div>
+</div>
+<!-- Box 2: Sophia Martinez (Verified) -->
+<div class="absolute top-[32%] left-[45%] w-[10%] h-[17%] pointer-events-auto cursor-pointer group">
+<div class="w-full h-full rounded-md shadow-[0_0_15px_rgba(82,66,215,0.4)] bg-secondary/10 flex flex-col justify-between p-1">
+<div class="flex justify-between w-full">
+<span class="w-2.5 h-2.5 bg-secondary rounded-sm"></span>
+<span class="w-2.5 h-2.5 bg-secondary rounded-sm"></span>
+</div>
+<div class="flex justify-between w-full">
+<span class="w-2.5 h-2.5 bg-secondary rounded-sm"></span>
+<span class="w-2.5 h-2.5 bg-secondary rounded-sm"></span>
+</div>
+</div>
+<div class="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap px-2 py-0.5 rounded-full bg-inverse-surface/90 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-inverse-on-surface">Sophia Martinez (96%)</span>
+</div>
+</div>
+<!-- Box 3: Marcus Vance (Verified) -->
+<div class="absolute top-[44%] left-[64%] w-[11%] h-[19%] pointer-events-auto cursor-pointer group">
+<div class="w-full h-full rounded-md shadow-[0_0_15px_rgba(82,66,215,0.4)] bg-secondary/10 flex flex-col justify-between p-1">
+<div class="flex justify-between w-full">
+<span class="w-2.5 h-2.5 bg-secondary rounded-sm"></span>
+<span class="w-2.5 h-2.5 bg-secondary rounded-sm"></span>
+</div>
+<div class="flex justify-between w-full">
+<span class="w-2.5 h-2.5 bg-secondary rounded-sm"></span>
+<span class="w-2.5 h-2.5 bg-secondary rounded-sm"></span>
+</div>
+</div>
+<div class="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap px-2 py-0.5 rounded-full bg-inverse-surface/90 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-inverse-on-surface">Marcus Vance (94%)</span>
+</div>
+</div>
+<!-- Box 4: Elena Rostova (Low Confidence - Amber) -->
+<div class="absolute top-[28%] left-[78%] w-[9%] h-[15%] pointer-events-auto cursor-pointer group animate-pulse">
+<div class="w-full h-full rounded-md bg-secondary-container/20 flex flex-col justify-between p-1 shadow-[0_0_16px_rgba(108,94,241,0.5)]">
+<div class="flex justify-between w-full">
+<span class="w-2.5 h-2.5 bg-secondary-fixed rounded-sm"></span>
+<span class="w-2.5 h-2.5 bg-secondary-fixed rounded-sm"></span>
+</div>
+<div class="flex justify-between w-full">
+<span class="w-2.5 h-2.5 bg-secondary-fixed rounded-sm"></span>
+<span class="w-2.5 h-2.5 bg-secondary-fixed rounded-sm"></span>
+</div>
+</div>
+<div class="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap px-2 py-0.5 rounded-full bg-inverse-surface/90 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>
+<span class="font-label-sm text-label-sm text-inverse-on-surface">Elena Rostova (74% Review)</span>
+</div>
+</div>
+<!-- Box 5: Unknown Face #01 (Red Alert) -->
+<div class="absolute top-[48%] left-[6%] w-[10%] h-[17%] pointer-events-auto cursor-pointer group">
+<div class="w-full h-full rounded-md bg-error/20 flex flex-col justify-between p-1 shadow-[0_0_16px_rgba(186,26,26,0.6)]">
+<div class="flex justify-between w-full">
+<span class="w-2.5 h-2.5 bg-error rounded-sm"></span>
+<span class="w-2.5 h-2.5 bg-error rounded-sm"></span>
+</div>
+<div class="flex justify-between w-full">
+<span class="w-2.5 h-2.5 bg-error rounded-sm"></span>
+<span class="w-2.5 h-2.5 bg-error rounded-sm"></span>
+</div>
+</div>
+<div class="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap px-2 py-0.5 rounded-full bg-error text-on-error shadow-lg flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[12px]">priority_high</span>
+<span class="font-label-sm text-label-sm">Unknown Face #01</span>
+</div>
+</div>
+<!-- Viewfinder Coordinate Markers -->
+<div class="absolute bottom-3 left-3 px-2 py-1 rounded bg-black/60 backdrop-blur-sm font-label-sm text-label-sm text-inverse-on-surface/80 flex items-center gap-2">
+<span>RES: 3840 × 2160 (4K UHD)</span>
+<span>•</span>
+<span>FOV: 118°</span>
+</div>
+</div>
+<!-- Viewfinder Processing Pipeline Footer -->
+<div class="p-space-md bg-inverse-surface flex items-center justify-between text-surface-variant/80">
+<div class="flex items-center gap-space-sm text-inverse-on-surface">
+<span class="material-symbols-outlined text-secondary-fixed text-[18px]">neurology</span>
+<span class="font-body-sm text-body-sm">
+<strong class="text-inverse-on-surface font-semibold">FaceNet-512</strong> embeddings synthesized in 1.4s • Anti-spoof liveness: 99.8% passed • Zero raw biometrics retained
+            </span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-variant/10 text-inverse-on-surface font-label-sm text-label-sm">SOC-2 & FERPA Safe</span>
+</div>
+</div>
+<!-- AUDITORIUM SEATING DENSITY RADAR MINI CARD -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">airline_seat_recline_normal</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Row Distribution & Geofence Verification</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Front Tier: 18 students • Center Tier: 20 students • Rear Tier: 10 students</span>
+</div>
+</div>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-low text-primary hover:bg-surface-container font-label-md text-label-md transition-colors" type="button">
+          View Spatial Heatmap
+        </button>
+</div>
+</div>
+<!-- RIGHT PANEL: AI Verification Roster & Manual Override List (5 cols) -->
+<div class="xl:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-space-md flex flex-col h-full">
+<!-- Roster Header -->
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">AI Verification Roster</h2>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm">48 Detected</span>
+</div>
+<button class="text-secondary hover:text-primary font-label-md text-label-md" type="button">Refresh</button>
+</div>
+<!-- Manual Override Notice Banner -->
+<div class="p-space-sm rounded-xl bg-secondary-fixed/30 text-on-secondary-fixed flex items-center gap-space-sm mb-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">bolt</span>
+<span class="font-body-sm text-body-sm">
+<strong>Manual Override Mode Active</strong> — Click any attendance toggle to manually override AI confidence.
+          </span>
+</div>
+<!-- Search and Filter Tabs -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 mb-space-md">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-3 bg-surface-container-low rounded-xl font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all" placeholder="Filter student or roll ID..." type="text"/>
+</div>
+<!-- Roster Filter Pills -->
+<div class="inline-flex p-1 bg-surface-container-low rounded-xl self-start sm:self-auto">
+<button class="px-3 py-1 rounded-lg bg-surface-container-lowest text-primary font-label-sm text-label-sm font-semibold shadow-xs" type="button">All (48)</button>
+<button class="px-3 py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button">Needs Review (4)</button>
+<button class="px-3 py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button">Verified (44)</button>
+</div>
+</div>
+<!-- Student Attendance Interactive List -->
+<div class="flex flex-col gap-2.5 overflow-y-auto max-h-[580px] pr-1">
+<!-- Student Item 1: High Confidence Liam Chen -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container/60 transition-colors flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm shrink-0">
+                LC
+              </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Liam Chen</span>
+<span class="px-2 py-0.2 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm">98% Match</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline truncate">2025-CS-4012 • Seat A-14 • 10:02:11 AM</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<!-- Present Toggle Button -->
+<button class="px-3 py-1.5 rounded-full bg-secondary text-on-secondary font-label-md text-label-md flex items-center gap-1 shadow-sm" onclick="toggleAttendance(this)" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Present</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-outline hover:text-on-surface" title="View Biometric Vector Details" type="button">
+<span class="material-symbols-outlined text-[16px]">fingerprint</span>
+</button>
+</div>
+</div>
+<!-- Student Item 2: High Confidence Sophia Martinez -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container/60 transition-colors flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-sm shrink-0">
+                SM
+              </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Sophia Martinez</span>
+<span class="px-2 py-0.2 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm">96% Match</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline truncate">2025-CS-4089 • Seat B-07 • 10:02:14 AM</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="px-3 py-1.5 rounded-full bg-secondary text-on-secondary font-label-md text-label-md flex items-center gap-1 shadow-sm" onclick="toggleAttendance(this)" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Present</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-outline hover:text-on-surface" title="View Biometric Vector Details" type="button">
+<span class="material-symbols-outlined text-[16px]">fingerprint</span>
+</button>
+</div>
+</div>
+<!-- Student Item 3: High Confidence Marcus Vance -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container/60 transition-colors flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-bold text-sm shrink-0">
+                MV
+              </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Marcus Vance</span>
+<span class="px-2 py-0.2 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm">94% Match</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline truncate">2025-CS-4055 • Seat C-12 • 10:02:18 AM</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="px-3 py-1.5 rounded-full bg-secondary text-on-secondary font-label-md text-label-md flex items-center gap-1 shadow-sm" onclick="toggleAttendance(this)" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Present</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-outline hover:text-on-surface" title="View Biometric Vector Details" type="button">
+<span class="material-symbols-outlined text-[16px]">fingerprint</span>
+</button>
+</div>
+</div>
+<!-- Student Item 4: Low Confidence Review - Elena Rostova -->
+<div class="p-space-sm rounded-xl bg-surface-container-high/60 transition-colors flex flex-col gap-2">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-sm shrink-0">
+                  ER
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Elena Rostova</span>
+<span class="px-2 py-0.2 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">74% Match</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2025-CS-4078 • Angled Profile • Flagged Review</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="px-2.5 py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm hover:opacity-90" type="button">Confirm</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-lowest text-error font-label-sm text-label-sm hover:bg-error-container" type="button">Reject</button>
+</div>
+</div>
+</div>
+<!-- Student Item 5: Low Confidence Review - Devon Brooks -->
+<div class="p-space-sm rounded-xl bg-surface-container-high/60 transition-colors flex flex-col gap-2">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-sm shrink-0">
+                  DB
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Devon Brooks</span>
+<span class="px-2 py-0.2 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">72% Match</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2025-CS-4042 • Glasses Refraction • Flagged Review</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="px-2.5 py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm hover:opacity-90" type="button">Confirm</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-lowest text-error font-label-sm text-label-sm hover:bg-error-container" type="button">Reject</button>
+</div>
+</div>
+</div>
+<!-- Student Item 6: Unknown Face / Unassigned Guest -->
+<div class="p-space-sm rounded-xl bg-error-container/40 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-error text-on-error flex items-center justify-center font-bold shrink-0">
+<span class="material-symbols-outlined text-[20px]">person_off</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-error-container font-semibold truncate">Unknown Face #01</span>
+<span class="px-2 py-0.2 rounded-full bg-error text-on-error font-label-sm text-label-sm">No Embedding Match</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-error-container/80">Seat D-04 • Guest or Unregistered Audit</span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center gap-1 shadow-xs self-end sm:self-auto" type="button">
+<span class="material-symbols-outlined text-[16px]">person_add</span>
+<span>Assign Student</span>
+</button>
+</div>
+</div>
+<!-- Roster Batch Summary Footnote -->
+<div class="mt-auto pt-space-md flex items-center justify-between font-body-sm text-body-sm text-outline">
+<span>Showing 6 of 48 enrolled students</span>
+<a class="text-primary hover:underline font-label-md text-label-md" href="#">View Complete Roster Grid →</a>
+</div>
+</div>
+</div>
+</div>
+<!-- SECONDARY MODE PREVIEW: DYNAMIC QR ATTENDANCE CARD (Hidden by default, toggled via switcher) -->
+<div class="hidden flex-col gap-space-lg" id="qr-workspace-view">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop">
+<!-- QR Projected Viewport (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-xl rounded-3xl shadow-sm flex flex-col items-center justify-center text-center relative overflow-hidden">
+<div class="absolute top-4 left-6 flex items-center gap-2">
+<span class="h-3 w-3 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Live Anti-Screenshot Rotation</span>
+</div>
+<!-- Big Dynamic Stylized QR SVG -->
+<div class="relative p-6 bg-surface-container-lowest rounded-3xl shadow-2xl my-space-md">
+<svg class="w-64 h-64 md:w-80 md:h-80" fill="none" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<!-- Background Accent -->
+<rect fill="#FAF8FF" height="200" rx="20" width="200"></rect>
+<!-- Outer Corner Brackets (Stylized QR Markers) -->
+<rect fill="white" height="44" rx="10" stroke="#33229C" stroke-width="6" width="44" x="20" y="20"></rect>
+<rect fill="#5242D7" height="20" rx="4" width="20" x="32" y="32"></rect>
+<rect fill="white" height="44" rx="10" stroke="#33229C" stroke-width="6" width="44" x="136" y="20"></rect>
+<rect fill="#5242D7" height="20" rx="4" width="20" x="148" y="32"></rect>
+<rect fill="white" height="44" rx="10" stroke="#33229C" stroke-width="6" width="44" x="20" y="136"></rect>
+<rect fill="#5242D7" height="20" rx="4" width="20" x="32" y="148"></rect>
+<!-- Random Generated QR Data Grid Elements -->
+<rect fill="#33229C" height="10" rx="2" width="10" x="74" y="24"></rect>
+<rect fill="#6C5EF1" height="10" rx="2" width="10" x="92" y="24"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="110" y="24"></rect>
+<rect fill="#5242D7" height="10" rx="2" width="10" x="74" y="42"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="110" y="42"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="24" y="74"></rect>
+<rect fill="#5242D7" height="10" rx="2" width="10" x="42" y="74"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="60" y="74"></rect>
+<rect fill="#6C5EF1" height="10" rx="2" width="10" x="24" y="92"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="60" y="92"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="24" y="110"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="136" y="74"></rect>
+<rect fill="#5242D7" height="10" rx="2" width="10" x="154" y="74"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="172" y="74"></rect>
+<rect fill="#6C5EF1" height="10" rx="2" width="10" x="136" y="92"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="172" y="92"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="154" y="110"></rect>
+<rect fill="#5242D7" height="10" rx="2" width="10" x="74" y="136"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="92" y="136"></rect>
+<rect fill="#6C5EF1" height="10" rx="2" width="10" x="110" y="136"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="74" y="154"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="110" y="154"></rect>
+<rect fill="#6C5EF1" height="10" rx="2" width="10" x="74" y="172"></rect>
+<rect fill="#5242D7" height="10" rx="2" width="10" x="92" y="172"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="110" y="172"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="136" y="136"></rect>
+<rect fill="#5242D7" height="10" rx="2" width="10" x="154" y="154"></rect>
+<rect fill="#33229C" height="10" rx="2" width="10" x="172" y="172"></rect>
+<!-- Center Branded Icon Badge -->
+<circle cx="100" cy="100" fill="#33229C" r="22"></circle>
+<path d="M92 104L98 94L102 101L108 92" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+<!-- Circular Countdown Gauge Around Center -->
+<div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-surface-container-lowest px-4 py-1.5 rounded-full shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">sync</span>
+<span class="font-label-md text-label-md text-on-surface">Rotating token in <strong class="text-secondary">18s</strong></span>
+</div>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold mt-2">Project on Lecture Auditorium Screen</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md mt-1">
+          Students scan via AttendX Student Mobile App with active GPS & Bluetooth BLE proximity validation.
+        </p>
+<div class="flex items-center gap-space-sm mt-space-md">
+<button class="px-space-md py-2 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors font-label-md text-label-md flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">pause</span>
+<span>Pause Session</span>
+</button>
+<button class="px-space-md py-2 rounded-full bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-colors font-label-md text-label-md flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">stop</span>
+<span>End QR Session</span>
+</button>
+</div>
+</div>
+<!-- Live Check-In Ticker & Geofence Stats (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Progress Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Live Check-in Velocity</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">42 / 48 Checked In (87.5%)</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-3 rounded-full bg-surface-container-high overflow-hidden my-2">
+<div class="h-full bg-secondary rounded-full transition-all duration-500" style="width: 87.5%;"></div>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-outline">
+<span>Hall B4 Geofence: 15m radius verified</span>
+<span>6 Remaining</span>
+</div>
+</div>
+<!-- Real-Time Activity Feed -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm flex flex-col flex-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">bolt</span>
+<span>Real-time Ingress Feed</span>
+</h3>
+<div class="flex flex-col gap-2.5 overflow-y-auto max-h-[380px]">
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold text-xs">SK</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Sarah Kowalski</span>
+<span class="font-body-sm text-body-sm text-outline">BLE Beacon verified • Hall B4</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">4s ago</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold text-xs">RM</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Ryan Miller</span>
+<span class="font-body-sm text-body-sm text-outline">BLE Beacon verified • Hall B4</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">12s ago</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold text-xs">AP</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Ananya Patel</span>
+<span class="font-body-sm text-body-sm text-outline">BLE Beacon verified • Hall B4</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">28s ago</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-xs">TH</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Tariq Hassan</span>
+<span class="font-body-sm text-body-sm text-outline">BLE Beacon verified • Hall B4</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline">41s ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- PINNED BOTTOM VERIFICATION & COMMIT BAR -->
+<div class="sticky bottom-4 z-30 w-full bg-surface-container-lowest/95 backdrop-blur-xl rounded-2xl shadow-2xl p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+<!-- Live Session Counter -->
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">fact_check</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">45 of 48 Students Marked Present</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">93.8% Total Attendance</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">3 Students Absent • 1 Unassigned Biometric Candidate</span>
+</div>
+</div>
+<!-- Action Trigger Buttons -->
+<div class="flex flex-wrap items-center gap-space-sm w-full md:w-auto justify-end">
+<button class="px-space-md py-2.5 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container font-label-lg text-label-lg transition-colors" type="button">
+        Cancel Session
+      </button>
+<button class="px-space-md py-2.5 rounded-full bg-surface-container-low text-primary hover:bg-surface-container font-label-lg text-label-lg flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Export Audit (.csv)</span>
+</button>
+<button class="px-space-lg py-2.5 rounded-full bg-primary hover:bg-secondary text-on-primary font-label-lg text-label-lg shadow-lg shadow-primary/25 flex items-center gap-2 transition-all transform active:scale-95" onclick="confirmAttendance()" type="button">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>Confirm & Save Attendance</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  function switchMode(mode) {
+    const aiView = document.getElementById('ai-workspace-view');
+    const qrView = document.getElementById('qr-workspace-view');
+    const btnAi = document.getElementById('tab-btn-ai');
+    const btnQr = document.getElementById('tab-btn-qr');
+
+    if (mode === 'ai') {
+      aiView.classList.remove('hidden');
+      qrView.classList.add('hidden');
+      btnAi.className = "flex items-center gap-2 px-space-md py-2 rounded-full bg-surface-container-lowest text-primary shadow-md shadow-primary/10 transition-all font-label-lg text-label-lg";
+      btnQr.className = "flex items-center gap-2 px-space-md py-2 rounded-full text-on-surface-variant hover:text-on-surface transition-all font-label-lg text-label-lg";
+    } else {
+      aiView.classList.add('hidden');
+      qrView.classList.remove('hidden');
+      btnQr.className = "flex items-center gap-2 px-space-md py-2 rounded-full bg-surface-container-lowest text-primary shadow-md shadow-primary/10 transition-all font-label-lg text-label-lg";
+      btnAi.className = "flex items-center gap-2 px-space-md py-2 rounded-full text-on-surface-variant hover:text-on-surface transition-all font-label-lg text-label-lg";
+    }
+  }
+
+  function toggleAttendance(btn) {
+    const isPresent = btn.classList.contains('bg-secondary');
+    if (isPresent) {
+      btn.className = "px-3 py-1.5 rounded-full bg-error-container text-on-error-container font-label-md text-label-md flex items-center gap-1 shadow-sm";
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">cancel</span><span>Absent</span>';
+    } else {
+      btn.className = "px-3 py-1.5 rounded-full bg-secondary text-on-secondary font-label-md text-label-md flex items-center gap-1 shadow-sm";
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check_circle</span><span>Present</span>';
+    }
+  }
+
+  function confirmAttendance() {
+    alert('Attendance confirmed for CS302 Neural Networks! 45/48 students committed to the institutional registrar.');
+  }
+</script></main></div></body></html>

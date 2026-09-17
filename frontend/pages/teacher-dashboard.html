@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AttendX — Teacher Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "on-background": "#1a1b20",
+        "surface-container-highest": "#e3e2e8",
+        "on-tertiary-fixed-variant": "#8c0057",
+        "inverse-primary": "#c6c0ff",
+        "tertiary-fixed-dim": "#ffb0d0",
+        "surface-container": "#efedf3",
+        "primary": "#33229c",
+        "on-tertiary-fixed": "#3d0024",
+        "tertiary-container": "#9c0e63",
+        "on-surface": "#1a1b20",
+        "secondary-fixed-dim": "#c5c0ff",
+        "primary-fixed": "#e4dfff",
+        "secondary-fixed": "#e3dfff",
+        "on-error-container": "#93000a",
+        "on-secondary-fixed-variant": "#3c26c1",
+        "on-secondary": "#ffffff",
+        "on-error": "#ffffff",
+        "on-secondary-fixed": "#140067",
+        "on-tertiary-container": "#ffacce",
+        "surface-dim": "#dbd9df",
+        "surface-variant": "#e3e2e8",
+        "surface-bright": "#faf8ff",
+        "outline-variant": "#c8c4d5",
+        "on-primary": "#ffffff",
+        "tertiary": "#750048",
+        "secondary-container": "#6c5ef1",
+        "surface-container-high": "#e9e7ed",
+        "on-primary-container": "#c3bdff",
+        "surface-container-low": "#f4f3f9",
+        "on-secondary-container": "#fffbff",
+        "background": "#faf8ff",
+        "outline": "#787584",
+        "surface": "#faf8ff",
+        "inverse-surface": "#2f3035",
+        "on-surface-variant": "#474553",
+        "surface-tint": "#594dc2",
+        "primary-fixed-dim": "#c6c0ff",
+        "on-primary-fixed-variant": "#4032a9",
+        "secondary": "#5242d7",
+        "primary-container": "#4b3eb4",
+        "error": "#ba1a1a",
+        "error-container": "#ffdad6",
+        "tertiary-fixed": "#ffd8e6",
+        "surface-container-lowest": "#ffffff",
+        "on-primary-fixed": "#150066",
+        "on-tertiary": "#ffffff",
+        "inverse-on-surface": "#f1f0f6"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-sm": "0.5rem",
+        "margin-desktop": "2.5rem",
+        "margin": "1.5rem",
+        "gutter": "1.5rem",
+        "space-lg": "1.5rem",
+        "gutter-mobile": "0.75rem",
+        "space-xl": "2rem",
+        "space-xs": "0.25rem",
+        "gutter-desktop": "2rem",
+        "margin-mobile": "1rem",
+        "space-md": "1rem"
+      },
+      "fontFamily": {
+        "headline-sm": ["Plus Jakarta Sans"],
+        "display-lg-mobile": ["Plus Jakarta Sans"],
+        "label-sm": ["Inter"],
+        "body-xl": ["Inter"],
+        "label-md": ["Inter"],
+        "display-md": ["Plus Jakarta Sans"],
+        "body-sm": ["Inter"],
+        "body-lg": ["Inter"],
+        "body-md": ["Inter"],
+        "headline-xl": ["Plus Jakarta Sans"],
+        "display-md-mobile": ["Plus Jakarta Sans"],
+        "label-lg": ["Inter"],
+        "display-lg": ["Plus Jakarta Sans"],
+        "headline-lg": ["Plus Jakarta Sans"],
+        "headline-md": ["Plus Jakarta Sans"]
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-inverse-surface z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-20 px-space-lg flex items-center gap-space-sm bg-inverse-surface"><img alt="Modern minimalist AI biometric attendance logo for AttendX. Clean geometric icon featuring an abstract camera/viewfinder biometric scan bracket framing a stylized letter 'A' and 'X' intersection or dynamic pulse mark, vibrant indigo #4B3EB4 and bright violet #6355E8, vector, sleek edtech brand identity. Design context: - Primary color: #4b3eb4
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+. The logo should be visually consistent with these brand tokens." class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VI0SbTHSf6Un9FPBBmPtUOHv907PnkF9zn4Yy6a-kKCqyw6aSh3sueL2gBqS2opIF03VruXGzkqp_else9XxK67K_oGZAOz7DqA_OFW3JLah4nkN2-8f6HRvSq7ahRv3RgW4v6v4gBNKtoDYnrsoZjmuLZImVXFz122G7dag8RbeTjJfIrTF9mETX5t_7q6tA_Wp48GBBtFlLJtA3Ibf_TSzOVi4bWJyUPwmuhUae5xZqSE9XDdZ4HEe4"/><div class="flex flex-col"><span class="font-headline-md text-headline-md text-inverse-on-surface font-bold tracking-tight">AttendX</span><span class="font-label-sm text-label-sm text-outline-variant uppercase tracking-widest">Faculty Portal</span></div></div><div class="px-space-md pt-space-md"><span class="px-space-sm font-label-sm text-label-sm uppercase tracking-wider text-outline-variant font-semibold">Academic Navigation</span></div><nav class="flex flex-col gap-space-xs px-space-md mt-space-sm" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-xl"><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm transition-all bg-primary-container text-on-primary-container font-semibold rounded-xl" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-label-lg text-label-lg">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-outline-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" data-path="subjects" href="#"><span class="material-symbols-outlined text-[20px]">menu_book</span><span class="font-label-lg text-label-lg">Subjects</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-outline-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" data-path="take-attendance" href="#"><span class="material-symbols-outlined text-[20px]">center_focus_strong</span><span class="font-label-lg text-label-lg">Take Attendance</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-outline-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" data-path="students" href="#"><span class="material-symbols-outlined text-[20px]">school</span><span class="font-label-lg text-label-lg">Students</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-outline-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" data-path="reports" href="#"><span class="material-symbols-outlined text-[20px]">insights</span><span class="font-label-lg text-label-lg">Reports</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-outline-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-lg text-label-lg">Settings</span></a></nav></div><div class="p-space-md bg-inverse-surface"><div class="p-space-md rounded-xl bg-surface-variant/10 flex items-center justify-between mb-space-sm"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col"><span class="font-label-md text-label-md text-inverse-on-surface font-semibold">Dr. Julian Mercer</span><span class="font-label-sm text-label-sm text-outline-variant">Computer Science</span></div></div></div><nav class="w-full" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-xl"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-outline-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" data-path="login" href="#"><span class="material-symbols-outlined text-[20px]">logout</span><span class="font-label-lg text-label-lg">Logout</span></a></nav></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/80 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full h-20 px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-lg"><img alt="Modern minimalist AI biometric attendance logo for AttendX. Clean geometric icon featuring an abstract camera/viewfinder biometric scan bracket framing a stylized letter 'A' and 'X' intersection or dynamic pulse mark, vibrant indigo #4B3EB4 and bright violet #6355E8, vector, sleek edtech brand identity. Design context: - Primary color: #4b3eb4
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+. The logo should be visually consistent with these brand tokens." class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VI0SbTHSf6Un9FPBBmPtUOHv907PnkF9zn4Yy6a-kKCqyw6aSh3sueL2gBqS2opIF03VruXGzkqp_else9XxK67K_oGZAOz7DqA_OFW3JLah4nkN2-8f6HRvSq7ahRv3RgW4v6v4gBNKtoDYnrsoZjmuLZImVXFz122G7dag8RbeTjJfIrTF9mETX5t_7q6tA_Wp48GBBtFlLJtA3Ibf_TSzOVi4bWJyUPwmuhUae5xZqSE9XDdZ4HEe4"/><div class="relative w-full"><span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span><input class="w-full h-11 pl-10 pr-space-md rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:bg-surface-bright transition-all" placeholder="Search students, course codes, or biometric logs..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-xs rounded-full shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><span class="material-symbols-outlined text-secondary text-[18px]">calendar_today</span><span class="font-label-md text-label-md text-on-surface font-semibold">Fall 2025</span><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div><div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-lowest text-on-surface-variant shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary"></span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface flex-1 px-space-lg pb-space-xl"><div class="flex flex-col w-full gap-space-lg">
+<!-- Top Welcome & Session Launch Banner -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">Good morning, Professor</h1>
+<span class="text-2xl animate-pulse">👋</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+        Here is what's happening across your connected lecture halls and active courses today.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-full bg-surface-container-lowest text-primary hover:bg-surface-container shadow-sm transition-all text-label-lg font-label-lg">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>Schedule Session</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-full bg-primary text-on-primary hover:bg-secondary shadow-md hover:shadow-lg transition-all text-label-lg font-label-lg">
+<span class="material-symbols-outlined text-[20px]">center_focus_strong</span>
+<span>+ Take Attendance Now</span>
+</button>
+</div>
+</div>
+<!-- Key Metric Statistics (4-Card Row) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Stat 1: Total Enrolled -->
+<div class="p-space-lg rounded-[20px] bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Total Students</span>
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-md text-display-md text-on-surface font-bold">348</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Enrolled</span>
+</div>
+<div class="flex items-center gap-1.5 mt-2">
+<span class="inline-flex items-center text-label-sm font-label-sm text-secondary font-semibold bg-secondary-fixed/50 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12
+          </span>
+<span class="font-body-sm text-body-sm text-outline">this term</span>
+</div>
+</div>
+</div>
+<!-- Stat 2: Present Today -->
+<div class="p-space-lg rounded-[20px] bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Present Today</span>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">how_to_reg</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-md text-display-md text-on-surface font-bold">284</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Verified</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-highest text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+            91.6% Normal
+          </span>
+<span class="font-body-sm text-body-sm text-outline">active roll</span>
+</div>
+</div>
+</div>
+<!-- Stat 3: Absent Today -->
+<div class="p-space-lg rounded-[20px] bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Absent Today</span>
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">person_off</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-md text-display-md text-on-surface font-bold">26</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Students</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-error-container text-error font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+            8.4%
+          </span>
+<span class="font-body-sm text-body-sm text-outline">4 Excused med.</span>
+</div>
+</div>
+</div>
+<!-- Stat 4: Active Subjects -->
+<div class="p-space-lg rounded-[20px] bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Active Subjects</span>
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">auto_stories</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-md text-display-md text-on-surface font-bold">4</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Courses</span>
+</div>
+<div class="flex items-center gap-1.5 mt-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant font-semibold">
+<span class="material-symbols-outlined text-[14px]">event_seat</span>
+            2 sessions scheduled today
+          </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Grid (Two Columns: ~65% / ~35%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Analytics & High-Density Log Table (~65%) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Card 1: Attendance Overview Trends Chart -->
+<div class="p-space-lg rounded-[20px] bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<!-- Card Header & Filters -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Weekly Attendance Trends</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Continuous biometric roll monitoring vs institution standard (75%)</p>
+</div>
+<div class="flex items-center gap-2 flex-wrap">
+<select class="h-9 px-3 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm focus:outline-none cursor-pointer">
+<option>All Subjects</option>
+<option>CS302: Neural Networks</option>
+<option>CS401: Distributed Systems</option>
+<option>CS210: Data Structures</option>
+</select>
+<div class="flex items-center bg-surface-container p-0.5 rounded-lg">
+<button class="px-2.5 py-1 rounded-[6px] bg-surface-container-lowest text-primary font-label-sm text-label-sm font-semibold shadow-xs">This Week</button>
+<button class="px-2.5 py-1 rounded-[6px] text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface">Last Week</button>
+<button class="px-2.5 py-1 rounded-[6px] text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface">Semester</button>
+</div>
+</div>
+</div>
+<!-- Metric Badges Row -->
+<div class="flex items-center gap-space-sm flex-wrap pt-1">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Highest: <strong>CS302</strong> (96.2%)</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>Lowest: <strong>CS104</strong> (82.1%)</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed/40 text-secondary font-label-sm text-label-sm ml-auto">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>Faculty Benchmark: +16.6% Above Standard</span>
+</div>
+</div>
+<!-- Inline High-Fidelity SVG Chart Card Area -->
+<div class="w-full mt-2 relative">
+<!-- Chart Visual: Area & Columns with Grid -->
+<div class="w-full h-64 relative flex items-end">
+<!-- Institutional Threshold Benchmark Line (75%) -->
+<div class="absolute left-0 right-0 top-[28%] flex items-center z-10 pointer-events-none">
+<div class="w-full border-t border-dashed border-outline/40"></div>
+<span class="absolute right-2 -top-3 text-[10px] font-label-sm uppercase tracking-wider text-outline bg-surface-container-lowest px-1.5 py-0.5 rounded">
+                75% Required Threshold
+              </span>
+</div>
+<!-- SVG Smooth Area Curve Overlay -->
+<svg class="absolute inset-0 w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 500 180">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#5242d7" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#5242d7" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<path d="M 10 120 Q 120 40 250 20 T 490 60 L 490 180 L 10 180 Z" fill="url(#chartGradient)"></path>
+<path d="M 10 120 Q 120 40 250 20 T 490 60" fill="none" stroke="#5242d7" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<!-- Bar Columns Grid (Mon to Fri) -->
+<div class="w-full h-full grid grid-cols-5 gap-4 items-end relative z-20 pt-8 pb-4">
+<!-- Monday -->
+<div class="flex flex-col items-center h-full justify-end group cursor-pointer">
+<div class="opacity-0 group-hover:opacity-100 transition-opacity mb-1.5 px-2 py-0.5 rounded bg-inverse-surface text-inverse-on-surface font-label-sm text-[11px] shadow-sm">
+                  88.4%
+                </div>
+<div class="w-10 sm:w-14 rounded-t-xl bg-surface-container-high group-hover:bg-primary-fixed transition-colors flex items-end justify-center pb-2" style="height: 72%;">
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">88%</span>
+</div>
+<span class="mt-2 font-label-sm text-label-sm text-outline">Mon</span>
+</div>
+<!-- Tuesday -->
+<div class="flex flex-col items-center h-full justify-end group cursor-pointer">
+<div class="opacity-0 group-hover:opacity-100 transition-opacity mb-1.5 px-2 py-0.5 rounded bg-inverse-surface text-inverse-on-surface font-label-sm text-[11px] shadow-sm">
+                  91.0%
+                </div>
+<div class="w-10 sm:w-14 rounded-t-xl bg-surface-container-high group-hover:bg-primary-fixed transition-colors flex items-end justify-center pb-2" style="height: 78%;">
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">91%</span>
+</div>
+<span class="mt-2 font-label-sm text-label-sm text-outline">Tue</span>
+</div>
+<!-- Wednesday (High-Water Mark) -->
+<div class="flex flex-col items-center h-full justify-end group cursor-pointer">
+<div class="mb-1.5 px-2 py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-[11px] shadow-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">star</span> 94.0%
+                </div>
+<div class="w-10 sm:w-14 rounded-t-xl bg-secondary transition-all flex items-end justify-center pb-2 shadow-md" style="height: 88%;">
+<span class="font-label-sm text-[11px] text-on-secondary font-bold">94%</span>
+</div>
+<span class="mt-2 font-label-sm text-label-sm text-secondary font-bold">Wed (Peak)</span>
+</div>
+<!-- Thursday -->
+<div class="flex flex-col items-center h-full justify-end group cursor-pointer">
+<div class="opacity-0 group-hover:opacity-100 transition-opacity mb-1.5 px-2 py-0.5 rounded bg-inverse-surface text-inverse-on-surface font-label-sm text-[11px] shadow-sm">
+                  89.5%
+                </div>
+<div class="w-10 sm:w-14 rounded-t-xl bg-surface-container-high group-hover:bg-primary-fixed transition-colors flex items-end justify-center pb-2" style="height: 75%;">
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">89%</span>
+</div>
+<span class="mt-2 font-label-sm text-label-sm text-outline">Thu</span>
+</div>
+<!-- Friday -->
+<div class="flex flex-col items-center h-full justify-end group cursor-pointer">
+<div class="opacity-0 group-hover:opacity-100 transition-opacity mb-1.5 px-2 py-0.5 rounded bg-inverse-surface text-inverse-on-surface font-label-sm text-[11px] shadow-sm">
+                  92.2%
+                </div>
+<div class="w-10 sm:w-14 rounded-t-xl bg-surface-container-high group-hover:bg-primary-fixed transition-colors flex items-end justify-center pb-2" style="height: 82%;">
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">92%</span>
+</div>
+<span class="mt-2 font-label-sm text-label-sm text-outline">Fri</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Recent Attendance Records Data Table -->
+<div class="p-space-lg rounded-[20px] bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Recent Attendance Sessions</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Audit trails for automated and scanned student rosters</p>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="text-primary hover:text-secondary font-label-md text-label-md font-semibold flex items-center gap-1">
+<span>View All Records</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Filter bar in card -->
+<div class="flex items-center justify-between gap-space-sm py-1">
+<div class="relative w-full max-w-xs">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">filter_list</span>
+<input class="w-full h-9 pl-9 pr-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:bg-surface-container" placeholder="Filter by course, room, or mode..." type="text"/>
+</div>
+<span class="font-label-sm text-label-sm text-outline hidden sm:inline-block">Showing 4 of 24 logged sessions</span>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider h-11">
+<th class="px-space-md rounded-l-lg">Course &amp; Hall</th>
+<th class="px-space-sm">Verification Mode</th>
+<th class="px-space-sm">Timestamp</th>
+<th class="px-space-sm">Present Count</th>
+<th class="px-space-sm">Absent</th>
+<th class="px-space-sm">Status</th>
+<th class="px-space-md rounded-r-lg text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-md text-body-md">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors h-16">
+<td class="px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">CS302: Neural Networks &amp; Deep Learning</span>
+<span class="font-label-sm text-label-sm text-outline">Hall B4 • Capacity: 50</span>
+</div>
+</td>
+<td class="px-space-sm">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary-fixed text-primary font-semibold">
+<span class="material-symbols-outlined text-[15px]">center_focus_strong</span>
+                    AI Face Recognition
+                  </span>
+</td>
+<td class="px-space-sm font-body-sm text-body-sm text-on-surface-variant">
+                  Today, 10:00 AM
+                </td>
+<td class="px-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-semibold text-on-surface">45/48</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">(94.0%)</span>
+</div>
+</td>
+<td class="px-space-sm">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-error-container text-error font-semibold">
+                    3 Absent
+                  </span>
+</td>
+<td class="px-space-sm">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-highest text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Completed
+                  </span>
+</td>
+<td class="px-space-md text-right">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-sm text-label-sm font-semibold transition-all">
+                    View Roster
+                  </button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors h-16">
+<td class="px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">CS401: Distributed Systems</span>
+<span class="font-label-sm text-label-sm text-outline">Auditorium 2 • Capacity: 120</span>
+</div>
+</td>
+<td class="px-space-sm">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-secondary-fixed text-secondary font-semibold">
+<span class="material-symbols-outlined text-[15px]">qr_code_2</span>
+                    Dynamic QR
+                  </span>
+</td>
+<td class="px-space-sm font-body-sm text-body-sm text-on-surface-variant">
+                  Yesterday, 02:00 PM
+                </td>
+<td class="px-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-semibold text-on-surface">88/92</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">(95.6%)</span>
+</div>
+</td>
+<td class="px-space-sm">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-error-container text-error font-semibold">
+                    4 Absent
+                  </span>
+</td>
+<td class="px-space-sm">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-highest text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Completed
+                  </span>
+</td>
+<td class="px-space-md text-right">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-sm text-label-sm font-semibold transition-all">
+                    View Roster
+                  </button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors h-16">
+<td class="px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">CS210: Data Structures &amp; Algorithms</span>
+<span class="font-label-sm text-label-sm text-outline">Lab 3 • Capacity: 65</span>
+</div>
+</td>
+<td class="px-space-sm">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary-fixed text-primary font-semibold">
+<span class="material-symbols-outlined text-[15px]">center_focus_strong</span>
+                    AI Face Recognition
+                  </span>
+</td>
+<td class="px-space-sm font-body-sm text-body-sm text-on-surface-variant">
+                  Yesterday, 11:15 AM
+                </td>
+<td class="px-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-semibold text-on-surface">58/62</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">(93.5%)</span>
+</div>
+</td>
+<td class="px-space-sm">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-error-container text-error font-semibold">
+                    4 Absent
+                  </span>
+</td>
+<td class="px-space-sm">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-highest text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Completed
+                  </span>
+</td>
+<td class="px-space-md text-right">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-sm text-label-sm font-semibold transition-all">
+                    View Roster
+                  </button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors h-16">
+<td class="px-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">CS104: Discrete Mathematics</span>
+<span class="font-label-sm text-label-sm text-outline">Lecture Room 101 • Capacity: 50</span>
+</div>
+</td>
+<td class="px-space-sm">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-secondary-fixed text-secondary font-semibold">
+<span class="material-symbols-outlined text-[15px]">qr_code_2</span>
+                    Dynamic QR
+                  </span>
+</td>
+<td class="px-space-sm font-body-sm text-body-sm text-on-surface-variant">
+                  Oct 22, 09:00 AM
+                </td>
+<td class="px-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-semibold text-on-surface">42/48</span>
+<span class="font-label-sm text-label-sm text-outline font-medium">(87.5%)</span>
+</div>
+</td>
+<td class="px-space-sm">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-error-container text-error font-semibold">
+                    6 Absent
+                  </span>
+</td>
+<td class="px-space-sm">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-outline-variant font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                    Needs Review
+                  </span>
+</td>
+<td class="px-space-md text-right">
+<button class="px-3 py-1.5 rounded-lg bg-secondary text-on-secondary hover:bg-primary font-label-sm text-label-sm font-semibold shadow-xs transition-all">
+                    Resolve
+                  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Fast Action Tiles, Active Sessions, Biometric Health (~35%) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Module 1: Quick Actions Command Grid -->
+<div class="p-space-lg rounded-[20px] bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Fast Actions</h2>
+<span class="font-label-sm text-label-sm text-outline font-semibold uppercase tracking-wider">Touch Controls</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Action Tile 1: AI Scan -->
+<button class="p-space-md rounded-2xl bg-surface-container-low hover:bg-primary-fixed/40 transition-all flex flex-col gap-space-xs text-left group">
+<div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center group-hover:scale-105 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[20px]">camera_indoor</span>
+</div>
+<span class="font-headline-sm text-[14px] text-on-surface font-bold mt-1 leading-tight">Start AI Recognition</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2">Direct stream from Hall B4 dome camera</span>
+</button>
+<!-- Action Tile 2: Dynamic QR -->
+<button class="p-space-md rounded-2xl bg-surface-container-low hover:bg-secondary-fixed/40 transition-all flex flex-col gap-space-xs text-left group">
+<div class="w-10 h-10 rounded-xl bg-secondary text-on-secondary flex items-center justify-center group-hover:scale-105 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+</div>
+<span class="font-headline-sm text-[14px] text-on-surface font-bold mt-1 leading-tight">Dynamic QR Display</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2">Project rotating 30-second token</span>
+</button>
+<!-- Action Tile 3: Manual Override -->
+<button class="p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col gap-space-xs text-left group">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest text-on-surface flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+</div>
+<span class="font-headline-sm text-[14px] text-on-surface font-bold mt-1 leading-tight">Manual Override</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2">Quick bulk adjust student check-ins</span>
+</button>
+<!-- Action Tile 4: Export CSV/PDF -->
+<button class="p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col gap-space-xs text-left group">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest text-on-surface flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</div>
+<span class="font-headline-sm text-[14px] text-on-surface font-bold mt-1 leading-tight">Export Reports</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2">Download compliance sheets (CSV/XLSX)</span>
+</button>
+</div>
+</div>
+<!-- Module 2: Active & Upcoming Sessions Today -->
+<div class="p-space-lg rounded-[20px] bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">schedule</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Sessions Schedule</h2>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-secondary bg-secondary-fixed/50 px-2 py-0.5 rounded-full">
+            Today
+          </span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Session 1: Live Now -->
+<div class="p-space-md rounded-2xl bg-surface-container-low flex flex-col gap-space-xs relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-fixed text-tertiary font-bold animate-pulse">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                Live Session Active
+              </span>
+<span class="font-label-sm text-label-sm text-outline font-medium">10:00 - 11:30 AM</span>
+</div>
+<div class="mt-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">CS302: Neural Networks</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Hall B4 • Deep Learning Architectures</p>
+</div>
+<div class="mt-2 pt-2 border-t border-surface-container flex items-center justify-between">
+<div class="flex items-center gap-1 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">sensors</span>
+<span>45/48 Live Verified</span>
+</div>
+<button class="px-2.5 py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-semibold hover:bg-primary transition-colors">
+                HUD Monitor
+              </button>
+</div>
+</div>
+<!-- Session 2: Scheduled 02:00 PM -->
+<div class="p-space-md rounded-2xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                Scheduled
+              </span>
+<span class="font-label-sm text-label-sm text-outline font-medium">02:00 - 03:30 PM</span>
+</div>
+<div class="mt-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">CS401: Distributed Systems</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Auditorium 2 • Consensus Protocols</p>
+</div>
+<div class="mt-2 pt-2 border-t border-surface-container flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline">92 Students Enrolled</span>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-sm text-label-sm font-semibold transition-colors">
+                Launch Attendance
+              </button>
+</div>
+</div>
+<!-- Session 3: Upcoming 04:00 PM -->
+<div class="p-space-md rounded-2xl bg-surface-container-low flex flex-col gap-space-xs opacity-85">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-outline font-semibold">
+                Upcoming
+              </span>
+<span class="font-label-sm text-label-sm text-outline font-medium">04:00 PM</span>
+</div>
+<div class="mt-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">CS210: Office Hours &amp; Review</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Room 408 • Open Consultation</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Module 3: Biometric Vault Status & Hardware Health -->
+<div class="p-space-lg rounded-[20px] bg-inverse-surface text-inverse-on-surface shadow-md flex flex-col gap-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">security</span>
+<h3 class="font-headline-sm text-headline-sm font-bold">Biometric Engine Vault</h3>
+</div>
+<span class="inline-flex items-center gap-1 text-[11px] font-label-sm font-bold bg-surface-variant/20 text-secondary-fixed px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span> ONLINE
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-outline-variant">
+          Local edge inference node running 512-dimension face embeddings. Zero biometric imagery leaves campus perimeter.
+        </p>
+<div class="flex flex-col gap-2 mt-2 pt-2 border-t border-surface-variant/20">
+<div class="flex items-center justify-between text-[12px] font-label-md">
+<span class="text-outline-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">videocam</span>
+              Hardware Node 04
+            </span>
+<span class="font-semibold text-inverse-on-surface">1080p WebRTC (Hall B4)</span>
+</div>
+<div class="flex items-center justify-between text-[12px] font-label-md">
+<span class="text-outline-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">verified_user</span>
+              Liveness Check
+            </span>
+<span class="font-semibold text-secondary-fixed">99.4% Confidence Active</span>
+</div>
+<div class="flex items-center justify-between text-[12px] font-label-md">
+<span class="text-outline-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline-variant">shield</span>
+              Spoof Alerts Today
+            </span>
+<span class="font-semibold text-inverse-on-surface">0 Flags Raised</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
