@@ -1,0 +1,9 @@
+dlib-bin
+face_recognition_models
+scikit-learn
+numpy
+fastapi
+uvicorn
+python-multipart
+pillow
+segno

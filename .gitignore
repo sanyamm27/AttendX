@@ -1,0 +1,13 @@
+# Root .gitignore
+.env*
+*.env
+node_modules/
+.next/
+__pycache__/
+*.pyc
+scratch/
+venv/
+*.jpg
+*.jpeg
+*.png
+*.log

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#121318" rx="16"/>
+  <rect x="20" y="20" width="760" height="410" rx="12" fill="#1C1D24" stroke="#2D2F39" stroke-width="2"/>
+  <circle cx="400" cy="195" r="44" fill="#292B36" stroke="#4F378B" stroke-width="3"/>
+  <path d="M388 183 H412 V207 H388 Z M382 195 L376 189 V201 Z M418 195 L424 189 V201 Z" fill="#D0BCFF"/>
+  <text x="400" y="270" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="20" fill="#E6E0E9" text-anchor="middle">Live Lecture Classroom Feed</text>
+  <text x="400" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#938F99" text-anchor="middle">Upload a classroom photo or start camera capture to log attendance</text>
+</svg>

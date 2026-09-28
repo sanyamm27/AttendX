@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#1A1B20"/>
+  <rect x="50" y="50" width="700" height="250" rx="12" fill="#2F3035"/>
+  <text x="400" y="180" font-family="sans-serif" font-size="24" fill="#E3E2E8" text-anchor="middle">Live Lecture Classroom Feed</text>
+  <path d="M100 350 H700" stroke="#4B3EB4" stroke-width="4"/>
+  <rect x="120" y="380" width="120" height="80" rx="8" fill="#33229C"/>
+  <rect x="340" y="380" width="120" height="80" rx="8" fill="#33229C"/>
+  <rect x="560" y="380" width="120" height="80" rx="8" fill="#33229C"/>
+</svg>
