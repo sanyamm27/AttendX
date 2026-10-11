@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import CameraCaptureModal from "./CameraCaptureModal";
 import ImageCropperModal from "./ImageCropperModal";
+import AttendXLogo from "@/components/AttendXLogo";
 
 export default function LoginForm() {
   const [role, setRole] = useState<"student" | "teacher">("student");
@@ -83,11 +84,7 @@ export default function LoginForm() {
   return (
     <div className="w-full max-w-md bg-surface p-space-xl rounded-2xl border border-outline-variant/30 shadow-xl">
       <div className="flex flex-col items-center gap-space-sm mb-space-lg text-center">
-        <img
-          alt="AttendX Logo"
-          className="h-12 w-auto object-contain mb-space-xs"
-          src="/images/logo.svg"
-        />
+        <AttendXLogo size={48} className="mb-space-xs" />
         <h1 className="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">
           Welcome Back
         </h1>

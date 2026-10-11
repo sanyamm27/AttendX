@@ -1,16 +1,12 @@
 import Link from "next/link";
-import Image from "next/image";
+import AttendXLogo from "@/components/AttendXLogo";
 
 export default function PublicHeader() {
   return (
     <header className="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(75,62,180,0.06)]">
       <div className="h-20 max-w-[1680px] mx-auto px-margin md:px-margin-desktop flex items-center justify-between gap-gutter">
         <Link href="/" className="flex items-center gap-space-md">
-          <img
-            alt="AttendX Logo"
-            className="h-8 w-auto object-contain"
-            src="/images/logo.svg"
-          />
+          <AttendXLogo size={32} />
           <span className="font-headline-md text-headline-md font-bold tracking-tight text-on-surface">
             AttendX
           </span>

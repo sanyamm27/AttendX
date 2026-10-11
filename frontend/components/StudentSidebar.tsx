@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import AttendXLogo from "@/components/AttendXLogo";
 
 interface StudentUser {
   id: string;
@@ -54,11 +55,7 @@ export default function StudentSidebar() {
       <div className="flex flex-col">
         {/* Brand Header */}
         <div className="h-20 px-space-lg flex items-center gap-space-sm bg-inverse-surface">
-          <img
-            alt="AttendX Logo"
-            className="h-8 w-auto object-contain"
-            src="/images/logo.svg"
-          />
+          <AttendXLogo size={32} />
           <div className="flex flex-col">
             <span className="font-headline-md text-headline-md text-inverse-on-surface font-bold tracking-tight">
               AttendX
