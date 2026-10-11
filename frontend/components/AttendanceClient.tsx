@@ -235,7 +235,7 @@ export default function AttendanceClient() {
     <div className="p-space-lg md:p-space-xl max-w-[1600px] mx-auto">
       {/* Top Title, Subject Select & Mode Selector */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-space-xl">
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 min-w-0 max-w-full">
           <h1 className="font-headline-xl text-headline-xl font-bold text-on-surface tracking-tight">
             Take Attendance
           </h1>
@@ -250,15 +250,15 @@ export default function AttendanceClient() {
               first.
             </span>
           ) : (
-            <div className="flex items-center gap-2">
-              <label className="text-body-md text-on-surface-variant font-semibold">Course:</label>
+            <div className="flex items-center gap-2 min-w-0 max-w-full">
+              <label className="text-body-md text-on-surface-variant font-semibold shrink-0">Course:</label>
               <select
                 value={selectedSubjectId}
                 onChange={(e) => {
                   setSelectedSubjectId(e.target.value);
                   handleDiscard();
                 }}
-                className="h-10 px-3 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface font-headline-sm text-sm font-bold focus:outline-none cursor-pointer"
+                className="h-10 px-3 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface font-headline-sm text-sm font-bold focus:outline-none cursor-pointer max-w-full min-w-0 truncate"
               >
                 {subjects.map((s) => (
                   <option key={s.subject_id} value={s.subject_id}>

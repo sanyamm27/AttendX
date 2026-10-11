@@ -265,9 +265,8 @@ export default function ReportsClient() {
   };
 
   return (
-    <div className="pl-72 flex flex-col min-h-screen">
-      <main className="w-full pt-20 bg-surface flex-1 px-space-lg pb-space-xl">
-        <div className="flex flex-col w-full">
+    <div className="w-full pt-16 bg-surface min-h-screen px-space-lg pb-space-xl flex flex-col">
+      <div className="flex flex-col w-full">
           {/* Header section */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
             <div className="flex flex-col gap-space-xs">
@@ -456,15 +455,15 @@ export default function ReportsClient() {
           )}
 
           {/* Metric Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg mb-space-xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-lg mb-space-xl">
             {/* Total Sessions / Logs */}
             <div className="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex flex-col justify-between relative overflow-hidden">
               <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary-fixed/20 rounded-full blur-xl pointer-events-none"></div>
-              <div className="flex items-center justify-between mb-space-md">
-                <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">
+              <div className="flex items-start justify-between gap-2 mb-space-md">
+                <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold leading-snug min-w-0 flex-1 pr-1 break-words">
                   Total Logs
                 </span>
-                <div className="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+                <div className="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary shrink-0">
                   <span className="material-symbols-outlined text-[20px]">co_present</span>
                 </div>
               </div>
@@ -472,7 +471,7 @@ export default function ReportsClient() {
                 <div className="font-headline-xl text-headline-xl text-on-surface font-bold">
                   {analytics ? `${analytics.total_logs} Records` : "0 Records"}
                 </div>
-                <div className="font-body-sm text-body-sm text-on-surface-variant mt-1 flex items-center gap-1">
+                <div className="font-body-sm text-body-sm text-on-surface-variant mt-1 flex items-center gap-1 flex-wrap break-words">
                   <span className="text-secondary font-semibold">{subjects.length} active subjects</span> in database
                 </div>
               </div>
@@ -480,25 +479,25 @@ export default function ReportsClient() {
 
             {/* Verified Check-Ins */}
             <div className="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex flex-col justify-between relative overflow-hidden">
-              <div className="flex items-center justify-between mb-space-md">
-                <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">
+              <div className="flex items-start justify-between gap-2 mb-space-md">
+                <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold leading-snug min-w-0 flex-1 pr-1 break-words">
                   Verified Check-Ins
                 </span>
-                <div className="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-[#1F7A4D]">
+                <div className="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-[#1F7A4D] shrink-0">
                   <span className="material-symbols-outlined text-[20px]">verified_user</span>
                 </div>
               </div>
               <div>
-                <div className="flex items-baseline gap-space-xs">
+                <div className="flex items-baseline gap-space-xs flex-wrap">
                   <span className="font-headline-xl text-headline-xl text-on-surface font-bold">
                     {analytics ? analytics.present_count : 0}
                   </span>
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-[#39B978]/10 text-[#1F7A4D] font-label-sm text-label-sm font-bold">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-[#39B978]/10 text-[#1F7A4D] font-label-sm text-label-sm font-bold shrink-0">
                     {analytics ? `${analytics.present_rate}% Rate` : "0% Rate"}
                   </span>
                 </div>
-                <div className="font-body-sm text-body-sm text-on-surface-variant mt-1 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[16px] text-[#1F7A4D]">trending_up</span>
+                <div className="font-body-sm text-body-sm text-on-surface-variant mt-1 flex items-center gap-1 flex-wrap break-words">
+                  <span className="material-symbols-outlined text-[16px] text-[#1F7A4D] shrink-0">trending_up</span>
                   <span className="text-[#1F7A4D] font-semibold">Calculated</span> from real verification logs
                 </div>
               </div>
@@ -506,26 +505,26 @@ export default function ReportsClient() {
 
             {/* Absent / Unverified */}
             <div className="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex flex-col justify-between relative overflow-hidden">
-              <div className="flex items-center justify-between mb-space-md">
-                <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">
+              <div className="flex items-start justify-between gap-2 mb-space-md">
+                <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold leading-snug min-w-0 flex-1 pr-1 break-words">
                   Absent / Unverified
                 </span>
-                <div className="w-10 h-10 rounded-xl bg-error-container/30 flex items-center justify-center text-error">
+                <div className="w-10 h-10 rounded-xl bg-error-container/30 flex items-center justify-center text-error shrink-0">
                   <span className="material-symbols-outlined text-[20px]">person_off</span>
                 </div>
               </div>
               <div>
-                <div className="flex items-baseline gap-space-xs">
+                <div className="flex items-baseline gap-space-xs flex-wrap">
                   <span className="font-headline-xl text-headline-xl text-on-surface font-bold">
                     {analytics ? analytics.absent_count : 0}
                   </span>
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold shrink-0">
                     {analytics && analytics.total_logs > 0
                       ? `${(100 - analytics.present_rate).toFixed(1)}%`
                       : "0%"}
                   </span>
                 </div>
-                <div className="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                <div className="font-body-sm text-body-sm text-on-surface-variant mt-1 break-words">
                   Logged absent or failed verifications
                 </div>
               </div>
@@ -533,37 +532,47 @@ export default function ReportsClient() {
 
             {/* Accreditation Safety */}
             <div className="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex flex-col justify-between relative overflow-hidden">
-              <div className="flex items-center justify-between mb-space-md">
-                <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">
+              <div className="flex items-start justify-between gap-2 mb-space-md">
+                <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold leading-snug min-w-0 flex-1 pr-1 break-words">
                   Accreditation Safety
                 </span>
-                <div className="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center text-primary">
+                <div className="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center text-primary shrink-0">
                   <span className="material-symbols-outlined text-[20px]">query_stats</span>
                 </div>
               </div>
               <div>
-                <div className="flex items-baseline justify-between">
+                <div className="flex items-baseline justify-between gap-1 flex-wrap">
                   <span className="font-headline-xl text-headline-xl text-on-surface font-bold">
                     {analytics ? `${analytics.present_rate}%` : "0%"}
                   </span>
-                  <span className="font-label-sm text-label-sm text-on-surface-variant">Min Req: {ATTENDANCE_COMPLIANCE_THRESHOLD}.0%</span>
+                  <span className="font-label-sm text-label-sm text-on-surface-variant shrink-0">Min Req: {ATTENDANCE_COMPLIANCE_THRESHOLD}.0%</span>
                 </div>
                 <div className="w-full bg-surface-container h-2 rounded-full mt-2 overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-500 ${
-                      analytics && analytics.present_rate >= ATTENDANCE_COMPLIANCE_THRESHOLD ? "bg-primary-container" : "bg-error"
+                      !analytics || analytics.total_logs === 0
+                        ? "bg-outline/30"
+                        : analytics.present_rate >= ATTENDANCE_COMPLIANCE_THRESHOLD
+                        ? "bg-primary-container"
+                        : "bg-error"
                     }`}
                     style={{ width: `${Math.min(100, analytics ? analytics.present_rate : 0)}%` }}
                   ></div>
                 </div>
-                <div className="font-body-sm text-body-sm text-on-surface-variant mt-1.5 flex items-center justify-between">
+                <div className="font-body-sm text-body-sm text-on-surface-variant mt-1.5 flex items-center justify-between gap-1 flex-wrap">
                   <span>Buffer margin:</span>
                   <span
                     className={`font-semibold font-label-sm text-label-sm ${
-                      analytics && analytics.present_rate >= ATTENDANCE_COMPLIANCE_THRESHOLD ? "text-[#1F7A4D]" : "text-error"
+                      !analytics || analytics.total_logs === 0
+                        ? "text-on-surface-variant"
+                        : analytics.present_rate >= ATTENDANCE_COMPLIANCE_THRESHOLD
+                        ? "text-[#1F7A4D]"
+                        : "text-error"
                     }`}
                   >
-                    {analytics ? `${(analytics.present_rate - ATTENDANCE_COMPLIANCE_THRESHOLD).toFixed(1)}%` : "0%"}
+                    {!analytics || analytics.total_logs === 0
+                      ? "—"
+                      : `${(analytics.present_rate - ATTENDANCE_COMPLIANCE_THRESHOLD).toFixed(1)}%`}
                   </span>
                 </div>
               </div>
@@ -782,14 +791,14 @@ export default function ReportsClient() {
             </div>
 
             <div className="w-full overflow-x-auto">
-              <table className="w-full text-left border-collapse">
+              <table className="w-full min-w-[650px] text-left border-collapse">
                 <thead>
                   <tr className="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider h-11">
-                    <th className="px-space-lg py-2">Timestamp</th>
-                    <th className="px-space-md py-2">Student</th>
-                    <th className="px-space-md py-2">Subject</th>
-                    <th className="px-space-md py-2">Verification Mode</th>
-                    <th className="px-space-md py-2">Status</th>
+                    <th className="px-space-lg py-2 whitespace-nowrap">Timestamp</th>
+                    <th className="px-space-md py-2 whitespace-nowrap">Student</th>
+                    <th className="px-space-md py-2 whitespace-nowrap">Subject</th>
+                    <th className="px-space-md py-2 whitespace-nowrap">Verification Mode</th>
+                    <th className="px-space-md py-2 whitespace-nowrap">Status</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y-0 text-on-surface font-body-sm text-body-sm">
@@ -937,13 +946,8 @@ export default function ReportsClient() {
                 </span>
               </div>
             </div>
-            <div className="flex items-center gap-space-xs self-start sm:self-auto font-label-sm text-label-sm font-mono text-outline">
-              <span className="w-2 h-2 rounded-full bg-[#39B978]"></span>
-              SYSTEM: ATTENDX-ANALYTICS-ENGINE • UTC SYNC
-            </div>
           </div>
         </div>
-      </main>
-    </div>
-  );
-}
+      </div>
+    );
+  }

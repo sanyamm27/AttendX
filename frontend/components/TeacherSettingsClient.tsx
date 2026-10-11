@@ -159,16 +159,6 @@ export default function TeacherSettingsClient() {
                 Manage your instructor credentials, update profile details, and handle session security.
               </p>
             </div>
-
-            <div className="flex items-center gap-space-sm bg-surface-container-lowest p-space-sm rounded-xl shadow-sm self-start md:self-auto">
-              <div className="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
-                <span className="material-symbols-outlined text-[24px]">verified_user</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider">Faculty Guard</span>
-                <span className="font-label-md text-label-md text-on-surface">Authenticated Instructor</span>
-              </div>
-            </div>
           </div>
 
           {/* Toast Banner */}
@@ -221,9 +211,6 @@ export default function TeacherSettingsClient() {
                       </p>
                     </div>
                   </div>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm">
-                    <span className="material-symbols-outlined text-[14px]">sync</span> Live Supabase Data
-                  </span>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center gap-space-md p-space-md bg-surface-container-low rounded-xl">
@@ -236,10 +223,6 @@ export default function TeacherSettingsClient() {
                     <div className="flex flex-wrap items-center justify-center sm:justify-start gap-space-xs">
                       <span className="font-headline-sm text-headline-sm text-on-surface font-semibold">
                         {user?.name || "Professor"}
-                      </span>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm font-semibold">
-                        <span className="material-symbols-outlined text-[14px]">verified</span>
-                        Verified Instructor
                       </span>
                     </div>
                     <p className="font-body-sm text-body-sm text-outline-variant mt-0.5">

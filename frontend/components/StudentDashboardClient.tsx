@@ -214,20 +214,27 @@ export default function StudentDashboardClient() {
               </span>
             </div>
           </div>
-          <div
-            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-bold ${
-              overallRate >= ATTENDANCE_COMPLIANCE_THRESHOLD ? "bg-emerald-500/10 text-emerald-800" : "bg-error-container text-on-error-container"
-            }`}
-          >
-            <span
-              className={`w-1.5 h-1.5 rounded-full ${overallRate >= ATTENDANCE_COMPLIANCE_THRESHOLD ? "bg-emerald-500" : "bg-error"}`}
-            ></span>
-            <span>
-              {overallRate >= ATTENDANCE_COMPLIANCE_THRESHOLD
-                ? `+${marginDiff}% Above ${ATTENDANCE_COMPLIANCE_THRESHOLD}% Safe Margin`
-                : `${Math.abs(marginDiff)}% Below ${ATTENDANCE_COMPLIANCE_THRESHOLD}% Floor`}
-            </span>
-          </div>
+          {totalLogs === 0 ? (
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-bold bg-surface-container-high text-on-surface-variant">
+              <span className="w-1.5 h-1.5 rounded-full bg-outline"></span>
+              <span>No attendance data yet</span>
+            </div>
+          ) : (
+            <div
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-bold ${
+                overallRate >= ATTENDANCE_COMPLIANCE_THRESHOLD ? "bg-emerald-500/10 text-emerald-800" : "bg-error-container text-on-error-container"
+              }`}
+            >
+              <span
+                className={`w-1.5 h-1.5 rounded-full ${overallRate >= ATTENDANCE_COMPLIANCE_THRESHOLD ? "bg-emerald-500" : "bg-error"}`}
+              ></span>
+              <span>
+                {overallRate >= ATTENDANCE_COMPLIANCE_THRESHOLD
+                  ? `+${marginDiff}% Above ${ATTENDANCE_COMPLIANCE_THRESHOLD}% Safe Margin`
+                  : `${Math.abs(marginDiff)}% Below ${ATTENDANCE_COMPLIANCE_THRESHOLD}% Floor`}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Classes Attended */}
@@ -296,7 +303,17 @@ export default function StudentDashboardClient() {
       </div>
 
       {/* Compliance Notice Banner */}
-      {breachedSubject ? (
+      {totalLogs === 0 ? (
+        <div className="relative overflow-hidden rounded-2xl bg-surface-container-low border border-outline-variant/30 p-space-md flex items-center gap-space-md text-on-surface-variant">
+          <span className="material-symbols-outlined text-2xl text-on-surface-variant">info</span>
+          <div className="flex flex-col">
+            <span className="font-headline-sm text-headline-sm font-bold text-on-surface">Institutional Accreditation Status: Pending Data</span>
+            <span className="font-body-sm text-body-sm text-on-surface-variant">
+              No verified attendance logs recorded yet for current semester courses.
+            </span>
+          </div>
+        </div>
+      ) : breachedSubject ? (
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-50 via-rose-50/70 to-surface-container-lowest p-space-lg shadow-[0_8px_24px_rgba(186,26,26,0.08)]">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md relative z-10">
             <div className="flex items-start gap-3.5 max-w-4xl">

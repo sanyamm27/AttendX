@@ -296,6 +296,39 @@ export const db = {
 
   // --- Enrollment (Subject Students) ---
   async enrollStudent(subject_id: string, student_id: string): Promise<SubjectStudent> {
+    const existingLocal = localDb.subject_students.find(
+      (ss) => ss.subject_id === subject_id && ss.student_id === student_id
+    );
+
+    if (supabase) {
+      try {
+        const { data, error } = await supabase
+          .from('subject_students')
+          .select('*')
+          .eq('subject_id', subject_id)
+          .eq('student_id', student_id)
+          .maybeSingle();
+
+        if (!error && data) {
+          const existingRecord: SubjectStudent = {
+            subject_id: data.subject_id,
+            student_id: data.student_id,
+            enrolled_at: data.enrolled_at,
+          };
+          if (!existingLocal) {
+            localDb.subject_students.push(existingRecord);
+          }
+          return existingRecord;
+        }
+      } catch (e) {
+        console.warn('Supabase enrollStudent check fallback:', e);
+      }
+    }
+
+    if (existingLocal) {
+      return existingLocal;
+    }
+
     const record: SubjectStudent = {
       subject_id,
       student_id,
@@ -303,18 +336,14 @@ export const db = {
     };
     if (supabase) {
       try {
-        await supabase.from('subject_students').delete().eq('subject_id', subject_id).eq('student_id', student_id);
         const { data, error } = await supabase.from('subject_students').insert([record]).select().single();
         if (!error && data) {
           record.enrolled_at = data.enrolled_at || record.enrolled_at;
         }
       } catch (e) {
-        console.warn('Supabase enrollStudent fallback:', e);
+        console.warn('Supabase enrollStudent insert fallback:', e);
       }
     }
-    localDb.subject_students = localDb.subject_students.filter(
-      (ss) => !(ss.subject_id === subject_id && ss.student_id === student_id)
-    );
     localDb.subject_students.push(record);
     return record;
   },

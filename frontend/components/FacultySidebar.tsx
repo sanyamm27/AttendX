@@ -52,7 +52,7 @@ export default function FacultySidebar() {
   ];
 
   return (
-    <aside className="fixed left-0 top-0 h-full w-72 bg-inverse-surface z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <aside className="hidden md:flex fixed left-0 top-0 h-full w-72 bg-inverse-surface z-50 flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
       <div className="flex flex-col">
         {/* Brand Header */}
         <div className="h-20 px-space-lg flex items-center gap-space-sm bg-inverse-surface">

@@ -154,12 +154,6 @@ export default function TeacherDashboardClient() {
                   </span>
                   <span className="font-label-md text-label-md text-on-surface-variant font-medium">Enrolled</span>
                 </div>
-                <div className="flex items-center gap-1.5 mt-1.5">
-                  <span className="inline-flex items-center text-label-sm font-label-sm text-secondary font-semibold bg-secondary-fixed/50 px-2 py-0.5 rounded-full">
-                    <span className="material-symbols-outlined text-[14px]">trending_up</span> Real-time
-                  </span>
-                  <span className="font-body-sm text-body-sm text-outline truncate">Active Roster</span>
-                </div>
               </div>
             </div>
 
@@ -179,13 +173,6 @@ export default function TeacherDashboardClient() {
                     {loading ? "..." : presentTodayCount}
                   </span>
                   <span className="font-label-md text-label-md text-on-surface-variant font-medium">Verified</span>
-                </div>
-                <div className="flex items-center gap-1.5 mt-1.5">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-highest text-primary font-semibold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                    Biometric
-                  </span>
-                  <span className="font-body-sm text-body-sm text-outline truncate">Face Logs</span>
                 </div>
               </div>
             </div>
@@ -207,13 +194,6 @@ export default function TeacherDashboardClient() {
                   </span>
                   <span className="font-label-md text-label-md text-on-surface-variant font-medium">Students</span>
                 </div>
-                <div className="flex items-center gap-1.5 mt-1.5">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-error-container text-error font-semibold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-error"></span>
-                    Unverified
-                  </span>
-                  <span className="font-body-sm text-body-sm text-outline truncate">Roll Checks</span>
-                </div>
               </div>
             </div>
 
@@ -233,12 +213,6 @@ export default function TeacherDashboardClient() {
                     {loading ? "..." : activeSubjectsCount}
                   </span>
                   <span className="font-label-md text-label-md text-on-surface-variant font-medium">Courses</span>
-                </div>
-                <div className="flex items-center gap-1.5 mt-1.5">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant font-semibold">
-                    <span className="material-symbols-outlined text-[14px]">event_seat</span>
-                    Active Courses
-                  </span>
                 </div>
               </div>
             </div>
@@ -334,26 +308,26 @@ export default function TeacherDashboardClient() {
                   </div>
                 </div>
 
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left border-collapse">
+                <div className="overflow-x-auto w-full">
+                  <table className="w-full min-w-[600px] text-left border-collapse">
                     <thead>
                       <tr className="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider h-11">
-                        <th className="px-space-md rounded-l-lg">Student &amp; Subject</th>
-                        <th className="px-space-sm">Verification Mode</th>
-                        <th className="px-space-sm">Timestamp</th>
-                        <th className="px-space-sm">Status</th>
+                        <th className="px-space-md rounded-l-lg whitespace-nowrap">Student &amp; Subject</th>
+                        <th className="px-space-sm whitespace-nowrap">Verification Mode</th>
+                        <th className="px-space-sm whitespace-nowrap">Timestamp</th>
+                        <th className="px-space-sm whitespace-nowrap">Status</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-surface-container font-body-md text-body-md">
                       {loading ? (
                         <tr>
-                          <td colSpan={4} className="p-6 text-center text-outline animate-pulse">
+                          <td colSpan={4} className="p-6 text-center text-outline animate-pulse whitespace-nowrap">
                             Loading attendance records...
                           </td>
                         </tr>
                       ) : logs.length === 0 ? (
                         <tr>
-                          <td colSpan={4} className="p-6 text-center text-outline">
+                          <td colSpan={4} className="p-6 text-center text-outline whitespace-nowrap">
                             No attendance records logged yet.
                           </td>
                         </tr>
@@ -447,22 +421,6 @@ export default function TeacherDashboardClient() {
                     </span>
                   </Link>
                 </div>
-              </div>
-
-              {/* Biometric Engine Status */}
-              <div className="p-space-lg rounded-[20px] bg-inverse-surface text-inverse-on-surface shadow-md flex flex-col gap-space-sm relative overflow-hidden">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-secondary-fixed text-[20px]">security</span>
-                    <h3 className="font-headline-sm text-headline-sm font-bold">Biometric Engine Vault</h3>
-                  </div>
-                  <span className="inline-flex items-center gap-1 text-[11px] font-label-sm font-bold bg-surface-variant/20 text-secondary-fixed px-2 py-0.5 rounded-full">
-                    <span className="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span> ONLINE
-                  </span>
-                </div>
-                <p className="font-body-sm text-body-sm text-outline-variant">
-                  FastAPI service active with 128-d face embeddings and LinearSVC classroom matching.
-                </p>
               </div>
             </div>
           </div>

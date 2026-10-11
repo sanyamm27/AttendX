@@ -194,10 +194,6 @@ export default function SubjectsClient() {
                     <span>Join Code: <strong className="text-on-surface font-mono">{sub.subject_code}</strong></span>
                   </div>
                   <div className="flex items-center gap-space-xs">
-                    <span className="material-symbols-outlined text-[18px]">fingerprint</span>
-                    <span>ID: <span className="font-mono text-[12px]">{sub.subject_id}</span></span>
-                  </div>
-                  <div className="flex items-center gap-space-xs">
                     <span className="material-symbols-outlined text-[18px]">calendar_today</span>
                     <span>Created: {new Date(sub.created_at).toLocaleDateString()}</span>
                   </div>
