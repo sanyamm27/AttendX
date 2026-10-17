@@ -5,19 +5,71 @@ AttendX is an attendance management system that uses AI face recognition to iden
 ## Prerequisites
 
 - **Node.js**: v18+ or v20+ with `npm`
-- **Python**: 3.10+ with CMake/C++ build tools installed for `dlib`
-- **Python Virtual Environment**: Located at `backend/face-service/venv` with all dependencies from `requirements.txt` installed
+- **Python**: Python 3.14 (64-bit) used (or Python 3.10+)
 - **Supabase**: Hosted PostgreSQL database instance with the project schema applied
 
-### Environment Variables
+---
 
-Configure `frontend/.env.local` with the following variable names (do not commit this file):
+## Setup from a Fresh Clone (Windows)
 
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `SUPABASE_SERVICE_ROLE_KEY`
+Follow these steps after cloning the repository:
+
+### 1. Set Up the Face-Service Python Virtual Environment
+
+Create the virtual environment inside `backend/face-service/venv` using Python (tested with **Python 3.14.3** 64-bit) and install the backend requirements:
+
+```powershell
+# Navigate to the face-service directory
+cd backend\face-service
+
+# Create virtual environment named "venv"
+py -3.14 -m venv venv
+# (or if using default Python 3.14 / 3.10+: python -m venv venv)
+
+# Upgrade pip and install all required packages using the venv interpreter explicitly
+& "venv\Scripts\python.exe" -m pip install --upgrade pip
+& "venv\Scripts\python.exe" -m pip install -r requirements.txt
+
+# Return to root directory
+cd ..\..
+```
+
+### 2. Configure the Supabase Database Schema
+
+1. Open your project dashboard at [Supabase](https://supabase.com).
+2. Go to the **SQL Editor** tab.
+3. Open `backend/supabase/schema.sql` from this repository, copy its entire contents, paste them into the SQL Editor, and click **Run**.
+4. This creates all necessary tables (`teachers`, `students`, `subjects`, `subject_students`, `attendance_logs`) and database indexes.
+
+### 3. Configure Frontend Environment Variables
+
+Copy the template environment file to `.env.local`:
+
+```powershell
+cd frontend
+copy .env.example .env.local
+```
+
+Open `frontend/.env.local` and enter your Supabase project credentials:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://<your-project-ref>.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=<your-supabase-service-role-secret-key>
+```
 
 > [!NOTE]
 > The database is hosted remotely on Supabase, so restarting your local machine never loses data. Only the two local servers (face-service backend and Next.js frontend) need to be restarted.
+
+### 4. Install Frontend Dependencies
+
+From the `frontend` directory, install all Node packages:
+
+```powershell
+npm install
+cd ..
+```
+
+---
 
 ## Startup Order & Commands
 
@@ -25,7 +77,7 @@ Always start the services in the following order:
 
 ### 1. Start the Face Service (AI Backend)
 
-Run the face-service using the virtual environment interpreter explicitly. **Never use the global `python` command**, as `dlib` is installed specifically inside the venv:
+Run the face-service using the virtual environment interpreter explicitly. **Never use the global `python` command**, as dependencies like `dlib-bin` are installed specifically inside the venv:
 
 ```powershell
 # From the project root
@@ -45,7 +97,7 @@ GET http://localhost:8000/health
 The response **must** include:
 ```json
 {
-  "status": "healthy",
+  "status": "ok",
   "dlib_available": true
 }
 ```
@@ -63,6 +115,8 @@ npm run dev
 ```
 
 The application will be accessible at [http://localhost:3000](http://localhost:3000).
+
+---
 
 ## Known Limitations
 
