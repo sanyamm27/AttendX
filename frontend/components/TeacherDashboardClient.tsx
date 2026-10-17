@@ -101,7 +101,7 @@ export default function TeacherDashboardClient() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
             <div className="flex flex-col">
               <div className="flex items-center gap-space-xs">
-                <h1 className="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">
+                <h1 className="font-display text-2xl md:text-3xl font-bold text-on-surface tracking-tight">
                   Good morning, {authUser?.name || "Professor"}
                 </h1>
                 <span className="text-2xl animate-pulse">👋</span>
@@ -225,7 +225,7 @@ export default function TeacherDashboardClient() {
               <div className="p-space-lg rounded-[20px] bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
                   <div>
-                    <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                    <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                       Your Connected Subjects
                     </h2>
                     <p className="font-body-sm text-body-sm text-on-surface-variant">
@@ -299,7 +299,7 @@ export default function TeacherDashboardClient() {
               <div className="p-space-lg rounded-[20px] bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
                   <div>
-                    <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                    <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                       Recent Attendance Records
                     </h2>
                     <p className="font-body-sm text-body-sm text-on-surface-variant">
@@ -385,7 +385,7 @@ export default function TeacherDashboardClient() {
               {/* Fast Actions */}
               <div className="p-space-lg rounded-[20px] bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
                 <div className="flex items-center justify-between">
-                  <h2 className="font-headline-md text-headline-md text-on-surface font-bold">Fast Actions</h2>
+                  <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">Fast Actions</h2>
                   <span className="font-label-sm text-label-sm text-outline font-semibold uppercase tracking-wider">
                     Touch Controls
                   </span>

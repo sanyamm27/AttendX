@@ -345,7 +345,7 @@ export default function StudentJoinClient() {
                 <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
                 Active Academic Registration
               </div>
-              <h1 className="font-display-md text-display-md text-on-surface tracking-tight font-bold">
+              <h1 className="font-display text-2xl md:text-3xl font-bold text-on-surface tracking-tight">
                 Join a Subject
               </h1>
               <p className="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">
@@ -616,7 +616,7 @@ export default function StudentJoinClient() {
 
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
                   <div className="flex flex-col">
-                    <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold">
+                    <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                       {successSubject.subject_code}: {successSubject.name}
                     </h2>
                     <p className="font-body-md text-body-md text-on-surface-variant">

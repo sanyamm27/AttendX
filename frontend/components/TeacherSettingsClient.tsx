@@ -152,7 +152,7 @@ export default function TeacherSettingsClient() {
                   Session Active
                 </span>
               </div>
-              <h1 className="font-display-md text-display-md text-on-surface tracking-tight font-bold">
+              <h1 className="font-display text-2xl md:text-3xl font-bold text-on-surface tracking-tight">
                 Faculty Account Settings
               </h1>
               <p className="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mt-1">
@@ -203,7 +203,7 @@ export default function TeacherSettingsClient() {
                       <span className="material-symbols-outlined text-[20px]">person</span>
                     </div>
                     <div>
-                      <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                      <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                         Faculty Profile Information
                       </h2>
                       <p className="font-body-sm text-body-sm text-on-surface-variant">
@@ -309,7 +309,7 @@ export default function TeacherSettingsClient() {
                     <span className="material-symbols-outlined text-[20px]">lock_clock</span>
                   </div>
                   <div>
-                    <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                    <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                       Active Session & Sign Out
                     </h2>
                     <p className="font-body-sm text-body-sm text-on-surface-variant">

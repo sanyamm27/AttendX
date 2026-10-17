@@ -277,7 +277,7 @@ export default function ReportsClient() {
                 <span className="material-symbols-outlined text-[14px]">chevron_right</span>
                 <span className="text-primary font-semibold">Attendance Reports</span>
               </nav>
-              <h1 className="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">
+              <h1 className="font-display text-2xl md:text-3xl font-bold text-on-surface tracking-tight">
                 Attendance Reports
               </h1>
               <p className="font-body-md text-body-md text-on-surface-variant max-w-3xl">
@@ -586,7 +586,7 @@ export default function ReportsClient() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
                 <div>
                   <div className="flex items-center gap-space-xs">
-                    <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                    <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                       Longitudinal Verification Baseline
                     </h2>
                     <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
@@ -623,7 +623,7 @@ export default function ReportsClient() {
               {/* Verification Mode Distribution */}
               <div className="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex flex-col justify-between">
                 <div className="flex items-center justify-between mb-space-sm">
-                  <h2 className="font-headline-sm text-headline-sm text-on-surface font-bold">
+                  <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                     Verification Mode Distribution
                   </h2>
                   <span className="material-symbols-outlined text-on-surface-variant text-[18px]">info</span>
@@ -704,7 +704,7 @@ export default function ReportsClient() {
                   <div>
                     <div className="flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-error animate-pulse"></span>
-                      <h2 className="font-headline-sm text-headline-sm text-on-surface font-bold">
+                      <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                         Low Attendance Flagged
                       </h2>
                     </div>
@@ -756,7 +756,7 @@ export default function ReportsClient() {
           <div className="bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden mb-space-lg">
             <div className="p-space-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
               <div>
-                <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                   Biometric Attendance Audit Trail
                 </h2>
                 <p className="font-body-sm text-body-sm text-on-surface-variant">

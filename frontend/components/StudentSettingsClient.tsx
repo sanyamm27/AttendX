@@ -168,7 +168,7 @@ export default function StudentSettingsClient() {
                   Biometric Profile Active
                 </span>
               </div>
-              <h1 className="font-display-md text-display-md text-on-surface tracking-tight font-bold">
+              <h1 className="font-display text-2xl md:text-3xl font-bold text-on-surface tracking-tight">
                 Account Settings &amp; Biometrics
               </h1>
               <p className="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mt-1">
@@ -229,7 +229,7 @@ export default function StudentSettingsClient() {
                       <span className="material-symbols-outlined text-[20px]">person</span>
                     </div>
                     <div>
-                      <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                      <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                         Student Profile Information
                       </h2>
                       <p className="font-body-sm text-body-sm text-on-surface-variant">
@@ -318,7 +318,7 @@ export default function StudentSettingsClient() {
                       <span className="material-symbols-outlined text-[20px]">document_scanner</span>
                     </div>
                     <div>
-                      <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                      <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                         Facial Biometric Re-registration
                       </h2>
                       <p className="font-body-sm text-body-sm text-on-surface-variant">
@@ -424,7 +424,7 @@ export default function StudentSettingsClient() {
                     <span className="material-symbols-outlined text-[20px]">lock_clock</span>
                   </div>
                   <div>
-                    <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                    <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                       Active Session &amp; Sign Out
                     </h2>
                     <p className="font-body-sm text-body-sm text-on-surface-variant">

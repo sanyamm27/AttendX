@@ -236,7 +236,7 @@ export default function AttendanceClient() {
       {/* Top Title, Subject Select & Mode Selector */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-space-xl">
         <div className="flex flex-col gap-1 min-w-0 max-w-full">
-          <h1 className="font-headline-xl text-headline-xl font-bold text-on-surface tracking-tight">
+          <h1 className="font-display text-2xl md:text-3xl font-bold text-on-surface tracking-tight">
             Take Attendance
           </h1>
           {loadingSubjects ? (
@@ -431,7 +431,7 @@ export default function AttendanceClient() {
                 <div>
                   <div className="flex items-center justify-between mb-space-md pb-space-xs border-b border-outline-variant/20">
                     <div>
-                      <h2 className="font-headline-sm text-headline-sm font-bold text-on-surface">
+                      <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                         Manual Review
                       </h2>
                       <span className="text-label-sm text-on-surface-variant block">
@@ -524,7 +524,7 @@ export default function AttendanceClient() {
               /* Saved Logs Panel */
               <div>
                 <div className="flex items-center justify-between mb-space-md pb-space-xs border-b border-outline-variant/20">
-                  <h2 className="font-headline-sm text-headline-sm font-bold text-on-surface">
+                  <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                     Recorded Logs ({recentLogs.length})
                   </h2>
                   <span className="px-space-sm py-1 bg-emerald-100 text-emerald-800 text-label-sm font-bold rounded-full">
@@ -583,7 +583,7 @@ export default function AttendanceClient() {
       ) : (
         /* Static Subject QR Code View */
         <div className="max-w-2xl mx-auto bg-surface p-space-xl rounded-2xl border border-outline-variant/30 shadow-lg flex flex-col items-center text-center">
-          <h2 className="font-headline-lg text-headline-lg font-bold text-on-surface mb-space-xs">
+          <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface mb-space-xs">
             Static Subject Join QR
           </h2>
           <p className="text-body-md text-on-surface-variant mb-space-lg">

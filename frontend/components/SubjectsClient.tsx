@@ -112,7 +112,7 @@ export default function SubjectsClient() {
       {/* Top Bar Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-xl">
         <div>
-          <h1 className="font-headline-xl text-headline-xl font-bold text-on-surface tracking-tight">
+          <h1 className="font-display text-2xl md:text-3xl font-bold text-on-surface tracking-tight">
             Manage Subjects &amp; Courses
           </h1>
           <p className="text-body-md text-on-surface-variant">
@@ -177,7 +177,7 @@ export default function SubjectsClient() {
                     Active Roster
                   </span>
                 </div>
-                <h2 className="font-headline-sm text-headline-sm font-bold text-on-surface mb-space-xs">
+                <h2 className="font-display text-lg font-semibold text-on-surface mb-space-xs">
                   {sub.name}
                 </h2>
                 <p className="text-body-sm text-on-surface-variant mb-space-md">
@@ -227,7 +227,7 @@ export default function SubjectsClient() {
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-space-md">
           <div className="w-full max-w-lg bg-surface p-space-xl rounded-2xl border border-outline-variant/40 shadow-2xl animate-in fade-in zoom-in-95 duration-200">
             <div className="flex items-center justify-between mb-space-lg pb-space-xs border-b border-outline-variant/20">
-              <h2 className="font-headline-lg text-headline-lg font-bold text-on-surface">
+              <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                 Create New Subject
               </h2>
               <button

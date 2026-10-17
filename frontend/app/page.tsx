@@ -22,16 +22,16 @@ export default function LandingPage() {
 
               <div className="inline-flex items-center gap-space-xs rounded-full bg-surface-container-lowest px-space-md py-1 shadow-sm mb-space-md">
                 <span className="w-2.5 h-2.5 rounded-full bg-secondary animate-ping"></span>
-                <span className="font-label-sm text-label-sm text-primary uppercase tracking-wider">Next-Gen Biometric Intelligence</span>
+                <span className="font-label-sm text-label-sm text-primary uppercase tracking-wider">AI-Powered Classroom Attendance</span>
               </div>
 
-              <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface max-w-4xl tracking-tight leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-on-surface max-w-4xl tracking-tight leading-tight">
                 Smart Attendance. <br className="hidden sm:inline"/>
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Smarter Classrooms.</span>
               </h1>
 
               <p className="mt-space-md font-body-xl text-body-lg md:text-body-xl text-on-surface-variant max-w-2xl">
-                AttendX combines AI-powered face recognition and secure dynamic QR attendance to make classroom attendance faster, smarter, and easier to manage.
+                AttendX combines AI face recognition from classroom photos with quick QR course enrollment and manual teacher verification.
               </p>
 
               <div className="mt-space-lg flex flex-wrap items-center justify-center gap-space-md">
@@ -55,15 +55,11 @@ export default function LandingPage() {
                     <span className="w-3 h-3 rounded-full bg-secondary inline-block"></span>
                     <div className="ml-space-sm flex items-center gap-2 text-on-surface">
                       <span className="material-symbols-outlined text-primary text-[20px]">school</span>
-                      <span className="font-headline-sm text-headline-sm font-semibold truncate">CS302: Neural Networks &amp; Deep Learning • Hall B4 • Prof. Davis</span>
+                      <span className="font-headline-sm text-headline-sm font-semibold truncate">Sample Classroom Photo • CS302</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-space-sm">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-container-lowest px-3 py-1 font-label-sm text-label-sm text-on-surface">
-                      <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-                      98.2% Accuracy
-                    </span>
-                    <span className="font-label-sm text-label-sm text-on-primary bg-primary px-3 py-1 rounded-full">Live Session</span>
+                    <span className="font-label-sm text-label-sm text-on-primary bg-primary px-3 py-1 rounded-full">Sample Preview</span>
                   </div>
                 </div>
 
@@ -74,49 +70,49 @@ export default function LandingPage() {
 
 <div className="relative z-10 flex items-center justify-between">
 <div className="inline-flex items-center gap-2 rounded-full bg-inverse-surface/80 backdrop-blur-md px-3 py-1.5 text-inverse-on-surface font-label-sm text-label-sm">
-<span className="material-symbols-outlined text-[16px] text-secondary-fixed">videocam</span>
-                Podium Camera 01 • 4K Spatial Sensor
+<span className="material-symbols-outlined text-[16px] text-secondary-fixed">photo_camera</span>
+                Classroom Photo
               </div>
 <div className="inline-flex items-center gap-1.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 font-label-sm text-label-sm text-on-surface">
 <span className="material-symbols-outlined text-[16px] text-primary">face</span>
-                DeepFace Engine Active
+                AI Face Matching
               </div>
 </div>
 
 <div className="relative z-10 w-full h-full my-auto flex items-center justify-center">
 
-<div className="absolute top-12 left-10 p-2 rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-md">
+<div className="absolute top-12 left-4 md:top-12 md:left-10 p-2 rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-md">
 <div className="flex items-center gap-1.5">
 <span className="w-2 h-2 rounded-full bg-secondary"></span>
-<span className="font-label-sm text-label-sm text-on-surface font-bold">Liam Chen (98%)</span>
+<span className="font-label-sm text-label-sm text-on-surface font-bold text-xs sm:text-sm">Student A (Verified)</span>
 </div>
 </div>
 
-<div className="absolute top-28 right-16 p-2 rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-md">
+<div className="hidden md:block absolute top-28 right-16 p-2 rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-md">
 <div className="flex items-center gap-1.5">
 <span className="w-2 h-2 rounded-full bg-secondary"></span>
-<span className="font-label-sm text-label-sm text-on-surface font-bold">Sophia Martinez (96%)</span>
+<span className="font-label-sm text-label-sm text-on-surface font-bold text-xs sm:text-sm">Student B (Verified)</span>
 </div>
 </div>
 
-<div className="absolute bottom-16 left-28 p-2 rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-md">
+<div className="hidden md:block absolute bottom-16 left-24 p-2 rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-md">
 <div className="flex items-center gap-1.5">
 <span className="w-2 h-2 rounded-full bg-secondary"></span>
-<span className="font-label-sm text-label-sm text-on-surface font-bold">Maya Patel (94%)</span>
+<span className="font-label-sm text-label-sm text-on-surface font-bold text-xs sm:text-sm">Student C (Verified)</span>
 </div>
 </div>
 
-<div className="absolute bottom-8 right-24 p-2 rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-md">
+<div className="absolute bottom-12 right-4 md:bottom-8 md:right-20 p-2 rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-md">
 <div className="flex items-center gap-1.5">
 <span className="w-2 h-2 rounded-full bg-secondary-container"></span>
-<span className="font-label-sm text-label-sm text-on-surface font-bold">Marcus Vance (89%)</span>
+<span className="font-label-sm text-label-sm text-on-surface font-bold text-xs sm:text-sm">Student D (Pending Review)</span>
 </div>
 </div>
 </div>
 
 <div className="relative z-10 flex items-center justify-between bg-inverse-surface/85 backdrop-blur-md rounded-xl p-space-sm text-inverse-on-surface">
-<span className="font-label-sm text-label-sm">Frame: 00:14:28 • Snapshot Batch #4</span>
-<span className="font-label-sm text-label-sm text-secondary-fixed">Continuous Liveness Verified</span>
+<span className="font-label-sm text-label-sm">Classroom Photo Batch</span>
+<span className="font-label-sm text-label-sm text-secondary-fixed">Ready for Teacher Review</span>
 </div>
 </div>
 
@@ -124,16 +120,12 @@ export default function LandingPage() {
 
 <div className="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
 <div>
-<span className="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">Attendance Rate</span>
-<h3 className="font-display-md text-display-md text-on-surface mt-1">91.4%</h3>
-<p className="font-body-sm text-body-sm text-on-surface-variant">45 Present • 4 Absent • 1 Flagged</p>
+<span className="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">Session Roster</span>
+<h3 className="font-display-md text-display-md text-on-surface mt-1">Sample Roster</h3>
+<p className="font-body-sm text-body-sm text-on-surface-variant">Present &amp; absent records grouped for review</p>
 </div>
 <div className="relative w-20 h-20 flex items-center justify-center">
-<svg className="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
-<path className="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeWidth="3.5"></path>
-<path className="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeDasharray="91.4, 100" strokeLinecap="round" strokeWidth="3.5"></path>
-</svg>
-<span className="absolute font-headline-sm text-headline-sm text-on-surface font-bold">91%</span>
+<span className="font-headline-sm text-headline-sm text-primary font-bold bg-primary/10 px-3 py-1.5 rounded-xl">Review</span>
 </div>
 </div>
 
@@ -158,29 +150,26 @@ export default function LandingPage() {
 <rect height="8" width="8" x="66" y="60"></rect>
 <rect height="12" width="12" x="78" y="68"></rect>
 </svg>
-<div className="absolute -bottom-2 -right-2 bg-primary text-on-primary font-label-sm text-label-sm px-2 py-0.5 rounded-full shadow">
-                  24s
-                </div>
 </div>
 <div>
 <div className="flex items-center gap-1.5 mb-1">
 <span className="w-2 h-2 rounded-full bg-secondary"></span>
-<span className="font-label-sm text-label-sm uppercase text-secondary font-bold">Dynamic Token QR</span>
+<span className="font-label-sm text-label-sm uppercase text-secondary font-bold">Subject Enrollment QR</span>
 </div>
-<h4 className="font-headline-sm text-headline-sm text-on-surface font-semibold">Anti-Proxy Rotating Code</h4>
-<p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Rotates automatically every 30s. Geo-proximity active.</p>
+<h4 className="font-headline-sm text-headline-sm text-on-surface font-semibold">Static Course Join Code</h4>
+<p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Students scan once to enroll in the course roster.</p>
 </div>
 </div>
 
 <div className="p-space-md rounded-2xl bg-surface-container-low flex flex-col gap-2">
-<span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Live Check-in Stream</span>
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Attendance Audit Trail</span>
 <div className="flex items-center justify-between text-on-surface bg-surface-container-lowest px-3 py-2 rounded-xl shadow-xs">
 <span className="font-body-sm text-body-sm">Elena Rostova • CS-2024-089</span>
-<span className="font-label-sm text-label-sm text-primary font-bold">Matched via Face (99.1%)</span>
+<span className="font-label-sm text-label-sm text-primary font-bold">Matched via Photo (Present)</span>
 </div>
 <div className="flex items-center justify-between text-on-surface bg-surface-container-lowest px-3 py-2 rounded-xl shadow-xs">
 <span className="font-body-sm text-body-sm">Devon Brooks • CS-2024-042</span>
-<span className="font-label-sm text-label-sm text-secondary font-bold">Verified via QR (Token #7A)</span>
+<span className="font-label-sm text-label-sm text-secondary font-bold">Enrolled via Subject QR</span>
 </div>
 </div>
 </div>
@@ -190,29 +179,29 @@ export default function LandingPage() {
 <div className="bg-surface-container-lowest p-3 rounded-xl flex items-center gap-2 shadow-sm">
 <span className="text-xl">🎯</span>
 <div>
-<span className="block font-headline-sm text-headline-sm text-on-surface font-bold">48 Faces</span>
-<span className="block font-label-sm text-label-sm text-on-surface-variant">Detected in Frame</span>
+<span className="block font-headline-sm text-headline-sm text-on-surface font-bold">Multi-Face</span>
+<span className="block font-label-sm text-label-sm text-on-surface-variant">Batch Detection</span>
 </div>
 </div>
 <div className="bg-surface-container-lowest p-3 rounded-xl flex items-center gap-2 shadow-sm">
 <span className="text-xl">⚡</span>
 <div>
-<span className="block font-headline-sm text-headline-sm text-on-surface font-bold">45 Matched</span>
-<span className="block font-label-sm text-label-sm text-on-surface-variant">In &lt;2.8 Seconds</span>
+<span className="block font-headline-sm text-headline-sm text-on-surface font-bold">AI Matching</span>
+<span className="block font-label-sm text-label-sm text-on-surface-variant">Fast Vector Comparison</span>
 </div>
 </div>
 <div className="bg-surface-container-lowest p-3 rounded-xl flex items-center gap-2 shadow-sm">
 <span className="text-xl">✨</span>
 <div>
-<span className="block font-headline-sm text-headline-sm text-on-surface font-bold">94% Confidence</span>
-<span className="block font-label-sm text-label-sm text-on-surface-variant">Average Match Index</span>
+<span className="block font-headline-sm text-headline-sm text-on-surface font-bold">Teacher Review</span>
+<span className="block font-label-sm text-label-sm text-on-surface-variant">Verify Before Saving</span>
 </div>
 </div>
 <div className="bg-surface-container-lowest p-3 rounded-xl flex items-center gap-2 shadow-sm">
 <span className="text-xl">🔄</span>
 <div>
-<span className="block font-headline-sm text-headline-sm text-on-surface font-bold">QR Active</span>
-<span className="block font-label-sm text-label-sm text-on-surface-variant">10s Sync Refresh</span>
+<span className="block font-headline-sm text-headline-sm text-on-surface font-bold">Join by QR</span>
+<span className="block font-label-sm text-label-sm text-on-surface-variant">Static Subject Code</span>
 </div>
 </div>
 </div>
@@ -227,7 +216,7 @@ export default function LandingPage() {
 <span className="font-label-sm text-label-sm text-secondary uppercase tracking-widest bg-surface-container px-3 py-1 rounded-full">
           PLATFORM CAPABILITIES
         </span>
-<h2 className="font-headline-xl md:font-display-md text-headline-xl md:text-display-md text-on-surface mt-3">
+<h2 className="font-display text-2xl md:text-3xl font-bold text-on-surface mt-3">
           Everything you need for smarter attendance
         </h2>
 <p className="font-body-lg text-body-lg text-on-surface-variant mt-3">
@@ -243,16 +232,16 @@ export default function LandingPage() {
 <span className="material-symbols-outlined text-2xl">center_focus_strong</span>
 </div>
 <div className="inline-flex items-center gap-1 rounded-full bg-surface-container px-2.5 py-0.5 font-label-sm text-label-sm text-primary mb-2">
-              DeepFace + OpenCV
+              dlib &amp; Pillow
             </div>
 <h3 className="font-headline-md text-headline-md text-on-surface font-bold">AI Face Recognition</h3>
 <p className="font-body-md text-body-md text-on-surface-variant mt-2">
-              Detect and match multiple students from a single classroom photograph in under 3 seconds with high neural confidence.
+              Detect and match enrolled students from a single classroom photograph using 128-dimensional biometric embeddings.
             </p>
 </div>
 <div className="mt-6 pt-4 bg-surface-container-low rounded-xl p-3 flex items-center justify-between">
-<span className="font-label-sm text-label-sm text-on-surface font-semibold">Max Classroom Size</span>
-<span className="font-label-sm text-label-sm text-secondary font-bold">120+ Students/Shot</span>
+<span className="font-label-sm text-label-sm text-on-surface font-semibold">Processing</span>
+<span className="font-label-sm text-label-sm text-secondary font-bold">Batch Photo Matching</span>
 </div>
 </div>
 
@@ -262,16 +251,16 @@ export default function LandingPage() {
 <span className="material-symbols-outlined text-2xl">qr_code_scanner</span>
 </div>
 <div className="inline-flex items-center gap-1 rounded-full bg-surface-container px-2.5 py-0.5 font-label-sm text-label-sm text-secondary mb-2">
-              Crypto-Signed Tokens
+              Static Subject QR
             </div>
-<h3 className="font-headline-md text-headline-md text-on-surface font-bold">Dynamic QR Attendance</h3>
+<h3 className="font-headline-md text-headline-md text-on-surface font-bold">QR Course Enrollment</h3>
 <p className="font-body-md text-body-md text-on-surface-variant mt-2">
-              Time-limited QR codes refresh automatically every 15–30s with cryptographic tokens to eliminate proxy code sharing.
+              Students scan the instructor's subject QR code or enter code manually to join the course roster.
             </p>
 </div>
 <div className="mt-6 pt-4 bg-surface-container-low rounded-xl p-3 flex items-center justify-between">
-<span className="font-label-sm text-label-sm text-on-surface font-semibold">Screenshot Proof</span>
-<span className="font-label-sm text-label-sm text-secondary font-bold">15s Expiry Loop</span>
+<span className="font-label-sm text-label-sm text-on-surface font-semibold">Enrollment Method</span>
+<span className="font-label-sm text-label-sm text-secondary font-bold">QR or Unique Join Code</span>
 </div>
 </div>
 
@@ -281,16 +270,16 @@ export default function LandingPage() {
 <span className="material-symbols-outlined text-2xl">verified_user</span>
 </div>
 <div className="inline-flex items-center gap-1 rounded-full bg-surface-container px-2.5 py-0.5 font-label-sm text-label-sm text-primary mb-2">
-              Dual-Layer Security
+              Assisted Workflow
             </div>
-<h3 className="font-headline-md text-headline-md text-on-surface font-bold">Hybrid Verification</h3>
+<h3 className="font-headline-md text-headline-md text-on-surface font-bold">Photo Attendance + Review</h3>
 <p className="font-body-md text-body-md text-on-surface-variant mt-2">
-              Combine QR scanning with instant student face verification to confirm physical classroom presence beyond any doubt.
+              Process classroom photos with AI and review the roster before committing attendance records.
             </p>
 </div>
 <div className="mt-6 pt-4 bg-surface-container-low rounded-xl p-3 flex items-center justify-between">
-<span className="font-label-sm text-label-sm text-on-surface font-semibold">Spoof Detection</span>
-<span className="font-label-sm text-label-sm text-secondary font-bold">Liveness Certified</span>
+<span className="font-label-sm text-label-sm text-on-surface font-semibold">Final Authority</span>
+<span className="font-label-sm text-label-sm text-secondary font-bold">Teacher Verification</span>
 </div>
 </div>
 
@@ -300,16 +289,16 @@ export default function LandingPage() {
 <span className="material-symbols-outlined text-2xl">insights</span>
 </div>
 <div className="inline-flex items-center gap-1 rounded-full bg-surface-container px-2.5 py-0.5 font-label-sm text-label-sm text-primary mb-2">
-              Predictive Tracking
+              Attendance Tracking
             </div>
-<h3 className="font-headline-md text-headline-md text-on-surface font-bold">Real-Time Analytics</h3>
+<h3 className="font-headline-md text-headline-md text-on-surface font-bold">Attendance Statistics</h3>
 <p className="font-body-md text-body-md text-on-surface-variant mt-2">
-              Track attendance percentages, absence trends, semester eligibility, and automatic debarment warnings seamlessly.
+              Track attendance percentages, present and absent session counts, and view visual low attendance indicators on dashboards.
             </p>
 </div>
 <div className="mt-6 pt-4 bg-surface-container-low rounded-xl p-3 flex items-center justify-between">
-<span className="font-label-sm text-label-sm text-on-surface font-semibold">Automated Alerts</span>
-<span className="font-label-sm text-label-sm text-secondary font-bold">&lt;75% Attendance Warn</span>
+<span className="font-label-sm text-label-sm text-on-surface font-semibold">Threshold Indicator</span>
+<span className="font-label-sm text-label-sm text-secondary font-bold">&lt;75% Low Attendance</span>
 </div>
 </div>
 
@@ -323,12 +312,12 @@ export default function LandingPage() {
             </div>
 <h3 className="font-headline-md text-headline-md text-on-surface font-bold">Manual Verification</h3>
 <p className="font-body-md text-body-md text-on-surface-variant mt-2">
-              Teachers maintain full control. Review AI match confidence scores and easily correct ambiguous results in one click.
+              Teachers maintain full control. Review AI matching results on the roster and easily toggle student attendance between Present and Absent in one click.
             </p>
 </div>
 <div className="mt-6 pt-4 bg-surface-container-low rounded-xl p-3 flex items-center justify-between">
 <span className="font-label-sm text-label-sm text-on-surface font-semibold">Teacher Authority</span>
-<span className="font-label-sm text-label-sm text-secondary font-bold">1-Click Manual Override</span>
+<span className="font-label-sm text-label-sm text-secondary font-bold">1-Click Status Toggle</span>
 </div>
 </div>
 
@@ -338,16 +327,16 @@ export default function LandingPage() {
 <span className="material-symbols-outlined text-2xl">admin_panel_settings</span>
 </div>
 <div className="inline-flex items-center gap-1 rounded-full bg-surface-container px-2.5 py-0.5 font-label-sm text-label-sm text-primary mb-2">
-              LMS &amp; ERP Ready
+              Export &amp; Reporting
             </div>
 <h3 className="font-headline-md text-headline-md text-on-surface font-bold">Secure Management</h3>
 <p className="font-body-md text-body-md text-on-surface-variant mt-2">
-              Role-based student and teacher portals with encrypted attendance records and automated LMS export capabilities.
+              Role-based student and teacher portals with attendance records and one-click CSV export capabilities.
             </p>
 </div>
 <div className="mt-6 pt-4 bg-surface-container-low rounded-xl p-3 flex items-center justify-between">
-<span className="font-label-sm text-label-sm text-on-surface font-semibold">Integrations</span>
-<span className="font-label-sm text-label-sm text-secondary font-bold">Canvas, Moodle, BlackBoard</span>
+<span className="font-label-sm text-label-sm text-on-surface font-semibold">Export Support</span>
+<span className="font-label-sm text-label-sm text-secondary font-bold">CSV Format</span>
 </div>
 </div>
 </div>
@@ -361,7 +350,7 @@ export default function LandingPage() {
 <span className="font-label-sm text-label-sm text-secondary uppercase tracking-widest bg-surface-container-lowest px-3 py-1 rounded-full shadow-xs">
           STREAMLINED WORKFLOW
         </span>
-<h2 className="font-headline-xl md:font-display-md text-headline-xl md:text-display-md text-on-surface mt-3">
+<h2 className="font-display text-2xl md:text-3xl font-bold text-on-surface mt-3">
           From classroom photo to attendance in seconds
         </h2>
 <p className="font-body-lg text-body-lg text-on-surface-variant mt-3">
@@ -379,7 +368,7 @@ export default function LandingPage() {
 </div>
 <h4 className="font-headline-md text-headline-md text-on-surface font-bold">Student Registration</h4>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-2">
-              Students capture 3–5 sample face angles with instant embedding generation.
+              Students upload a registration profile photo for facial embeddings.
             </p>
 </div>
 
@@ -399,7 +388,7 @@ export default function LandingPage() {
 </div>
 <h4 className="font-headline-md text-headline-md text-on-surface font-bold">Join Subject</h4>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-2">
-              Students scan a teacher's subject QR or input a 6-digit lecture code.
+              Students scan a teacher's subject QR or enter the unique join code to enroll.
             </p>
 </div>
 
@@ -417,13 +406,13 @@ export default function LandingPage() {
 </div>
 <h4 className="font-headline-md text-headline-md text-on-surface font-bold">Start Attendance</h4>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-2">
-              Faculty launches lecture session and picks 'AI Face Snapshot' or 'Dynamic QR'.
+              Faculty selects an active subject and captures or uploads a classroom photo.
             </p>
 </div>
 
 <div className="mt-6 pt-4 bg-surface-container-low rounded-xl p-2 flex gap-1">
-<button className="w-1/2 py-1 text-center bg-primary text-on-primary rounded-lg font-label-sm text-label-sm font-bold">AI Snapshot</button>
-<button className="w-1/2 py-1 text-center bg-surface-container text-on-surface rounded-lg font-label-sm text-label-sm">QR Code</button>
+<button className="w-1/2 py-1 text-center bg-primary text-on-primary rounded-lg font-label-sm text-label-sm font-bold">Camera</button>
+<button className="w-1/2 py-1 text-center bg-surface-container text-on-surface rounded-lg font-label-sm text-label-sm">Upload File</button>
 </div>
 </div>
 
@@ -440,8 +429,8 @@ export default function LandingPage() {
 </div>
 
 <div className="mt-6 pt-4 bg-surface-container-low rounded-xl p-2.5 flex items-center justify-between text-on-surface">
-<span className="font-label-sm text-label-sm">52 Faces Detected</span>
-<span className="font-label-sm text-label-sm text-secondary font-bold">99.2% Match</span>
+<span className="font-label-sm text-label-sm">Faces Detected</span>
+<span className="font-label-sm text-label-sm text-secondary font-bold">Embeddings Matched</span>
 </div>
 </div>
 
@@ -451,15 +440,15 @@ export default function LandingPage() {
 <span className="font-label-lg text-label-lg font-bold text-secondary">STEP 05</span>
 <span className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-label-sm text-label-sm font-bold text-on-surface">5</span>
 </div>
-<h4 className="font-headline-md text-headline-md text-on-surface font-bold">QR Verification</h4>
+<h4 className="font-headline-md text-headline-md text-on-surface font-bold">Roster Review</h4>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-2">
-              Students scan the live projector QR on their mobile device with geo-proximity.
+              Instructor verifies matched students and toggles any absent or misidentified students.
             </p>
 </div>
 
 <div className="mt-6 pt-4 bg-surface-container-low rounded-xl p-2.5 flex items-center justify-between">
-<span className="font-label-sm text-label-sm text-on-surface">Geo-Radius Match</span>
-<span className="font-label-sm text-label-sm text-secondary font-bold">Hall B4 • Verified</span>
+<span className="font-label-sm text-label-sm text-on-surface">Verification</span>
+<span className="font-label-sm text-label-sm text-secondary font-bold">Teacher Controlled</span>
 </div>
 </div>
 
@@ -471,13 +460,13 @@ export default function LandingPage() {
 </div>
 <h4 className="font-headline-md text-headline-md text-on-surface font-bold">Review &amp; Confirm</h4>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-2">
-              Faculty reviews confidence badges (Green &gt;90%, Amber 70-89%) and confirms roll.
+              Faculty reviews matched students on the roster, toggles any attendance status with one click, and confirms records.
             </p>
 </div>
 
 <div className="mt-6 pt-4 bg-surface-container-low rounded-xl p-2 flex items-center justify-between">
-<span className="font-label-sm text-label-sm text-on-surface font-semibold">1 Ambiguous</span>
-<button className="bg-primary text-on-primary px-3 py-1 rounded-lg font-label-sm text-label-sm font-bold shadow-xs">Approve All</button>
+<span className="font-label-sm text-label-sm text-on-surface font-semibold">Roster Review</span>
+<button className="bg-primary text-on-primary px-3 py-1 rounded-lg font-label-sm text-label-sm font-bold shadow-xs">Confirm &amp; Save</button>
 </div>
 </div>
 
@@ -489,7 +478,7 @@ export default function LandingPage() {
 </div>
 <h4 className="font-headline-md text-headline-md text-on-surface font-bold">Attendance Analytics &amp; Export</h4>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-2">
-              Real-time records push to institutional databases, student portals, and exportable PDF/Excel rosters.
+              Real-time records save to the database, update student portals, and export to CSV.
             </p>
 </div>
 
@@ -500,7 +489,7 @@ export default function LandingPage() {
 <div className="w-3 bg-secondary rounded-t h-8"></div>
 <div className="w-3 bg-primary rounded-t h-7"></div>
 </div>
-<span className="font-label-sm text-label-sm text-on-surface">Export: <strong>CSV • XLSX • PDF</strong></span>
+<span className="font-label-sm text-label-sm text-on-surface">Export: <strong>CSV Format</strong></span>
 </div>
 </div>
 </div>
@@ -512,9 +501,9 @@ export default function LandingPage() {
 
 <div className="text-center max-w-4xl mx-auto mb-16">
 <span className="font-label-sm text-label-sm text-primary uppercase tracking-widest bg-primary-fixed px-4 py-1.5 rounded-full font-bold">
-          ONE PLATFORM. TWO INTELLIGENT WAYS TO RECORD ATTENDANCE.
+          AI CLASSROOM PHOTO ATTENDANCE WITH STATIC QR COURSE JOINING
         </span>
-<h2 className="font-headline-xl md:font-display-md text-headline-xl md:text-display-md text-on-surface mt-4">
+<h2 className="font-display text-2xl md:text-3xl font-bold text-on-surface mt-4">
           Engineered for high-density auditoriums &amp; modern labs
         </h2>
 </div>
@@ -541,27 +530,27 @@ export default function LandingPage() {
                 Live Viewfinder
               </span>
 <span className="bg-primary text-on-primary px-3 py-1 rounded-full font-label-sm text-label-sm font-bold">
-                +52 Verified
+                Detected Faces
               </span>
 </div>
 
 <div className="relative z-10 grid grid-cols-3 gap-2 my-auto">
 <div className="bg-surface-container-lowest/90 backdrop-blur-sm p-2 rounded-xl text-center shadow">
 <span className="block font-label-sm text-label-sm font-bold text-on-surface">Alex Rivera</span>
-<span className="block text-[10px] text-secondary font-bold">99% Match</span>
+<span className="block text-[10px] text-secondary font-bold">Present</span>
 </div>
 <div className="bg-surface-container-lowest/90 backdrop-blur-sm p-2 rounded-xl text-center shadow">
 <span className="block font-label-sm text-label-sm font-bold text-on-surface">Chloe Bennett</span>
-<span className="block text-[10px] text-secondary font-bold">97% Match</span>
+<span className="block text-[10px] text-secondary font-bold">Present</span>
 </div>
 <div className="bg-surface-container-lowest/90 backdrop-blur-sm p-2 rounded-xl text-center shadow">
 <span className="block font-label-sm text-label-sm font-bold text-on-surface">David Kim</span>
-<span className="block text-[10px] text-secondary font-bold">93% Match</span>
+<span className="block text-[10px] text-secondary font-bold">Present</span>
 </div>
 </div>
 <div className="relative z-10 flex justify-between items-center text-inverse-on-surface text-[11px]">
-<span>Resolution: 3840x2160 • PyTorch Model</span>
-<span className="text-secondary-fixed">FaceNet v2 Inference</span>
+<span>Classroom Photo Analysis</span>
+<span className="text-secondary-fixed">dlib Facial Embeddings</span>
 </div>
 </div>
 </div>
@@ -569,13 +558,13 @@ export default function LandingPage() {
 <div className="bg-surface-container-low p-space-lg md:p-space-xl rounded-3xl flex flex-col justify-between">
 <div>
 <div className="inline-flex items-center gap-2 bg-surface-container px-3 py-1 rounded-full font-label-sm text-label-sm text-secondary mb-4 font-bold">
-              ⚡ Dynamic Anti-Cheat QR
+              📱 Subject QR Enrollment
             </div>
 <h3 className="font-headline-xl text-headline-xl text-on-surface font-bold">
-              Projected on screen or faculty tablet
+              Displayed on Manage Subjects
             </h3>
 <p className="font-body-md text-body-md text-on-surface-variant mt-3">
-              Auto-regenerating cryptographic QR with active countdown preventing code screenshot sharing and remote proxy attendance.
+              Static per-subject QR codes and join codes allow students to quickly join your course from their portal.
             </p>
 </div>
 
@@ -603,20 +592,20 @@ export default function LandingPage() {
 
 <div className="w-full max-w-xs mt-4 flex flex-col items-center">
 <div className="flex items-center justify-between w-full font-label-sm text-label-sm text-on-surface-variant mb-1">
-<span>Rotating Token Validity</span>
-<span className="font-bold text-secondary">Refresh in 12s</span>
+<span>Subject Join Code</span>
+<span className="font-bold text-primary">Unique Join Code</span>
 </div>
 <div className="w-full bg-surface-container rounded-full h-2 overflow-hidden">
-<div className="bg-secondary h-2 rounded-full w-2/3 transition-all"></div>
+<div className="bg-primary h-2 rounded-full w-full"></div>
 </div>
 </div>
 
 <div className="w-full mt-4 bg-surface-container-low p-3 rounded-xl flex items-center justify-between">
 <div className="flex items-center gap-2">
 <span className="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
-<span className="font-label-sm text-label-sm text-on-surface">Just checked in: <strong>Sarah K., Ryan M.</strong></span>
+<span className="font-label-sm text-label-sm text-on-surface">Enrolled students: <strong>Sarah K., Ryan M.</strong></span>
 </div>
-<span className="font-label-sm text-label-sm text-on-surface-variant">Now</span>
+<span className="font-label-sm text-label-sm text-on-surface-variant">Active</span>
 </div>
 </div>
 </div>
@@ -631,7 +620,7 @@ export default function LandingPage() {
 <span className="font-label-sm text-label-sm text-secondary uppercase tracking-widest bg-surface-container-lowest px-3 py-1 rounded-full shadow-xs">
           TAILORED EXPERIENCES
         </span>
-<h2 className="font-headline-xl md:font-display-md text-headline-xl md:text-display-md text-on-surface mt-3">
+<h2 className="font-display text-2xl md:text-3xl font-bold text-on-surface mt-3">
           Built for both sides of the classroom
         </h2>
 <p className="font-body-lg text-body-lg text-on-surface-variant mt-3">
@@ -657,7 +646,7 @@ export default function LandingPage() {
 <span className="bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1 rounded-full">Dashboard</span>
 <span className="bg-surface-container font-label-sm text-label-sm text-on-surface px-3 py-1 rounded-full">Take Attendance</span>
 <span className="bg-surface-container font-label-sm text-label-sm text-on-surface px-3 py-1 rounded-full">Manage Subjects</span>
-<span className="bg-surface-container font-label-sm text-label-sm text-on-surface px-3 py-1 rounded-full">Live Sessions</span>
+<span className="bg-surface-container font-label-sm text-label-sm text-on-surface px-3 py-1 rounded-full">Review Logs</span>
 <span className="bg-surface-container font-label-sm text-label-sm text-on-surface px-3 py-1 rounded-full">Student Directory</span>
 <span className="bg-surface-container font-label-sm text-label-sm text-on-surface px-3 py-1 rounded-full">Reports &amp; Audit</span>
 <span className="bg-surface-container font-label-sm text-label-sm text-on-surface px-3 py-1 rounded-full">Analytics</span>
@@ -667,7 +656,7 @@ export default function LandingPage() {
 <div className="flex items-center justify-between">
 <span className="font-headline-sm text-headline-sm font-semibold text-on-surface">Active Courses (Fall 2025)</span>
 <button className="bg-primary text-on-primary px-3 py-1.5 rounded-full font-label-sm text-label-sm font-bold shadow-sm">
-                  Launch Live Session
+                  Take Attendance
                 </button>
 </div>
 
@@ -695,7 +684,7 @@ export default function LandingPage() {
 </div>
 </div>
 <div className="mt-8 pt-4 flex items-center justify-between text-on-surface-variant">
-<span className="font-body-sm text-body-sm">• Comprehensive export formats (CSV, XLS, PDF)</span>
+<span className="font-body-sm text-body-sm">• Export attendance reports to CSV</span>
 <a className="font-label-sm text-label-sm text-primary font-bold hover:underline" href="#">Explore Faculty Portal →</a>
 </div>
 </div>
@@ -708,7 +697,7 @@ export default function LandingPage() {
 </span>
 <div>
 <h3 className="font-headline-xl text-headline-xl text-on-surface font-bold">Student Self-Service Portal</h3>
-<p className="font-body-sm text-body-sm text-on-surface-variant">Transparent attendance records, instant QR check-in, and verification.</p>
+<p className="font-body-sm text-body-sm text-on-surface-variant">Transparent attendance records, QR subject enrollment, and attendance tracking.</p>
 </div>
 </div>
 
@@ -716,7 +705,7 @@ export default function LandingPage() {
 <span className="bg-secondary text-on-secondary font-label-sm text-label-sm px-3 py-1 rounded-full">Student Dashboard</span>
 <span className="bg-surface-container font-label-sm text-label-sm text-on-surface px-3 py-1 rounded-full">My Enrolled Subjects</span>
 <span className="bg-surface-container font-label-sm text-label-sm text-on-surface px-3 py-1 rounded-full">Join Subject Code</span>
-<span className="bg-surface-container font-label-sm text-label-sm text-on-surface px-3 py-1 rounded-full">Instant QR Scanner</span>
+<span className="bg-surface-container font-label-sm text-label-sm text-on-surface px-3 py-1 rounded-full">QR Join Scanner</span>
 <span className="bg-surface-container font-label-sm text-label-sm text-on-surface px-3 py-1 rounded-full">Face Profile</span>
 <span className="bg-surface-container font-label-sm text-label-sm text-on-surface px-3 py-1 rounded-full">History &amp; Appeal</span>
 </div>
@@ -743,7 +732,7 @@ export default function LandingPage() {
 </div>
 <button className="bg-secondary text-on-secondary px-4 py-2 rounded-full font-label-sm text-label-sm font-bold flex items-center gap-1.5 shadow-sm">
 <span className="material-symbols-outlined text-[16px]">qr_code_scanner</span>
-                  Scan Lecture QR
+                  Join Subject via QR
                 </button>
 </div>
 </div>
@@ -764,11 +753,11 @@ export default function LandingPage() {
 <span className="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest bg-surface-container-lowest/10 px-3 py-1 rounded-full">
           SYSTEM ARCHITECTURE
         </span>
-<h2 className="font-headline-xl md:font-display-md text-headline-xl md:text-display-md text-surface mt-3">
+<h2 className="font-display text-2xl md:text-3xl font-bold text-surface mt-3">
           Powered by modern technology
         </h2>
 <p className="font-body-lg text-body-lg text-outline-variant mt-3">
-          Built on high-performance deep learning models and enterprise cloud infrastructure for instantaneous verification.
+          Built on robust computer vision libraries and modern web infrastructure for fast, accurate attendance tracking.
         </p>
 </div>
 
@@ -810,24 +799,24 @@ export default function LandingPage() {
 <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-on-secondary mb-4">
 <span className="material-symbols-outlined text-xl">psychology</span>
 </div>
-<h4 className="font-headline-md text-headline-md text-surface font-bold">FaceNet • Deep Learning</h4>
-<p className="font-body-sm text-body-sm text-outline-variant mt-1">99.4% biometric feature matching accuracy across varied lighting and orientations.</p>
+<h4 className="font-headline-md text-headline-md text-surface font-bold">dlib &amp; face_recognition_models</h4>
+<p className="font-body-sm text-body-sm text-outline-variant mt-1">128-dimensional facial embedding vectors extracted using dlib deep metric learning.</p>
 </div>
 
 <div className="bg-surface-container-lowest/5 p-space-lg rounded-2xl backdrop-blur-sm hover:bg-surface-container-lowest/10 transition-colors">
 <div className="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center text-on-surface mb-4">
 <span className="material-symbols-outlined text-xl">visibility</span>
 </div>
-<h4 className="font-headline-md text-headline-md text-surface font-bold">OpenCV</h4>
-<p className="font-body-sm text-body-sm text-outline-variant mt-1">Computer vision preprocessing, real-time bounding box extraction, and liveness checks.</p>
+<h4 className="font-headline-md text-headline-md text-surface font-bold">Pillow &amp; NumPy</h4>
+<p className="font-body-sm text-body-sm text-outline-variant mt-1">Image decoding, resizing, and array transformations for image preprocessing.</p>
 </div>
 
 <div className="bg-surface-container-lowest/5 p-space-lg rounded-2xl backdrop-blur-sm hover:bg-surface-container-lowest/10 transition-colors">
 <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary mb-4">
 <span className="material-symbols-outlined text-xl">database</span>
 </div>
-<h4 className="font-headline-md text-headline-md text-surface font-bold">PostgreSQL</h4>
-<p className="font-body-sm text-body-sm text-outline-variant mt-1">Relational schema design with robust audit logs, roll histories, and pgvector search.</p>
+<h4 className="font-headline-md text-headline-md text-surface font-bold">Supabase &amp; PostgreSQL</h4>
+<p className="font-body-sm text-body-sm text-outline-variant mt-1">Relational database storing student profiles, subject enrollments, and attendance logs.</p>
 </div>
 
 <div className="bg-surface-container-lowest/5 p-space-lg rounded-2xl backdrop-blur-sm hover:bg-surface-container-lowest/10 transition-colors">
@@ -842,8 +831,8 @@ export default function LandingPage() {
 <div className="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center text-on-surface mb-4">
 <span className="material-symbols-outlined text-xl">cached</span>
 </div>
-<h4 className="font-headline-md text-headline-md text-surface font-bold">Dynamic QR Engine</h4>
-<p className="font-body-sm text-body-sm text-outline-variant mt-1">Time-based one-time tokens with short expiration cycles to ensure physical presence.</p>
+<h4 className="font-headline-md text-headline-md text-surface font-bold">Subject Enrollment Engine</h4>
+<p className="font-body-sm text-body-sm text-outline-variant mt-1">Static per-subject QR generation and unique join code verification for course rosters.</p>
 </div>
 </div>
 </div>
@@ -856,7 +845,7 @@ export default function LandingPage() {
 <span className="font-label-sm text-label-sm text-primary uppercase tracking-widest bg-surface-container px-3 py-1 rounded-full">
           THE ATTENDX ADVANTAGE
         </span>
-<h2 className="font-headline-xl md:font-display-md text-headline-xl md:text-display-md text-on-surface mt-3">
+<h2 className="font-display text-2xl md:text-3xl font-bold text-on-surface mt-3">
           Designed to transform collegiate operations
         </h2>
 </div>
@@ -880,14 +869,14 @@ export default function LandingPage() {
 <div className="bg-surface-container-low p-space-lg md:p-space-xl rounded-3xl flex flex-col justify-between shadow-sm">
 <div>
 <span className="font-display-lg text-display-lg font-extrabold text-secondary block leading-none mb-4">02</span>
-<h3 className="font-headline-xl text-headline-xl text-on-surface font-bold">Secure QR sessions</h3>
+<h3 className="font-headline-xl text-headline-xl text-on-surface font-bold">Effortless enrollment</h3>
 <p className="font-body-lg text-body-lg text-on-surface-variant mt-4">
-              Time-limited, encrypted rotating QR codes eliminate proxy attendance and unauthorized remote check-ins through geo-proximity fencing.
+              Per-subject static QR codes and join codes let students self-enroll in seconds without tedious manual roster compilation.
             </p>
 </div>
 <div className="mt-8 pt-6 bg-surface-container-lowest p-4 rounded-2xl">
-<span className="font-label-sm text-label-sm text-secondary font-bold block uppercase">Proxy Elimination</span>
-<span className="font-headline-md text-headline-md text-on-surface font-semibold">100% Verified Physical Presence</span>
+<span className="font-label-sm text-label-sm text-secondary font-bold block uppercase">Fast Onboarding</span>
+<span className="font-headline-md text-headline-md text-on-surface font-semibold">Instant Roster Setup</span>
 </div>
 </div>
 
@@ -918,7 +907,7 @@ export default function LandingPage() {
 <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-container-lowest/15 backdrop-blur-md px-4 py-1 font-label-sm text-label-sm text-surface tracking-wider uppercase mb-4">
             TRANSFORM YOUR INSTITUTION
           </span>
-<h2 className="font-headline-xl md:font-display-md text-headline-xl md:text-display-md text-on-primary font-extrabold tracking-tight">
+<h2 className="font-display text-2xl md:text-3xl font-extrabold text-on-primary tracking-tight">
             Ready to make attendance smarter?
           </h2>
 <p className="mt-space-md font-body-lg md:font-body-xl text-body-lg md:text-body-xl text-primary-fixed max-w-xl">
@@ -936,7 +925,7 @@ export default function LandingPage() {
 </div>
 </div>
 </section>
-</div></main><footer className="w-full bg-surface-container-low py-space-xl"><div className="max-w-[1680px] mx-auto px-margin md:px-margin-desktop"><div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-gutter pb-space-lg"><div className="flex flex-col gap-space-xs"><div className="flex items-center gap-space-sm"><AttendXLogo size={28} /><span className="font-headline-sm text-headline-sm text-on-surface font-bold">AttendX</span></div><p className="font-body-md text-body-md text-on-surface-variant">Smart Attendance. Smarter Classrooms.</p><span className="font-label-sm text-label-sm text-secondary uppercase tracking-wider">AI-powered Face + QR Attendance System</span></div><nav className="flex flex-wrap items-center gap-x-space-lg gap-y-space-sm" data-active-classes="text-primary font-bold"><a aria-current="page" className="transition-colors text-primary font-bold" data-path="home" href="#">Home</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="features" href="#">Features</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="how-it-works" href="#">How It Works</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="technology" href="#">Technology</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="why-attendx" href="#">Why AttendX</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="login" href="#">Login</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="register" href="#">Register</a></nav></div><div className="pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm"><p className="font-body-sm text-body-sm text-on-surface-variant">© 2025 AttendX Biometric Systems Inc. All rights reserved.</p><div className="inline-flex items-center gap-space-xs rounded-full bg-surface-container px-space-md py-space-xs"><span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span className="font-label-sm text-label-sm text-on-surface">System Operational • 99.98% Accuracy</span></div></div></div></footer>
+</div></main><footer className="w-full bg-surface-container-low py-space-xl"><div className="max-w-[1680px] mx-auto px-margin md:px-margin-desktop"><div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-gutter pb-space-lg"><div className="flex flex-col gap-space-xs"><div className="flex items-center gap-space-sm"><AttendXLogo size={28} /><span className="font-headline-sm text-headline-sm text-on-surface font-bold">AttendX</span></div><p className="font-body-md text-body-md text-on-surface-variant">Smart Attendance. Smarter Classrooms.</p><span className="font-label-sm text-label-sm text-secondary uppercase tracking-wider">AI Face Attendance &amp; QR Course Enrollment</span></div><nav className="flex flex-wrap items-center gap-x-space-lg gap-y-space-sm" data-active-classes="text-primary font-bold"><a aria-current="page" className="transition-colors text-primary font-bold" data-path="home" href="#">Home</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="features" href="#">Features</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="how-it-works" href="#">How It Works</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="technology" href="#">Technology</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="why-attendx" href="#">Why AttendX</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="login" href="#">Login</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="register" href="#">Register</a></nav></div><div className="pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm"><p className="font-body-sm text-body-sm text-on-surface-variant">© 2026 AttendX. All rights reserved.</p></div></div></footer>
     </div>
   );
 }

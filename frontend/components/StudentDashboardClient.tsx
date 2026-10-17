@@ -123,7 +123,7 @@ export default function StudentDashboardClient() {
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
         <div className="flex flex-col gap-space-xs">
           <div className="inline-flex items-center gap-2">
-            <h1 className="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">
+            <h1 className="font-display text-2xl md:text-3xl font-bold text-on-surface tracking-tight">
               Welcome back, {user?.name || "Student"}
             </h1>
             <span className="text-2xl animate-bounce">👋</span>
@@ -356,7 +356,7 @@ export default function StudentDashboardClient() {
       <div className="flex flex-col gap-space-md">
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
-            <h2 className="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">
+            <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
               Course Attendance Trackers
             </h2>
             <span className="font-body-sm text-body-sm text-on-surface-variant">
@@ -449,7 +449,7 @@ export default function StudentDashboardClient() {
           <div className="bg-surface-container-lowest rounded-2xl p-space-lg shadow-[0_4px_24px_-2px_rgba(75,62,180,0.06)]">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-lg">
               <div className="flex flex-col">
-                <h2 className="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">
+                <h2 className="font-display text-lg md:text-xl font-semibold text-on-surface">
                   Recent Attendance History
                 </h2>
                 <p className="font-body-sm text-body-sm text-on-surface-variant">
